@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Apps — IronStratos</title>
+<meta name="description" content="Apps built by IronStratos. Root Cause AI is live. Habit Tracker coming soon.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Mono:wght@400;500;600&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --cream: #faf6f0;
+  --cream-dark: #f0ebe3;
+  --paper: #f5f1ea;
+  --burnt-orange: #c85a2c;
+  --burnt-orange-light: rgba(200, 90, 44, 0.08);
+  --avocado: #5a7247;
+  --avocado-light: rgba(90, 114, 71, 0.1);
+  --espresso: #2c1e13;
+  --espresso-soft: #4a3828;
+  --warm-gray: #8a7e72;
+  --warm-gray-light: #b5aa9e;
+  --border: rgba(44, 30, 19, 0.1);
+  --border-hover: rgba(200, 90, 44, 0.3);
+  --shadow-sm: 0 1px 3px rgba(44, 30, 19, 0.06);
+  --shadow-md: 0 4px 20px rgba(44, 30, 19, 0.08);
+  --shadow-lg: 0 8px 40px rgba(44, 30, 19, 0.1);
+  --serif: 'DM Serif Display', Georgia, serif;
+  --sans: 'DM Sans', -apple-system, sans-serif;
+  --mono: 'IBM Plex Mono', 'Courier New', monospace;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--sans);
+  background: var(--cream);
+  color: var(--espresso);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  opacity: 0.35;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)' opacity='0.06'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 9999;
+}
+::selection { background: var(--burnt-orange); color: var(--cream); }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes glowPulse {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+.reveal {
+  opacity: 0; transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-d1 { transition-delay: 0.1s; }
+.reveal-d2 { transition-delay: 0.2s; }
+
+/* NAV */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  padding: 0 clamp(1.5rem, 5vw, 4rem); height: 64px;
+  display: flex; align-items: center; justify-content: space-between;
+  background: rgba(250, 246, 240, 0.9); backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+}
+.nav-logo {
+  font-family: var(--serif); font-size: 1.3rem;
+  color: var(--espresso); text-decoration: none;
+}
+.nav-logo span { color: var(--burnt-orange); }
+.nav-links {
+  display: flex; gap: 2.5rem; list-style: none; align-items: center;
+}
+.nav-links a {
+  font-family: var(--mono); font-size: 0.78rem;
+  color: var(--warm-gray); text-decoration: none;
+  text-transform: lowercase; letter-spacing: 0.02em; transition: color 0.3s;
+}
+.nav-links a:hover { color: var(--burnt-orange); }
+.nav-links a.active { color: var(--burnt-orange); }
+.nav-cta {
+  font-family: var(--mono) !important; font-size: 0.78rem !important;
+  padding: 8px 18px; background: var(--espresso);
+  color: var(--cream) !important; border-radius: 6px; transition: background 0.3s !important;
+}
+.nav-cta:hover { background: var(--burnt-orange) !important; }
+.mobile-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+.mobile-toggle span { width: 22px; height: 2px; background: var(--espresso); border-radius: 2px; }
+
+/* PAGE HERO */
+.page-hero {
+  padding: 140px clamp(1.5rem, 5vw, 4rem) 50px;
+  position: relative;
+}
+.page-hero-inner {
+  max-width: 1100px; margin: 0 auto;
+}
+.breadcrumb {
+  font-family: var(--mono); font-size: 0.72rem; color: var(--warm-gray-light);
+  margin-bottom: 1.5rem; animation: fadeUp 0.7s ease forwards;
+}
+.breadcrumb a { color: var(--burnt-orange); text-decoration: none; }
+.page-hero h1 {
+  font-family: var(--serif); font-size: clamp(2.2rem, 4.5vw, 3.2rem);
+  font-weight: 400; letter-spacing: -0.02em; margin-bottom: 1rem;
+  animation: fadeUp 0.7s ease 0.1s forwards; opacity: 0;
+}
+.page-hero h1 em { font-style: italic; color: var(--burnt-orange); }
+.page-hero .lead {
+  font-size: 1.1rem; color: var(--warm-gray); line-height: 1.7;
+  max-width: 580px;
+  animation: fadeUp 0.7s ease 0.2s forwards; opacity: 0;
+}
+
+/* APP CARDS */
+.apps-section {
+  padding: 40px clamp(1.5rem, 5vw, 4rem) 80px;
+}
+.apps-inner { max-width: 1100px; margin: 0 auto; }
+.apps-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;
+}
+
+.app-card {
+  background: var(--cream);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 2.5rem;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s;
+}
+.app-card:hover {
+  border-color: var(--border-hover);
+  box-shadow: var(--shadow-md);
+}
+.app-card.dimmed { opacity: 0.65; }
+.app-card.dimmed:hover { opacity: 0.8; }
+
+/* Top accent */
+.app-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+}
+.app-card.live::before { background: linear-gradient(90deg, var(--avocado), var(--burnt-orange)); }
+.app-card.soon::before { background: var(--warm-gray-light); }
+
+.app-header {
+  display: flex; justify-content: space-between; align-items: flex-start;
+  margin-bottom: 1.5rem;
+}
+.app-card h2 {
+  font-family: var(--serif); font-size: 1.5rem; font-weight: 400;
+}
+.app-badge {
+  font-family: var(--mono); font-size: 0.62rem; font-weight: 500;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  padding: 5px 12px; border-radius: 6px;
+  display: inline-flex; align-items: center; gap: 6px; white-space: nowrap;
+}
+.badge-live {
+  color: var(--avocado); background: var(--avocado-light);
+  border: 1px solid rgba(90, 114, 71, 0.2);
+}
+.badge-soon {
+  color: var(--warm-gray); background: rgba(138, 126, 114, 0.1);
+  border: 1px solid rgba(138, 126, 114, 0.15);
+}
+.badge-dot { width: 6px; height: 6px; border-radius: 50%; }
+.badge-live .badge-dot { background: var(--avocado); animation: glowPulse 2s infinite; }
+.badge-soon .badge-dot { background: var(--warm-gray-light); }
+
+.app-desc {
+  font-size: 0.95rem; color: var(--warm-gray); line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+.app-features {
+  display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 2rem;
+}
+.feature-tag {
+  font-family: var(--mono); font-size: 0.68rem; padding: 5px 12px;
+  border-radius: 6px; letter-spacing: 0.02em;
+}
+.app-card.live .feature-tag {
+  background: var(--burnt-orange-light); color: var(--burnt-orange);
+  border: 1px solid rgba(200, 90, 44, 0.12);
+}
+.app-card.soon .feature-tag {
+  background: rgba(138, 126, 114, 0.06); color: var(--warm-gray);
+  border: 1px solid rgba(138, 126, 114, 0.1);
+}
+
+.app-ctas {
+  display: flex; gap: 0.75rem; margin-bottom: 2rem; flex-wrap: wrap;
+}
+.btn-sm {
+  padding: 10px 20px; font-size: 0.82rem; border-radius: 8px;
+  text-decoration: none; font-family: var(--mono); font-weight: 500;
+  transition: all 0.3s; cursor: pointer; border: none;
+}
+.btn-sm-primary {
+  background: var(--burnt-orange); color: var(--cream);
+  box-shadow: 0 2px 12px rgba(200, 90, 44, 0.15);
+}
+.btn-sm-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(200, 90, 44, 0.25);
+}
+.btn-sm-outline {
+  background: transparent; color: var(--warm-gray);
+  border: 1.5px solid var(--border);
+}
+.btn-sm-outline:hover { border-color: var(--burnt-orange); color: var(--burnt-orange); }
+.btn-sm-muted {
+  background: rgba(138, 126, 114, 0.1); color: var(--warm-gray);
+}
+.btn-sm-muted:hover { background: rgba(138, 126, 114, 0.15); }
+
+/* STATS TRACKER */
+.stats-tracker {
+  border-top: 1px solid var(--border); padding-top: 1.5rem;
+}
+.stats-label {
+  font-family: var(--mono); font-size: 0.62rem; color: var(--warm-gray-light);
+  text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 1rem;
+  display: flex; align-items: center; gap: 6px;
+}
+.stats-label::before { content: '//'; color: var(--cream-dark); }
+.stats-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.75rem;
+}
+.stat-item {
+  background: var(--paper); border: 1px solid var(--border);
+  border-radius: 10px; padding: 1rem; text-align: center;
+  transition: border-color 0.3s;
+}
+.stat-item:hover { border-color: var(--border-hover); }
+.stat-store {
+  font-family: var(--mono); font-size: 0.62rem; color: var(--warm-gray-light);
+  text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.5rem;
+}
+.stat-value {
+  font-family: var(--serif); font-size: 1.8rem; color: var(--espresso);
+  line-height: 1; margin-bottom: 0.15rem;
+}
+.stat-value.muted {
+  font-size: 0.82rem; color: var(--warm-gray-light);
+  font-family: var(--mono); font-weight: 400;
+}
+.stat-stars {
+  color: var(--burnt-orange); font-size: 0.8rem; letter-spacing: 2px;
+}
+.stat-type {
+  font-family: var(--mono); font-size: 0.62rem; color: var(--warm-gray-light);
+  text-transform: uppercase; letter-spacing: 0.05em;
+}
+
+/* BOTTOM CTA */
+.bottom-cta { padding: 40px clamp(1.5rem, 5vw, 4rem) 100px; }
+.bottom-cta-inner {
+  max-width: 680px; margin: 0 auto; text-align: center;
+  padding: 4rem 2.5rem; border: 1.5px solid var(--border);
+  border-radius: 16px; background: var(--paper);
+}
+.bottom-cta-inner h2 {
+  font-family: var(--serif); font-size: 2rem; font-weight: 400;
+  margin-bottom: 0.75rem;
+}
+.bottom-cta-inner p {
+  color: var(--warm-gray); font-size: 1.05rem;
+  margin-bottom: 2rem; line-height: 1.6;
+}
+
+/* FOOTER */
+footer {
+  padding: 60px clamp(1.5rem, 5vw, 4rem) 30px;
+  border-top: 1px solid var(--border);
+}
+.footer-inner { max-width: 1100px; margin: 0 auto; }
+.footer-grid {
+  display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 3rem; margin-bottom: 3rem;
+}
+.footer-brand-text {
+  font-family: var(--serif); font-size: 1.3rem; color: var(--espresso); margin-bottom: 0.5rem;
+}
+.footer-brand-text span { color: var(--burnt-orange); }
+.footer-tagline { font-size: 0.88rem; color: var(--warm-gray); line-height: 1.6; }
+.footer-col h4 {
+  font-family: var(--mono); font-size: 0.7rem; text-transform: uppercase;
+  letter-spacing: 0.1em; color: var(--espresso); margin-bottom: 1rem;
+}
+.footer-col a {
+  display: block; color: var(--warm-gray); text-decoration: none;
+  font-size: 0.88rem; padding: 3px 0; transition: color 0.3s;
+}
+.footer-col a:hover { color: var(--burnt-orange); }
+.footer-bottom {
+  display: flex; justify-content: space-between; align-items: center;
+  padding-top: 1.5rem; border-top: 1px solid var(--border);
+  font-family: var(--mono); font-size: 0.72rem; color: var(--warm-gray-light);
+  flex-wrap: wrap; gap: 1rem;
+}
+
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .mobile-toggle { display: flex; }
+  .nav-links.open {
+    display: flex; flex-direction: column; position: absolute;
+    top: 64px; left: 0; right: 0;
+    background: rgba(250, 246, 240, 0.97); backdrop-filter: blur(16px);
+    padding: 1.5rem 2rem; gap: 1.25rem; border-bottom: 1px solid var(--border);
+  }
+  .apps-grid { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Iron<span>Stratos</span></a>
+  <div class="mobile-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">
+    <span></span><span></span><span></span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="index.html">home</a></li>
+    <li><a href="apps.html" class="active">apps</a></li>
+    <li><a href="index.html#services">services</a></li>
+    <li><a href="about.html">about</a></li>
+    <li><a href="contact.html" class="nav-cta">get in touch</a></li>
+  </ul>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <p class="breadcrumb"><a href="index.html">home</a> / apps</p>
+    <h1>Stuff we <em>built.</em></h1>
+    <p class="lead">Purpose-built apps for real problems. Not another todo list clone. Not another weather app. Actual tools for people who make things.</p>
+  </div>
+</section>
+
+<!-- APPS -->
+<section class="apps-section">
+  <div class="apps-inner">
+    <div class="apps-grid">
+
+      <!-- ROOT CAUSE AI -->
+      <div class="app-card live reveal">
+        <div class="app-header">
+          <h2><a href="rootcause.html" style="color:inherit;text-decoration:none;">Root Cause AI</a></h2>
+          <span class="app-badge badge-live"><span class="badge-dot"></span> Live</span>
+        </div>
+        <p class="app-desc">
+          AI-driven root cause analysis for the shop floor. Walk your team through structured investigations with conversational AI — no training required. Just tell it what happened.
+        </p>
+        <div class="app-features">
+          <span class="feature-tag">Conversational RCA</span>
+          <span class="feature-tag">5S Audits</span>
+          <span class="feature-tag">Action Tracker</span>
+          <span class="feature-tag">Photo Evidence</span>
+          <span class="feature-tag">AI Reports</span>
+        </div>
+        <div class="app-ctas">
+          <a href="#" class="btn-sm btn-sm-primary">Google Play →</a>
+          <a href="#" class="btn-sm btn-sm-outline">App Store (soon)</a>
+          <a href="rootcause.html" class="btn-sm btn-sm-outline" style="color:var(--burnt-orange);border-color:var(--burnt-orange);">Learn more →</a>
+        </div>
+        <div class="stats-tracker">
+          <p class="stats-label">performance</p>
+          <div class="stats-grid">
+            <div class="stat-item">
+              <div class="stat-store">Google Play</div>
+              <div class="stat-value">500+</div>
+              <div class="stat-type">Downloads</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-store">Google Play</div>
+              <div class="stat-value">4.8</div>
+              <div class="stat-stars">★★★★★</div>
+              <div class="stat-type">Rating</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-store">App Store</div>
+              <div class="stat-value muted">coming soon</div>
+              <div class="stat-type">Downloads</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-store">App Store</div>
+              <div class="stat-value muted">coming soon</div>
+              <div class="stat-type">Rating</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- HABIT TRACKER -->
+      <div class="app-card soon dimmed reveal reveal-d1">
+        <div class="app-header">
+          <h2>Habit Tracker</h2>
+          <span class="app-badge badge-soon"><span class="badge-dot"></span> Coming Soon</span>
+        </div>
+        <p class="app-desc">
+          Build better habits with AI-powered accountability. Track streaks, set goals, and get personalized insights — whether it's fitness, productivity, or personal growth.
+        </p>
+        <div class="app-features">
+          <span class="feature-tag">Streak Tracking</span>
+          <span class="feature-tag">AI Coaching</span>
+          <span class="feature-tag">Accountability</span>
+          <span class="feature-tag">Analytics</span>
+          <span class="feature-tag">Templates</span>
+        </div>
+        <div class="app-ctas">
+          <a href="#" class="btn-sm btn-sm-muted">Get Notified</a>
+        </div>
+        <div class="stats-tracker">
+          <p class="stats-label">performance</p>
+          <div class="stats-grid">
+            <div class="stat-item">
+              <div class="stat-store">Google Play</div>
+              <div class="stat-value muted">—</div>
+              <div class="stat-type">Downloads</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-store">Google Play</div>
+              <div class="stat-value muted">—</div>
+              <div class="stat-type">Rating</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-store">App Store</div>
+              <div class="stat-value muted">—</div>
+              <div class="stat-type">Downloads</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-store">App Store</div>
+              <div class="stat-value muted">—</div>
+              <div class="stat-type">Rating</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- BOTTOM CTA -->
+<section class="bottom-cta">
+  <div class="bottom-cta-inner reveal">
+    <h2>Got an app idea?</h2>
+    <p>We don't just build our own stuff — we build custom apps for businesses that make things. Let's talk about yours.</p>
+    <a href="contact.html" class="btn-sm btn-sm-primary" style="padding:14px 28px; font-size:0.88rem;">Get in touch →</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand-text">Iron<span>Stratos</span></div>
+        <p class="footer-tagline">Strength. Systems. Elevated.<br>A development studio in Smiths Station, Alabama.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <a href="apps.html">Apps</a>
+        <a href="#">Consulting</a>
+        <a href="#">Training</a>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 IronStratos LLC</span>
+      <span>smiths station, al</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) entry.target.classList.add('visible');
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>

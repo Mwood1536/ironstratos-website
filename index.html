@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IronStratos — We Build Apps That Work.</title>
+<meta name="description" content="IronStratos is a development studio building AI-powered apps for industry. Root Cause AI is live on Google Play.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Mono:wght@400;500;600&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --cream: #faf6f0;
+  --cream-dark: #f0ebe3;
+  --paper: #f5f1ea;
+  --burnt-orange: #c85a2c;
+  --burnt-orange-light: rgba(200, 90, 44, 0.08);
+  --burnt-orange-mid: rgba(200, 90, 44, 0.15);
+  --avocado: #5a7247;
+  --avocado-light: rgba(90, 114, 71, 0.1);
+  --espresso: #2c1e13;
+  --espresso-soft: #4a3828;
+  --warm-gray: #8a7e72;
+  --warm-gray-light: #b5aa9e;
+  --border: rgba(44, 30, 19, 0.1);
+  --border-hover: rgba(200, 90, 44, 0.3);
+  --shadow-sm: 0 1px 3px rgba(44, 30, 19, 0.06);
+  --shadow-md: 0 4px 20px rgba(44, 30, 19, 0.08);
+  --shadow-lg: 0 8px 40px rgba(44, 30, 19, 0.1);
+  --serif: 'DM Serif Display', Georgia, serif;
+  --sans: 'DM Sans', -apple-system, sans-serif;
+  --mono: 'IBM Plex Mono', 'Courier New', monospace;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--sans);
+  background: var(--cream);
+  color: var(--espresso);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* grain texture */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  opacity: 0.35;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)' opacity='0.06'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 9999;
+}
+
+::selection {
+  background: var(--burnt-orange);
+  color: var(--cream);
+}
+
+/* ─── ANIMATIONS ─── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-d1 { transition-delay: 0.1s; }
+.reveal-d2 { transition-delay: 0.2s; }
+.reveal-d3 { transition-delay: 0.3s; }
+.reveal-d4 { transition-delay: 0.4s; }
+
+/* ─── NAV ─── */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 0 clamp(1.5rem, 5vw, 4rem);
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(250, 246, 240, 0.9);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+}
+.nav-logo {
+  font-family: var(--serif);
+  font-size: 1.3rem;
+  color: var(--espresso);
+  text-decoration: none;
+  letter-spacing: -0.01em;
+}
+.nav-logo span { color: var(--burnt-orange); }
+.nav-links {
+  display: flex;
+  gap: 2.5rem;
+  list-style: none;
+  align-items: center;
+}
+.nav-links a {
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  color: var(--warm-gray);
+  text-decoration: none;
+  text-transform: lowercase;
+  letter-spacing: 0.02em;
+  transition: color 0.3s;
+}
+.nav-links a:hover { color: var(--burnt-orange); }
+.nav-links a.active { color: var(--espresso); }
+.nav-cta {
+  font-family: var(--mono) !important;
+  font-size: 0.78rem !important;
+  padding: 8px 18px;
+  background: var(--espresso);
+  color: var(--cream) !important;
+  border-radius: 6px;
+  transition: background 0.3s !important;
+}
+.nav-cta:hover { background: var(--burnt-orange) !important; color: var(--cream) !important; }
+
+.mobile-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 4px;
+}
+.mobile-toggle span {
+  width: 22px;
+  height: 2px;
+  background: var(--espresso);
+  border-radius: 2px;
+}
+
+/* ─── HERO ─── */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 120px clamp(1.5rem, 5vw, 6rem) 80px;
+  position: relative;
+}
+.hero-layout {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 4rem;
+  align-items: center;
+}
+.hero-text {
+  animation: fadeUp 0.9s ease forwards;
+}
+.hero-label {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  color: var(--burnt-orange);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.hero-label::before {
+  content: '';
+  width: 24px;
+  height: 2px;
+  background: var(--burnt-orange);
+}
+.hero h1 {
+  font-family: var(--serif);
+  font-size: clamp(2.6rem, 5.5vw, 4.2rem);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.5rem;
+  color: var(--espresso);
+}
+.hero h1 em {
+  font-style: italic;
+  color: var(--burnt-orange);
+}
+.hero-desc {
+  font-size: 1.1rem;
+  color: var(--warm-gray);
+  line-height: 1.75;
+  margin-bottom: 2.5rem;
+  max-width: 480px;
+}
+.hero-ctas {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 28px;
+  background: var(--burnt-orange);
+  color: var(--cream);
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  font-weight: 500;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s;
+  box-shadow: 0 2px 12px rgba(200, 90, 44, 0.2);
+}
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(200, 90, 44, 0.3);
+}
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 14px 24px;
+  background: transparent;
+  color: var(--espresso);
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  font-weight: 500;
+  border: 1.5px solid var(--border);
+  border-radius: 8px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+.btn-ghost:hover {
+  border-color: var(--burnt-orange);
+  color: var(--burnt-orange);
+}
+
+/* Hero right — terminal card */
+.hero-terminal {
+  background: var(--espresso);
+  border-radius: 12px;
+  padding: 0;
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+  animation: fadeUp 0.9s ease 0.3s forwards;
+  opacity: 0;
+}
+.terminal-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 18px;
+  background: rgba(255,255,255,0.05);
+}
+.terminal-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+.dot-red { background: #e05a4e; }
+.dot-yellow { background: #e8b73a; }
+.dot-green { background: var(--avocado); }
+.terminal-title {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  color: rgba(255,255,255,0.3);
+  margin-left: auto;
+}
+.terminal-body {
+  padding: 20px;
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  line-height: 1.8;
+  color: rgba(255,255,255,0.6);
+}
+.terminal-body .prompt { color: var(--avocado); }
+.terminal-body .cmd { color: rgba(255,255,255,0.9); }
+.terminal-body .output { color: var(--burnt-orange); opacity: 0.9; }
+.terminal-body .comment { color: rgba(255,255,255,0.25); }
+.cursor {
+  display: inline-block;
+  width: 8px;
+  height: 15px;
+  background: var(--avocado);
+  vertical-align: text-bottom;
+  animation: blink 1s step-end infinite;
+  margin-left: 2px;
+}
+
+/* ─── SECTIONS ─── */
+section { padding: 100px clamp(1.5rem, 5vw, 4rem); }
+.section-inner { max-width: 1100px; margin: 0 auto; }
+.section-label {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  color: var(--burnt-orange);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.section-label::before {
+  content: '//';
+  color: var(--warm-gray-light);
+}
+.section-title {
+  font-family: var(--serif);
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.75rem;
+  line-height: 1.15;
+}
+.section-desc {
+  font-size: 1.05rem;
+  color: var(--warm-gray);
+  line-height: 1.7;
+  max-width: 540px;
+}
+
+/* ─── PILLARS ─── */
+.pillars {
+  background: var(--paper);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+.pillar-card {
+  background: var(--cream);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s;
+}
+.pillar-card:hover {
+  border-color: var(--border-hover);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-3px);
+}
+.pillar-num {
+  font-family: var(--serif);
+  font-size: 3rem;
+  color: var(--cream-dark);
+  line-height: 1;
+  margin-bottom: 1rem;
+  transition: color 0.3s;
+}
+.pillar-card:hover .pillar-num { color: var(--burnt-orange-light); }
+.pillar-card h3 {
+  font-family: var(--serif);
+  font-size: 1.25rem;
+  font-weight: 400;
+  margin-bottom: 0.75rem;
+}
+.pillar-card p {
+  font-size: 0.92rem;
+  color: var(--warm-gray);
+  line-height: 1.65;
+}
+.pillar-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 1.25rem;
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 5px 12px;
+  border-radius: 6px;
+}
+.status-live {
+  color: var(--avocado);
+  background: var(--avocado-light);
+}
+.status-soon {
+  color: var(--warm-gray);
+  background: rgba(138, 126, 114, 0.1);
+}
+.status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}
+.status-live .status-dot { background: var(--avocado); }
+.status-soon .status-dot { background: var(--warm-gray-light); }
+
+.pillar-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 1rem;
+  color: var(--burnt-orange);
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  text-decoration: none;
+  transition: gap 0.3s;
+}
+.pillar-link:hover { gap: 10px; }
+
+.pillar-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(250, 246, 240, 0.7);
+  backdrop-filter: blur(2px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  z-index: 5;
+}
+.overlay-badge {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--warm-gray);
+  padding: 10px 24px;
+  border: 1.5px solid var(--border);
+  border-radius: 8px;
+  background: var(--cream);
+}
+
+/* ─── WHY ─── */
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 3rem;
+}
+.why-card {
+  padding: 2rem;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: var(--cream);
+  transition: all 0.3s;
+}
+.why-card:hover {
+  border-color: var(--border-hover);
+  box-shadow: var(--shadow-sm);
+}
+.why-num {
+  font-family: var(--serif);
+  font-size: 2.4rem;
+  color: var(--burnt-orange);
+  margin-bottom: 0.75rem;
+  line-height: 1;
+}
+.why-card h3 {
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  font-weight: 400;
+  margin-bottom: 0.5rem;
+}
+.why-card p {
+  font-size: 0.9rem;
+  color: var(--warm-gray);
+  line-height: 1.6;
+}
+
+/* ─── CTA ─── */
+.cta-section {
+  text-align: center;
+}
+.cta-card {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 4rem 2.5rem;
+  border: 1.5px solid var(--border);
+  border-radius: 16px;
+  background: var(--paper);
+}
+.cta-card h2 {
+  font-family: var(--serif);
+  font-size: 2rem;
+  font-weight: 400;
+  margin-bottom: 0.75rem;
+}
+.cta-card p {
+  color: var(--warm-gray);
+  font-size: 1.05rem;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+.cta-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ─── FOOTER ─── */
+footer {
+  padding: 60px clamp(1.5rem, 5vw, 4rem) 30px;
+  border-top: 1px solid var(--border);
+}
+.footer-inner { max-width: 1100px; margin: 0 auto; }
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 3rem;
+  margin-bottom: 3rem;
+}
+.footer-brand-text {
+  font-family: var(--serif);
+  font-size: 1.3rem;
+  color: var(--espresso);
+  margin-bottom: 0.5rem;
+}
+.footer-brand-text span { color: var(--burnt-orange); }
+.footer-tagline {
+  font-size: 0.88rem;
+  color: var(--warm-gray);
+  line-height: 1.6;
+}
+.footer-col h4 {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--espresso);
+  margin-bottom: 1rem;
+}
+.footer-col a {
+  display: block;
+  color: var(--warm-gray);
+  text-decoration: none;
+  font-size: 0.88rem;
+  padding: 3px 0;
+  transition: color 0.3s;
+}
+.footer-col a:hover { color: var(--burnt-orange); }
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  color: var(--warm-gray-light);
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 900px) {
+  .hero-layout { grid-template-columns: 1fr; gap: 2.5rem; }
+  .hero-terminal { max-width: 500px; }
+}
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .mobile-toggle { display: flex; }
+  .nav-links.open {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 64px;
+    left: 0;
+    right: 0;
+    background: rgba(250, 246, 240, 0.97);
+    backdrop-filter: blur(16px);
+    padding: 1.5rem 2rem;
+    gap: 1.25rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .pillars-grid, .why-grid { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">Iron<span>Stratos</span></a>
+  <div class="mobile-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">
+    <span></span><span></span><span></span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="index.html" class="active">home</a></li>
+    <li><a href="apps.html">apps</a></li>
+    <li><a href="#services">services</a></li>
+    <li><a href="about.html">about</a></li>
+    <li><a href="contact.html" class="nav-cta">get in touch</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-layout">
+    <div class="hero-text">
+      <p class="hero-label">App Development Studio</p>
+      <h1>We build apps<br>that <em>actually</em> work.</h1>
+      <p class="hero-desc">
+        IronStratos is a development studio that builds AI-powered apps. We solve real problems with smart software — no fluff, no vaporware.
+      </p>
+      <div class="hero-ctas">
+        <a href="apps.html" class="btn-primary">See our apps →</a>
+        <a href="contact.html" class="btn-ghost">Let's talk</a>
+      </div>
+    </div>
+
+    <div class="hero-terminal">
+      <div class="terminal-bar">
+        <span class="terminal-dot dot-red"></span>
+        <span class="terminal-dot dot-yellow"></span>
+        <span class="terminal-dot dot-green"></span>
+        <span class="terminal-title">ironstratos — zsh</span>
+      </div>
+      <div class="terminal-body">
+        <span class="comment"># what we shipped this week</span><br>
+        <span class="prompt">$</span> <span class="cmd">ironstratos status</span><br><br>
+        <span class="output">Root Cause AI</span> ........... <span style="color:var(--avocado);">LIVE</span><br>
+        <span class="output">Habit Tracker</span> ........... <span style="color:#e8b73a;">IN PROGRESS</span><br>
+        <span class="output">Consulting</span> .............. <span style="color:rgba(255,255,255,0.3);">COMING SOON</span><br>
+        <span class="output">Training</span> ................ <span style="color:rgba(255,255,255,0.3);">COMING SOON</span><br><br>
+        <span class="prompt">$</span> <span class="cmd">ironstratos deploy --prod</span><br>
+        <span style="color:var(--avocado);">✓ deployed to production</span><br>
+        <span class="prompt">$</span> <span class="cursor"></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PILLARS -->
+<section class="pillars" id="services">
+  <div class="section-inner">
+    <p class="section-label reveal">what we do</p>
+    <h2 class="section-title reveal reveal-d1">Three things.<br>All of them well.</h2>
+    <p class="section-desc reveal reveal-d2">We're an app-first studio — but we bring the full stack of skills to the table.</p>
+
+    <div class="pillars-grid">
+      <div class="pillar-card reveal reveal-d1">
+        <div class="pillar-num">01</div>
+        <h3>App Design & Development</h3>
+        <p>Custom mobile and web apps powered by AI — built to solve real problems for real people.</p>
+        <span class="pillar-status status-live"><span class="status-dot"></span> Active</span>
+        <br>
+        <a href="apps.html" class="pillar-link">View our apps →</a>
+      </div>
+
+      <div class="pillar-card reveal reveal-d2">
+        <div class="pillar-num">02</div>
+        <h3>Training & Certification</h3>
+        <p>OSHA, cybersecurity, HR compliance, and leadership development courses.</p>
+        <span class="pillar-status status-soon"><span class="status-dot"></span> Coming Soon</span>
+        <div class="pillar-overlay">
+          <span class="overlay-badge">Coming Soon</span>
+        </div>
+      </div>
+
+      <div class="pillar-card reveal reveal-d3">
+        <div class="pillar-num">03</div>
+        <h3>Consulting Services</h3>
+        <p>Lean transformation, continuous improvement, and root cause analysis for your operations.</p>
+        <span class="pillar-status status-soon"><span class="status-dot"></span> Coming Soon</span>
+        <div class="pillar-overlay">
+          <span class="overlay-badge">Coming Soon</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY -->
+<section class="why-section">
+  <div class="section-inner">
+    <p class="section-label reveal">why us</p>
+    <h2 class="section-title reveal reveal-d1">Built different.</h2>
+
+    <div class="why-grid">
+      <div class="why-card reveal reveal-d1">
+        <div class="why-num">20+</div>
+        <h3>Industry Veterans</h3>
+        <p>Years building software and solving problems across industries. We know what works.</p>
+      </div>
+      <div class="why-card reveal reveal-d2">
+        <div class="why-num">AI+</div>
+        <h3>Human Expertise</h3>
+        <p>Our tech is backed by real-world experience — not just algorithms trained on the internet.</p>
+      </div>
+      <div class="why-card reveal reveal-d3">
+        <div class="why-num">360°</div>
+        <h3>Full Stack Solutions</h3>
+        <p>From apps to training to consulting — one studio that handles the whole picture.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="section-inner">
+    <div class="cta-card reveal">
+      <h2>Got a problem worth solving?</h2>
+      <p>We build apps for companies that make things. If that's you, let's talk.</p>
+      <div class="cta-buttons">
+        <a href="contact.html" class="btn-primary">Schedule a call →</a>
+        <a href="apps.html" class="btn-ghost">See our work</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand-text">Iron<span>Stratos</span></div>
+        <p class="footer-tagline">Strength. Systems. Elevated.<br>A development studio in Smiths Station, Alabama.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <a href="apps.html">Apps</a>
+        <a href="#">Consulting</a>
+        <a href="#">Training</a>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 IronStratos LLC</span>
+      <span>smiths station, al</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) entry.target.classList.add('visible');
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>

@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Terms of Service — IronStratos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Mono:wght@400;500;600&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --cream: #faf6f0; --cream-dark: #f0ebe3; --paper: #f5f1ea;
+  --burnt-orange: #c85a2c; --burnt-orange-light: rgba(200, 90, 44, 0.08);
+  --espresso: #2c1e13; --warm-gray: #8a7e72; --warm-gray-light: #b5aa9e;
+  --border: rgba(44, 30, 19, 0.1);
+  --serif: 'DM Serif Display', Georgia, serif;
+  --sans: 'DM Sans', -apple-system, sans-serif;
+  --mono: 'IBM Plex Mono', 'Courier New', monospace;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--sans); background: var(--cream);
+  color: var(--espresso); -webkit-font-smoothing: antialiased;
+}
+body::after {
+  content: ''; position: fixed; inset: 0; opacity: 0.35; pointer-events: none; z-index: 9999;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)' opacity='0.06'/%3E%3C/svg%3E");
+}
+::selection { background: var(--burnt-orange); color: var(--cream); }
+
+/* NAV */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  padding: 0 clamp(1.5rem, 5vw, 4rem); height: 64px;
+  display: flex; align-items: center; justify-content: space-between;
+  background: rgba(250, 246, 240, 0.9); backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+}
+.nav-logo { font-family: var(--serif); font-size: 1.3rem; color: var(--espresso); text-decoration: none; }
+.nav-logo span { color: var(--burnt-orange); }
+.nav-links { display: flex; gap: 2.5rem; list-style: none; align-items: center; }
+.nav-links a {
+  font-family: var(--mono); font-size: 0.78rem; color: var(--warm-gray);
+  text-decoration: none; text-transform: lowercase; letter-spacing: 0.02em; transition: color 0.3s;
+}
+.nav-links a:hover { color: var(--burnt-orange); }
+.nav-cta {
+  font-family: var(--mono) !important; font-size: 0.78rem !important;
+  padding: 8px 18px; background: var(--espresso); color: var(--cream) !important;
+  border-radius: 6px; transition: background 0.3s !important;
+}
+.nav-cta:hover { background: var(--burnt-orange) !important; }
+.mobile-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+.mobile-toggle span { width: 22px; height: 2px; background: var(--espresso); border-radius: 2px; }
+
+/* LEGAL PAGE */
+.legal-hero { padding: 140px clamp(1.5rem, 5vw, 4rem) 30px; }
+.legal-hero-inner { max-width: 760px; margin: 0 auto; }
+.breadcrumb {
+  font-family: var(--mono); font-size: 0.72rem; color: var(--warm-gray-light); margin-bottom: 1.5rem;
+}
+.breadcrumb a { color: var(--burnt-orange); text-decoration: none; }
+.legal-hero h1 {
+  font-family: var(--serif); font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  font-weight: 400; margin-bottom: 0.5rem;
+}
+.legal-updated {
+  font-family: var(--mono); font-size: 0.75rem; color: var(--warm-gray-light);
+}
+
+.legal-content { padding: 30px clamp(1.5rem, 5vw, 4rem) 100px; }
+.legal-inner { max-width: 760px; margin: 0 auto; }
+.legal-inner h2 {
+  font-family: var(--serif); font-size: 1.3rem; font-weight: 400;
+  margin-top: 2.5rem; margin-bottom: 0.75rem; color: var(--espresso);
+}
+.legal-inner p {
+  font-size: 0.95rem; color: var(--warm-gray); line-height: 1.8; margin-bottom: 1rem;
+}
+.legal-inner ul {
+  margin: 0.5rem 0 1rem 1.5rem; color: var(--warm-gray);
+  font-size: 0.95rem; line-height: 1.8;
+}
+.legal-inner a { color: var(--burnt-orange); text-decoration: none; }
+.legal-inner a:hover { text-decoration: underline; }
+
+/* FOOTER */
+footer {
+  padding: 60px clamp(1.5rem, 5vw, 4rem) 30px; border-top: 1px solid var(--border);
+}
+.footer-inner { max-width: 1100px; margin: 0 auto; }
+.footer-grid {
+  display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 3rem; margin-bottom: 3rem;
+}
+.footer-brand-text { font-family: var(--serif); font-size: 1.3rem; color: var(--espresso); margin-bottom: 0.5rem; }
+.footer-brand-text span { color: var(--burnt-orange); }
+.footer-tagline { font-size: 0.88rem; color: var(--warm-gray); line-height: 1.6; }
+.footer-col h4 {
+  font-family: var(--mono); font-size: 0.7rem; text-transform: uppercase;
+  letter-spacing: 0.1em; color: var(--espresso); margin-bottom: 1rem;
+}
+.footer-col a {
+  display: block; color: var(--warm-gray); text-decoration: none;
+  font-size: 0.88rem; padding: 3px 0; transition: color 0.3s;
+}
+.footer-col a:hover { color: var(--burnt-orange); }
+.footer-bottom {
+  display: flex; justify-content: space-between; align-items: center;
+  padding-top: 1.5rem; border-top: 1px solid var(--border);
+  font-family: var(--mono); font-size: 0.72rem; color: var(--warm-gray-light);
+  flex-wrap: wrap; gap: 1rem;
+}
+
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .mobile-toggle { display: flex; }
+  .nav-links.open {
+    display: flex; flex-direction: column; position: absolute;
+    top: 64px; left: 0; right: 0;
+    background: rgba(250, 246, 240, 0.97); backdrop-filter: blur(16px);
+    padding: 1.5rem 2rem; gap: 1.25rem; border-bottom: 1px solid var(--border);
+  }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Iron<span>Stratos</span></a>
+  <div class="mobile-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">
+    <span></span><span></span><span></span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="index.html">home</a></li>
+    <li><a href="apps.html">apps</a></li>
+    <li><a href="index.html#services">services</a></li>
+    <li><a href="about.html">about</a></li>
+    <li><a href="contact.html" class="nav-cta">get in touch</a></li>
+  </ul>
+</nav>
+
+<section class="legal-hero">
+  <div class="legal-hero-inner">
+    <p class="breadcrumb"><a href="index.html">home</a> / terms of service</p>
+    <h1>Terms of Service</h1>
+    <p class="legal-updated">Last updated: May 3, 2026</p>
+  </div>
+</section>
+
+<section class="legal-content">
+  <div class="legal-inner">
+
+    <p>These Terms of Service ("Terms") govern your access to and use of IronStratos LLC's website, mobile applications (including Root Cause AI), and related services (collectively, the "Services"). By accessing or using our Services, you agree to be bound by these Terms.</p>
+
+    <h2>1. Acceptance of Terms</h2>
+    <p>By downloading, installing, or using any IronStratos application or accessing our website, you acknowledge that you have read, understood, and agree to be bound by these Terms. If you do not agree, you may not access or use our Services.</p>
+
+    <h2>2. Use of Services</h2>
+    <p>You agree to use our Services only for lawful purposes and in accordance with these Terms. You are responsible for maintaining the confidentiality of your account credentials and for all activities that occur under your account.</p>
+    <p>You agree not to:</p>
+    <ul>
+      <li>Use the Services for any unlawful purpose or in violation of any applicable law or regulation</li>
+      <li>Attempt to reverse engineer, decompile, or disassemble any portion of the Services</li>
+      <li>Interfere with or disrupt the integrity or performance of the Services</li>
+      <li>Attempt to gain unauthorized access to any systems or networks connected to the Services</li>
+    </ul>
+
+    <h2>3. Intellectual Property</h2>
+    <p>All content, features, and functionality of the Services — including but not limited to text, graphics, logos, icons, software, and the overall design — are the exclusive property of IronStratos LLC and are protected by copyright, trademark, and other intellectual property laws.</p>
+
+    <h2>4. User Content</h2>
+    <p>You retain ownership of any data, text, images, or other content you submit through our Services (including investigation reports, audit data, and photographs submitted through Root Cause AI). By submitting content, you grant IronStratos a limited license to process, store, and display your content solely for the purpose of providing the Services to you.</p>
+
+    <h2>5. Subscriptions and Payments</h2>
+    <p>Certain features of our Services may require a paid subscription. Subscription terms, pricing, and billing cycles will be presented to you at the time of purchase. All payments are processed through third-party payment providers (such as Google Play or Apple App Store). Refund policies are governed by the respective platform's terms.</p>
+
+    <h2>6. Disclaimer of Warranties</h2>
+    <p>The Services are provided on an "as is" and "as available" basis without warranties of any kind, either express or implied. IronStratos does not warrant that the Services will be uninterrupted, error-free, or free of viruses or other harmful components.</p>
+    <p>Root Cause AI is designed to assist with root cause analysis investigations but does not replace professional engineering judgment, safety assessments, or regulatory compliance evaluations. Users are responsible for verifying all findings and recommendations.</p>
+
+    <h2>7. Limitation of Liability</h2>
+    <p>To the maximum extent permitted by law, IronStratos LLC shall not be liable for any indirect, incidental, special, consequential, or punitive damages, including without limitation, loss of profits, data, use, or goodwill, arising out of or in connection with your use of the Services.</p>
+
+    <h2>8. Indemnification</h2>
+    <p>You agree to indemnify and hold harmless IronStratos LLC, its officers, directors, employees, and agents from any claims, damages, losses, liabilities, and expenses arising out of your use of the Services or violation of these Terms.</p>
+
+    <h2>9. Termination</h2>
+    <p>We may terminate or suspend your access to the Services immediately, without prior notice, for any reason, including if you breach these Terms. Upon termination, your right to use the Services will immediately cease.</p>
+
+    <h2>10. Governing Law</h2>
+    <p>These Terms shall be governed by and construed in accordance with the laws of the State of Alabama, United States, without regard to its conflict of law provisions. Any disputes arising under these Terms shall be subject to the exclusive jurisdiction of the courts located in Russell County, Alabama.</p>
+
+    <h2>11. Changes to Terms</h2>
+    <p>We reserve the right to modify these Terms at any time. We will provide notice of material changes by posting the updated Terms on our website. Your continued use of the Services following any changes constitutes your acceptance of the revised Terms.</p>
+
+    <h2>12. Contact</h2>
+    <p>If you have questions about these Terms, please contact us at:</p>
+    <p>
+      IronStratos LLC<br>
+      Smiths Station, Alabama<br>
+      <a href="mailto:info@ironstratos.com">info@ironstratos.com</a>
+    </p>
+
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand-text">Iron<span>Stratos</span></div>
+        <p class="footer-tagline">Strength. Systems. Elevated.<br>A development studio in Smiths Station, Alabama.</p>
+      </div>
+      <div class="footer-col"><h4>Services</h4><a href="apps.html">Apps</a><a href="#">Consulting</a><a href="#">Training</a></div>
+      <div class="footer-col"><h4>Company</h4><a href="about.html">About</a><a href="contact.html">Contact</a></div>
+      <div class="footer-col"><h4>Legal</h4><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 IronStratos LLC</span>
+      <span>smiths station, al</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
