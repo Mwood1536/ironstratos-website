@@ -225,14 +225,15 @@ footer {
   <div class="contact-inner">
     <div class="contact-grid">
 
-      <div class="contact-form reveal">
+      <form name="contact" method="POST" data-netlify="true" class="contact-form reveal" id="contact-form">
+        <input type="hidden" name="form-name" value="contact">
         <div class="form-group">
           <label for="name">Name</label>
-          <input type="text" id="name" name="name" placeholder="Your name">
+          <input type="text" id="name" name="name" placeholder="Your name" required>
         </div>
         <div class="form-group">
           <label for="email">Email</label>
-          <input type="email" id="email" name="email" placeholder="you@company.com">
+          <input type="email" id="email" name="email" placeholder="you@company.com" required>
         </div>
         <div class="form-group">
           <label for="subject">What's this about?</label>
@@ -247,11 +248,11 @@ footer {
         </div>
         <div class="form-group">
           <label for="message">Message</label>
-          <textarea id="message" name="message" placeholder="Tell us what you're working on..."></textarea>
+          <textarea id="message" name="message" placeholder="Tell us what you're working on..." required></textarea>
         </div>
-        <button type="button" class="btn-submit" onclick="handleSubmit()">Send it →</button>
+        <button type="submit" class="btn-submit">Send it →</button>
         <div id="form-status" style="display:none; font-family:var(--mono); font-size:0.82rem; padding:12px 16px; border-radius:8px;"></div>
-      </div>
+      </form>
 
       <div class="contact-sidebar reveal" style="transition-delay:0.15s;">
         <div class="sidebar-card">
@@ -295,30 +296,42 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.1 });
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-function handleSubmit() {
+const form = document.getElementById('contact-form');
+form.addEventListener('submit', async function(e) {
+  e.preventDefault();
   const status = document.getElementById('form-status');
-  const name = document.getElementById('name').value;
-  const email = document.getElementById('email').value;
-  const message = document.getElementById('message').value;
+  const btn = form.querySelector('.btn-submit');
+  
+  btn.textContent = 'Sending...';
+  btn.disabled = true;
 
-  if (!name || !email || !message) {
+  try {
+    const formData = new FormData(form);
+    const response = await fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(formData).toString()
+    });
+
+    if (response.ok) {
+      status.style.display = 'block';
+      status.style.background = 'var(--avocado-light)';
+      status.style.color = 'var(--avocado)';
+      status.textContent = '✓ message sent. we\'ll be in touch.';
+      form.reset();
+    } else {
+      throw new Error('Form submission failed');
+    }
+  } catch (err) {
     status.style.display = 'block';
     status.style.background = 'rgba(200, 90, 44, 0.08)';
     status.style.color = 'var(--burnt-orange)';
-    status.textContent = '// please fill out all required fields';
-    return;
+    status.textContent = '// something went wrong. try emailing us directly.';
   }
 
-  // TODO: Connect to your backend (Netlify Forms, Formspree, etc.)
-  status.style.display = 'block';
-  status.style.background = 'var(--avocado-light)';
-  status.style.color = 'var(--avocado)';
-  status.textContent = '✓ message sent. we\'ll be in touch.';
-
-  document.getElementById('name').value = '';
-  document.getElementById('email').value = '';
-  document.getElementById('message').value = '';
-}
+  btn.textContent = 'Send it →';
+  btn.disabled = false;
+});
 </script>
 </body>
 </html>
