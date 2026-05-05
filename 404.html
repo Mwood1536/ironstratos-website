@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>404 — IronStratos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Mono:wght@400;500;600&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --cream: #faf6f0; --burnt-orange: #c85a2c; --espresso: #2c1e13;
+  --warm-gray: #8a7e72; --warm-gray-light: #b5aa9e; --border: rgba(44, 30, 19, 0.1);
+  --serif: 'DM Serif Display', Georgia, serif;
+  --sans: 'DM Sans', -apple-system, sans-serif;
+  --mono: 'IBM Plex Mono', 'Courier New', monospace;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: var(--sans); background: var(--cream); color: var(--espresso);
+  min-height: 100vh; display: flex; flex-direction: column;
+  align-items: center; justify-content: center; text-align: center;
+  padding: 2rem; -webkit-font-smoothing: antialiased;
+}
+.error-code {
+  font-family: var(--serif); font-size: clamp(4rem, 12vw, 8rem);
+  color: var(--cream); -webkit-text-stroke: 2px var(--espresso);
+  line-height: 1; margin-bottom: 1rem;
+}
+h1 {
+  font-family: var(--serif); font-size: 1.5rem; font-weight: 400;
+  margin-bottom: 0.75rem;
+}
+p {
+  font-size: 1rem; color: var(--warm-gray); line-height: 1.6;
+  margin-bottom: 2rem; max-width: 400px;
+}
+.terminal-hint {
+  font-family: var(--mono); font-size: 0.8rem; color: var(--warm-gray-light);
+  margin-bottom: 2rem; padding: 12px 20px;
+  background: var(--espresso); border-radius: 8px; color: rgba(255,255,255,0.6);
+}
+.terminal-hint span { color: #5a7247; }
+a.back-link {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 12px 24px; background: var(--burnt-orange); color: var(--cream);
+  font-family: var(--mono); font-size: 0.85rem; font-weight: 500;
+  border-radius: 8px; text-decoration: none; transition: all 0.3s;
+  box-shadow: 0 2px 12px rgba(200, 90, 44, 0.2);
+}
+a.back-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(200, 90, 44, 0.3);
+}
+</style>
+</head>
+<body>
+<div class="error-code">404</div>
+<h1>Nothing here, chief.</h1>
+<p>Whatever you were looking for doesn't exist at this URL. Maybe it moved, maybe it never was.</p>
+<div class="terminal-hint"><span>$</span> ironstratos find page <span>// not found</span></div>
+<a href="index.html" class="back-link">← Back to home</a>
+</body>
+</html>
