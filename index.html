@@ -669,7 +669,233 @@ footer {
 }
 .social-link svg { width: 16px; height: 16px; }
 
+/* ─── AUDIENCES ─── */
+.audiences-section {
+  background: var(--paper);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.audiences-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+  margin-top: 3rem;
+}
+.audience-card {
+  padding: 1.75rem;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--cream);
+  transition: all 0.3s;
+}
+.audience-card:hover {
+  border-color: var(--border-hover);
+  box-shadow: var(--shadow-sm);
+  transform: translateY(-2px);
+}
+.audience-role {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  color: var(--burnt-orange);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.85rem;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.audience-role::before {
+  content: '//';
+  color: var(--warm-gray-light);
+}
+.audience-card h3 {
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  font-weight: 400;
+  margin-bottom: 0.6rem;
+  line-height: 1.3;
+  color: var(--espresso);
+}
+.audience-card p {
+  font-size: 0.9rem;
+  color: var(--warm-gray);
+  line-height: 1.65;
+}
+
+/* ─── PRICING ─── */
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+  margin-top: 3rem;
+  align-items: stretch;
+}
+.pricing-card {
+  position: relative;
+  padding: 2rem 1.6rem;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--cream);
+  display: flex;
+  flex-direction: column;
+  transition: all 0.4s;
+}
+.pricing-card:hover {
+  border-color: var(--border-hover);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-3px);
+}
+.pricing-card.featured {
+  background: var(--espresso);
+  border-color: var(--burnt-orange);
+  box-shadow: var(--shadow-md);
+}
+.pricing-card.featured:hover {
+  box-shadow: var(--shadow-lg);
+}
+.pricing-badge {
+  position: absolute;
+  top: -11px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 5px 12px;
+  background: var(--burnt-orange);
+  color: var(--cream);
+  border-radius: 6px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+.pricing-tier {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  color: var(--burnt-orange);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.6rem;
+}
+.pricing-card.featured .pricing-tier { color: var(--burnt-orange); }
+.pricing-name {
+  font-family: var(--serif);
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin-bottom: 0.45rem;
+  letter-spacing: -0.01em;
+  color: var(--espresso);
+}
+.pricing-card.featured .pricing-name { color: var(--cream); }
+.pricing-price {
+  font-family: var(--serif);
+  font-size: 1.75rem;
+  font-weight: 400;
+  margin-bottom: 0.85rem;
+  line-height: 1.1;
+  color: var(--espresso);
+}
+.pricing-card.featured .pricing-price { color: var(--cream); }
+.pricing-price .price-unit {
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  color: var(--warm-gray);
+  font-weight: 400;
+}
+.pricing-card.featured .pricing-price .price-unit { color: rgba(255,255,255,0.55); }
+.pricing-desc {
+  font-size: 0.88rem;
+  color: var(--warm-gray);
+  line-height: 1.6;
+  margin-bottom: 1.4rem;
+  min-height: 3.4rem;
+}
+.pricing-card.featured .pricing-desc { color: rgba(255,255,255,0.72); }
+.pricing-features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  flex: 1;
+}
+.pricing-features li {
+  font-size: 0.85rem;
+  color: var(--espresso-soft);
+  line-height: 1.55;
+  padding-left: 1.1rem;
+  position: relative;
+}
+.pricing-features li::before {
+  content: '+';
+  color: var(--burnt-orange);
+  font-family: var(--mono);
+  font-weight: 600;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.pricing-card.featured .pricing-features li { color: rgba(255,255,255,0.8); }
+.pricing-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 11px 18px;
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  font-weight: 500;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: all 0.3s;
+  margin-top: auto;
+  text-align: center;
+}
+.pricing-cta.primary {
+  background: var(--burnt-orange);
+  color: var(--cream);
+  border: 1.5px solid var(--burnt-orange);
+  box-shadow: 0 2px 12px rgba(200, 90, 44, 0.18);
+}
+.pricing-cta.primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(200, 90, 44, 0.3);
+}
+.pricing-cta.outline {
+  background: transparent;
+  color: var(--espresso);
+  border: 1.5px solid var(--border);
+}
+.pricing-cta.outline:hover {
+  border-color: var(--burnt-orange);
+  color: var(--burnt-orange);
+}
+.pricing-card.featured .pricing-cta.outline {
+  color: var(--cream);
+  border-color: rgba(255,255,255,0.25);
+}
+.pricing-card.featured .pricing-cta.outline:hover {
+  background: var(--cream);
+  color: var(--espresso);
+  border-color: var(--cream);
+}
+.pricing-note {
+  margin-top: 2.5rem;
+  text-align: center;
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  color: var(--warm-gray);
+  line-height: 1.7;
+}
+.pricing-note a { color: var(--burnt-orange); text-decoration: none; }
+.pricing-note a:hover { text-decoration: underline; }
+
 /* ─── RESPONSIVE ─── */
+@media (max-width: 1024px) {
+  .audiences-grid { grid-template-columns: repeat(2, 1fr); }
+  .pricing-grid { grid-template-columns: repeat(2, 1fr); }
+}
 @media (max-width: 900px) {
   .hero-layout { grid-template-columns: 1fr; gap: 2.5rem; }
   .hero-terminal { max-width: 500px; }
@@ -693,6 +919,9 @@ footer {
   .pillars-grid, .why-grid { grid-template-columns: 1fr; }
   .devlog-grid { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+}
+@media (max-width: 600px) {
+  .audiences-grid, .pricing-grid { grid-template-columns: 1fr; }
 }
 </style>
 </head>
@@ -810,6 +1039,113 @@ footer {
         <p>Built for hard hats and gloves. Capture photos, voice notes, and signoffs where the work actually happens.</p>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- AUDIENCES -->
+<section class="audiences-section">
+  <div class="section-inner">
+    <p class="section-label reveal">who it's for</p>
+    <h2 class="section-title reveal reveal-d1">Built for the people<br><em>who run the floor.</em></h2>
+    <p class="section-desc reveal reveal-d2">If you're evaluating us against SafetyCulture or EasyRCA, here's the short version: we built this for the four roles that actually live with the consequences of bad quality data.</p>
+
+    <div class="audiences-grid">
+      <div class="audience-card reveal reveal-d1">
+        <p class="audience-role">Quality Managers</p>
+        <h3>Stop chasing CARs in email.</h3>
+        <p>See every open CAPA, NCR, and audit finding in one dashboard — with the evidence chain attached, ready for the next surveillance audit.</p>
+      </div>
+      <div class="audience-card reveal reveal-d2">
+        <p class="audience-role">Plant / Ops Managers</p>
+        <h3>OEE, downtime, fixes — live.</h3>
+        <p>OEE trends, downtime root causes, and corrective actions in one view. No more waiting for the weekly report or the Monday standup recap.</p>
+      </div>
+      <div class="audience-card reveal reveal-d3">
+        <p class="audience-role">Maintenance Leads</p>
+        <h3>Plain English. AI does the rest.</h3>
+        <p>Your techs describe the failure in their own words. The app walks them through the 5 Why on the spot — no certification, no training class.</p>
+      </div>
+      <div class="audience-card reveal reveal-d4">
+        <p class="audience-role">EHS / Safety Teams</p>
+        <h3>Audits, training, incidents — tied.</h3>
+        <p>Layered process audits, training compliance, and incident investigation all aligned to ISO 45001 — and linked back to the root cause that triggered them.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing-section" id="pricing" style="padding: 100px clamp(1.5rem, 5vw, 4rem);">
+  <div class="section-inner">
+    <p class="section-label reveal">platform &amp; pricing</p>
+    <h2 class="section-title reveal reveal-d1">Start free.<br><em>Scale when ready.</em></h2>
+    <p class="section-desc reveal reveal-d2">Mobile-first for crews and individual contributors. Web dashboards when you need a single pane of glass. Enterprise rollups when you're running multiple plants.</p>
+
+    <div class="pricing-grid">
+      <div class="pricing-card reveal reveal-d1">
+        <p class="pricing-tier">mobile</p>
+        <h3 class="pricing-name">Free</h3>
+        <p class="pricing-price">$0<span class="price-unit"> / forever</span></p>
+        <p class="pricing-desc">All features. Solo use. Ad-supported. No server required — your data never leaves the device.</p>
+        <ul class="pricing-features">
+          <li>Conversational RCA + 5 Whys</li>
+          <li>5S audits, OEE tracking, action tracker</li>
+          <li>AI-generated reports</li>
+          <li>Local-only storage</li>
+          <li>Pro upgrade: $4.99 one-time removes ads</li>
+        </ul>
+        <a href="apps.html" class="pricing-cta outline">See the apps →</a>
+      </div>
+
+      <div class="pricing-card reveal reveal-d2">
+        <p class="pricing-tier">mobile · team</p>
+        <h3 class="pricing-name">Bundle</h3>
+        <p class="pricing-price">$19.99<span class="price-unit"> / user / mo</span></p>
+        <p class="pricing-desc">Billed annually. Root Cause AI + NConform together with cloud sync and multi-user collaboration.</p>
+        <ul class="pricing-features">
+          <li>Both apps, full features unlocked</li>
+          <li>Cloud sync across devices</li>
+          <li>Multi-user collaboration</li>
+          <li>Shared CAPA queue and findings</li>
+          <li>Ad-free across the platform</li>
+        </ul>
+        <a href="apps.html" class="pricing-cta outline">Get the bundle →</a>
+      </div>
+
+      <div class="pricing-card featured reveal reveal-d3">
+        <span class="pricing-badge">Most popular</span>
+        <p class="pricing-tier">web + mobile</p>
+        <h3 class="pricing-name">Pro Web</h3>
+        <p class="pricing-price">$12K<span class="price-unit"> / yr</span></p>
+        <p class="pricing-desc">For plants that need a single pane of glass. 10 mobile + 5 web dashboard seats included.</p>
+        <ul class="pricing-features">
+          <li>OEE trends &amp; CAPA closure dashboards</li>
+          <li>Gap assessment &amp; audit readiness</li>
+          <li>Audit scheduling &amp; supplier NCR tracking</li>
+          <li>Overage: $8 / mobile · $25 / web</li>
+          <li>Onboarding included ($1,500 value)</li>
+        </ul>
+        <a href="contact.html" class="pricing-cta primary">Get started →</a>
+      </div>
+
+      <div class="pricing-card reveal reveal-d4">
+        <p class="pricing-tier">multi-site</p>
+        <h3 class="pricing-name">Enterprise</h3>
+        <p class="pricing-price">From $36K<span class="price-unit"> / yr</span></p>
+        <p class="pricing-desc">For groups running multiple plants. 50 mobile + 15 web seats. Everything in Pro Web, plus:</p>
+        <ul class="pricing-features">
+          <li>Multi-site rollup dashboard</li>
+          <li>SOC 2 Type II compliance</li>
+          <li>SAP / Maximo / Okta integration</li>
+          <li>BYO API and dedicated hosting</li>
+          <li>Custom onboarding ($5K–$10K)</li>
+          <li>Overage: $6 / mobile · $20 / web</li>
+        </ul>
+        <a href="contact.html" class="pricing-cta outline">Talk to us →</a>
+      </div>
+    </div>
+
+    <p class="pricing-note reveal">All tiers ship with ISO 9001, IATF 16949, AS9100, and ISO 45001 alignment built in. <a href="contact.html">Compare against your current QMS →</a></p>
   </div>
 </section>
 
