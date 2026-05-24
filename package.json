@@ -1,0 +1,17 @@
+{
+  "name": "ironstratos-website",
+  "version": "1.0.0",
+  "private": true,
+  "description": "IronStratos marketing site (static HTML + Netlify Functions for lead capture).",
+  "scripts": {
+    "dev": "netlify dev",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@netlify/functions": "^2.8.0"
+  },
+  "devDependencies": {
+    "@types/node": "^25.9.1",
+    "typescript": "^5.6.0"
+  }
+}

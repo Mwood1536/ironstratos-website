@@ -1,0 +1,42 @@
+[build]
+  publish = "."
+  functions = "netlify/functions"
+
+[functions]
+  node_bundler = "esbuild"
+
+# Clean URLs for the lead-gen pages
+[[redirects]]
+  from = "/newsletter"
+  to   = "/newsletter.html"
+  status = 200
+
+[[redirects]]
+  from = "/beta"
+  to   = "/beta.html"
+  status = 200
+
+[[redirects]]
+  from = "/beta/thanks"
+  to   = "/beta/thanks.html"
+  status = 200
+
+[[redirects]]
+  from = "/demo"
+  to   = "/demo.html"
+  status = 200
+
+[[redirects]]
+  from = "/demo/thanks"
+  to   = "/demo/thanks.html"
+  status = 200
+
+[[redirects]]
+  from = "/privacy"
+  to   = "/privacy.html"
+  status = 200
+
+[[redirects]]
+  from = "/terms"
+  to   = "/terms.html"
+  status = 200
