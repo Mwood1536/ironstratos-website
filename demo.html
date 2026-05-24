@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Request a Demo — IronStratos</title>
+<link rel="canonical" href="https://ironstratos.com/demo">
+<meta name="description" content="See Root Cause AI + NConform on your floor. 30-minute walkthrough tailored to Pro Web or Enterprise plants.">
+<meta name="robots" content="index,follow">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Request a Demo — IronStratos">
+<meta property="og:description" content="A focused 30-minute walkthrough of Root Cause AI and NConform on your floor.">
+<meta property="og:url" content="https://ironstratos.com/demo">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Mono:wght@400;500;600&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --cream: #faf6f0; --cream-dark: #f0ebe3; --paper: #f5f1ea;
+  --burnt-orange: #c85a2c;
+  --burnt-orange-light: rgba(200, 90, 44, 0.08);
+  --avocado: #5a7247;
+  --avocado-light: rgba(90, 114, 71, 0.1);
+  --espresso: #2c1e13;
+  --warm-gray: #8a7e72; --warm-gray-light: #b5aa9e;
+  --border: rgba(44, 30, 19, 0.1);
+  --serif: 'DM Serif Display', Georgia, serif;
+  --sans: 'DM Sans', -apple-system, sans-serif;
+  --mono: 'IBM Plex Mono', 'Courier New', monospace;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--sans); background: var(--cream); color: var(--espresso); overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+body::after {
+  content: ''; position: fixed; inset: 0; opacity: 0.35;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)' opacity='0.06'/%3E%3C/svg%3E");
+  pointer-events: none; z-index: 9999;
+}
+@keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  padding: 0 clamp(1.5rem, 5vw, 4rem); height: 64px;
+  display: flex; align-items: center; justify-content: space-between;
+  background: rgba(250, 246, 240, 0.9); backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+}
+.nav-logo { font-family: var(--serif); font-size: 1.3rem; color: var(--espresso); text-decoration: none; letter-spacing: -0.01em; }
+.nav-logo span { color: var(--burnt-orange); }
+.nav-links { display: flex; gap: 2.5rem; list-style: none; align-items: center; }
+.nav-links a { font-family: var(--mono); font-size: 0.78rem; color: var(--warm-gray); text-decoration: none; text-transform: lowercase; letter-spacing: 0.02em; transition: color 0.3s; }
+.nav-links a:hover { color: var(--burnt-orange); }
+.nav-cta { font-family: var(--mono) !important; font-size: 0.78rem !important; padding: 8px 18px; background: var(--espresso); color: var(--cream) !important; border-radius: 6px; transition: background 0.3s !important; }
+.nav-cta:hover { background: var(--burnt-orange) !important; }
+.mobile-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+.mobile-toggle span { width: 22px; height: 2px; background: var(--espresso); border-radius: 2px; }
+
+.page-hero { padding: 140px clamp(1.5rem, 5vw, 4rem) 30px; }
+.page-hero-inner { max-width: 800px; margin: 0 auto; }
+.breadcrumb { font-family: var(--mono); font-size: 0.72rem; color: var(--warm-gray-light); margin-bottom: 1.5rem; animation: fadeUp 0.7s ease forwards; }
+.breadcrumb a { color: var(--burnt-orange); text-decoration: none; }
+.page-hero h1 { font-family: var(--serif); font-size: clamp(2.2rem, 4.5vw, 3.2rem); font-weight: 400; letter-spacing: -0.02em; margin-bottom: 1rem; animation: fadeUp 0.7s ease 0.1s forwards; opacity: 0; }
+.page-hero h1 em { font-style: italic; color: var(--burnt-orange); }
+.page-hero .lead { font-size: 1.1rem; color: var(--warm-gray); line-height: 1.7; max-width: 620px; animation: fadeUp 0.7s ease 0.2s forwards; opacity: 0; }
+
+.demo-section { padding: 30px clamp(1.5rem, 5vw, 4rem) 100px; }
+.demo-inner { max-width: 980px; margin: 0 auto; display: grid; grid-template-columns: 1.3fr 0.7fr; gap: 3rem; align-items: start; }
+
+.lead-form { display: flex; flex-direction: column; gap: 1.25rem; }
+.form-group { display: flex; flex-direction: column; gap: 0.4rem; }
+.form-group label { font-family: var(--mono); font-size: 0.72rem; color: var(--warm-gray); text-transform: uppercase; letter-spacing: 0.08em; }
+.form-group label .req { color: var(--burnt-orange); margin-left: 4px; }
+.form-group input,
+.form-group textarea,
+.form-group select {
+  font-family: var(--sans); font-size: 0.95rem; color: var(--espresso);
+  padding: 12px 16px; border: 1.5px solid var(--border);
+  border-radius: 8px; background: var(--cream);
+  transition: border-color 0.3s, box-shadow 0.3s; outline: none; resize: vertical;
+}
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  border-color: var(--burnt-orange);
+  box-shadow: 0 0 0 3px var(--burnt-orange-light);
+}
+.form-group input[aria-invalid="true"],
+.form-group textarea[aria-invalid="true"],
+.form-group select[aria-invalid="true"] {
+  border-color: var(--burnt-orange);
+  box-shadow: 0 0 0 3px var(--burnt-orange-light);
+}
+.form-group input::placeholder, .form-group textarea::placeholder { color: var(--warm-gray-light); }
+.form-group textarea { min-height: 120px; }
+
+.form-row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+
+.radio-group { display: flex; gap: 0.6rem; flex-wrap: wrap; margin-top: 0.25rem; }
+.radio-pill {
+  flex: 1; min-width: 130px;
+  display: flex; align-items: center; justify-content: center; gap: 0.4rem;
+  padding: 10px 14px; border: 1.5px solid var(--border); border-radius: 8px;
+  font-family: var(--mono); font-size: 0.78rem; color: var(--espresso);
+  cursor: pointer; background: var(--cream); transition: all 0.2s; position: relative;
+}
+.radio-pill:hover { border-color: var(--burnt-orange); color: var(--burnt-orange); }
+.radio-pill input { position: absolute; opacity: 0; pointer-events: none; }
+.radio-pill:has(input:checked) { border-color: var(--burnt-orange); background: var(--burnt-orange-light); color: var(--burnt-orange); }
+
+.honeypot { position: absolute; left: -10000px; width: 1px; height: 1px; opacity: 0; pointer-events: none; }
+
+.consent {
+  display: flex; gap: 0.6rem; align-items: flex-start; margin-top: 0.5rem;
+  font-family: var(--mono); font-size: 0.74rem; color: var(--warm-gray); line-height: 1.55;
+}
+.consent input { margin-top: 3px; accent-color: var(--burnt-orange); flex-shrink: 0; }
+.consent a { color: var(--burnt-orange); text-decoration: none; }
+.consent a:hover { text-decoration: underline; }
+
+.btn-submit {
+  display: inline-flex; align-items: center; justify-content: center;
+  gap: 8px; padding: 14px 28px;
+  background: var(--burnt-orange); color: var(--cream);
+  font-family: var(--mono); font-size: 0.85rem; font-weight: 500;
+  border: none; border-radius: 8px; cursor: pointer;
+  transition: all 0.3s; box-shadow: 0 2px 12px rgba(200, 90, 44, 0.2);
+  align-self: flex-start;
+}
+.btn-submit:hover { transform: translateY(-2px); box-shadow: 0 4px 20px rgba(200, 90, 44, 0.3); }
+.btn-submit:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+
+.form-status { font-family: var(--mono); font-size: 0.82rem; padding: 12px 16px; border-radius: 8px; display: none; line-height: 1.4; }
+.form-status.show { display: block; }
+.form-status.ok { background: var(--avocado-light); color: var(--avocado); }
+.form-status.err { background: var(--burnt-orange-light); color: var(--burnt-orange); }
+
+.demo-sidebar { display: flex; flex-direction: column; gap: 1.25rem; position: sticky; top: 90px; }
+.sidebar-card { padding: 1.5rem; border: 1px solid var(--border); border-radius: 12px; background: var(--paper); }
+.sidebar-card h3 { font-family: var(--serif); font-size: 1.05rem; font-weight: 400; margin-bottom: 0.6rem; }
+.sidebar-card p { font-size: 0.88rem; color: var(--warm-gray); line-height: 1.6; }
+.sidebar-card ul { margin-top: 0.5rem; list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.4rem; }
+.sidebar-card li { font-size: 0.85rem; color: var(--espresso); padding-left: 1.1rem; position: relative; line-height: 1.5; }
+.sidebar-card li::before { content: '+'; color: var(--burnt-orange); font-family: var(--mono); font-weight: 600; position: absolute; left: 0; }
+
+footer { padding: 60px clamp(1.5rem, 5vw, 4rem) 30px; border-top: 1px solid var(--border); }
+.footer-inner { max-width: 1100px; margin: 0 auto; }
+.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; }
+.footer-brand-text { font-family: var(--serif); font-size: 1.3rem; color: var(--espresso); margin-bottom: 0.5rem; }
+.footer-brand-text span { color: var(--burnt-orange); }
+.footer-tagline { font-size: 0.88rem; color: var(--warm-gray); line-height: 1.6; }
+.footer-col h4 { font-family: var(--mono); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--espresso); margin-bottom: 1rem; }
+.footer-col a { display: block; color: var(--warm-gray); text-decoration: none; font-size: 0.88rem; padding: 3px 0; transition: color 0.3s; }
+.footer-col a:hover { color: var(--burnt-orange); }
+.footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 1.5rem; border-top: 1px solid var(--border); font-family: var(--mono); font-size: 0.72rem; color: var(--warm-gray-light); flex-wrap: wrap; gap: 1rem; }
+
+@media (max-width: 900px) {
+  .demo-inner { grid-template-columns: 1fr; }
+  .demo-sidebar { position: static; }
+}
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .mobile-toggle { display: flex; }
+  .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 64px; left: 0; right: 0; background: rgba(250, 246, 240, 0.97); backdrop-filter: blur(16px); padding: 1.5rem 2rem; gap: 1.25rem; border-bottom: 1px solid var(--border); }
+  .form-row-2 { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Iron<span>Stratos</span></a>
+  <div class="mobile-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">
+    <span></span><span></span><span></span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="index.html">home</a></li>
+    <li><a href="apps.html">apps</a></li>
+    <li><a href="index.html#services">services</a></li>
+    <li><a href="about.html">about</a></li>
+    <li><a href="contact.html" class="nav-cta">get in touch</a></li>
+  </ul>
+</nav>
+
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <p class="breadcrumb"><a href="index.html">home</a> / demo</p>
+    <h1>See it on <em>your floor.</em></h1>
+    <p class="lead">A focused 30-minute walkthrough: Root Cause AI on a phone, NConform on the web dashboard, and how it maps to the standards you already audit against.</p>
+  </div>
+</section>
+
+<section class="demo-section">
+  <div class="demo-inner">
+    <form class="lead-form" id="demo-form" novalidate>
+      <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" class="honeypot">
+
+      <div class="form-row-2">
+        <div class="form-group">
+          <label for="name">Name<span class="req" aria-hidden="true">*</span></label>
+          <input type="text" id="name" name="name" placeholder="Your name" required aria-required="true" autocomplete="name">
+        </div>
+        <div class="form-group">
+          <label for="email">Work email<span class="req" aria-hidden="true">*</span></label>
+          <input type="email" id="email" name="email" placeholder="you@plant.com" required aria-required="true" autocomplete="email">
+        </div>
+      </div>
+
+      <div class="form-row-2">
+        <div class="form-group">
+          <label for="phone">Phone</label>
+          <input type="tel" id="phone" name="phone" placeholder="(optional) +1 555-555-5555" autocomplete="tel">
+        </div>
+        <div class="form-group">
+          <label for="title">Job title</label>
+          <input type="text" id="title" name="title" placeholder="Quality Director, VP Ops, etc." autocomplete="organization-title">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="company">Company<span class="req" aria-hidden="true">*</span></label>
+        <input type="text" id="company" name="company" placeholder="Acme Manufacturing" required aria-required="true" autocomplete="organization">
+      </div>
+
+      <div class="form-group">
+        <label for="plantSize">Plant size (production workforce)</label>
+        <select id="plantSize" name="plantSize">
+          <option value="Unknown">Not sure</option>
+          <option value="<10">Under 10</option>
+          <option value="10-50">10 – 50</option>
+          <option value="50-200">50 – 200</option>
+          <option value="200-500">200 – 500</option>
+          <option value="500+">500+</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Which tier fits best?</label>
+        <div class="radio-group" role="radiogroup">
+          <label class="radio-pill">
+            <input type="radio" name="tierInterest" value="Pro Web">
+            <span>Pro Web</span>
+          </label>
+          <label class="radio-pill">
+            <input type="radio" name="tierInterest" value="Enterprise">
+            <span>Enterprise</span>
+          </label>
+          <label class="radio-pill">
+            <input type="radio" name="tierInterest" value="Not Sure">
+            <span>Not sure yet</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="timeline">Timeline</label>
+        <select id="timeline" name="timeline">
+          <option value="Just researching">Just researching</option>
+          <option value="Now">Now — actively buying</option>
+          <option value="1-3 months">1 – 3 months</option>
+          <option value="3-6 months">3 – 6 months</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="problem">What problem are you trying to solve?<span class="req" aria-hidden="true">*</span></label>
+        <textarea id="problem" name="problem" placeholder="Audit prep? Recurring defects? Replace an aging QMS? Tell us the real pain so we can tailor the walkthrough." required aria-required="true"></textarea>
+      </div>
+
+      <label class="consent">
+        <input type="checkbox" name="consent" required aria-required="true">
+        <span>I agree to the <a href="/privacy">Privacy Policy</a> and <a href="/terms">Terms of Service</a>.</span>
+      </label>
+
+      <button type="submit" class="btn-submit">Request a demo →</button>
+      <div class="form-status" role="status" aria-live="polite"></div>
+    </form>
+
+    <aside class="demo-sidebar">
+      <div class="sidebar-card">
+        <h3>What to expect</h3>
+        <ul>
+          <li>30 minutes, no slides</li>
+          <li>Live walkthrough on your use case</li>
+          <li>Pricing &amp; rollout straight-up</li>
+          <li>No high-pressure follow-up</li>
+        </ul>
+      </div>
+      <div class="sidebar-card">
+        <h3>Standards covered</h3>
+        <p>ISO 9001, IATF 16949, AS9100, ISO 45001. Bring your most recent audit findings and we'll map them to the platform on the call.</p>
+      </div>
+      <div class="sidebar-card">
+        <h3>Already a buyer?</h3>
+        <p>Pick "Now" under timeline and a real human will follow up within one business day with availability and a draft order form.</p>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand-text">Iron<span>Stratos</span></div>
+        <p class="footer-tagline">Manufacturing quality &amp; reliability software.<br>IronStratos LLC — Smiths Station, Alabama.</p>
+      </div>
+      <div class="footer-col"><h4>Platform</h4><a href="apps.html">All apps</a><a href="rootcause.html">Root Cause AI</a><a href="apps.html">NConform</a></div>
+      <div class="footer-col"><h4>Company</h4><a href="about.html">About</a><a href="contact.html">Contact</a></div>
+      <div class="footer-col"><h4>Legal</h4><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 IronStratos LLC</span>
+      <span>smiths station, al</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function() {
+  var form = document.getElementById('demo-form');
+  if (!form) return;
+  var status = form.querySelector('.form-status');
+  var btn = form.querySelector('.btn-submit');
+
+  function setStatus(kind, msg) {
+    status.className = 'form-status show ' + kind;
+    status.textContent = msg;
+  }
+  function clearInvalid() {
+    form.querySelectorAll('[aria-invalid="true"]').forEach(function(el) {
+      el.setAttribute('aria-invalid', 'false');
+    });
+  }
+
+  // Read ?tier=… from URL and preselect tier radio if matches
+  var params = new URLSearchParams(location.search);
+  var tier = params.get('tier');
+  if (tier) {
+    var match = form.querySelector('input[name="tierInterest"][value="' + tier + '"]');
+    if (match) match.checked = true;
+  }
+
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    clearInvalid();
+
+    if (!form.checkValidity()) {
+      var bad = form.querySelector(':invalid');
+      if (bad) {
+        bad.setAttribute('aria-invalid', 'true');
+        bad.focus();
+      }
+      setStatus('err', 'Please fill in the required fields and accept the privacy terms.');
+      return;
+    }
+
+    var fd = new FormData(form);
+    var payload = {};
+    fd.forEach(function(v, k) { payload[k] = typeof v === 'string' ? v : ''; });
+
+    btn.disabled = true;
+    var prev = btn.textContent;
+    btn.textContent = 'Sending...';
+    try {
+      var res = await fetch('/.netlify/functions/demo-request', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      var data = await res.json().catch(function() { return {}; });
+      if (res.ok && data.ok) {
+        window.location.href = '/demo/thanks';
+      } else {
+        setStatus('err', (data && data.error) || 'Something went wrong. Please try again.');
+        btn.disabled = false;
+        btn.textContent = prev;
+      }
+    } catch (err) {
+      setStatus('err', 'Network error. Please try again.');
+      btn.disabled = false;
+      btn.textContent = prev;
+    }
+  });
+})();
+</script>
+</body>
+</html>
