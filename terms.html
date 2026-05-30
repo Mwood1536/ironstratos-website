@@ -7,7 +7,7 @@
 <link rel="canonical" href="https://ironstratos.com/terms.html">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Terms of Service — IronStratos">
-<meta property="og:description" content="Terms of Service for IronStratos LLC.">
+<meta property="og:description" content="Terms of Service for Iron Stratos LLC (IronStratos) — Root Cause AI, NConform, and Pro Web.">
 <meta property="og:url" content="https://ironstratos.com/terms.html">
 <meta property="og:site_name" content="IronStratos">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -63,6 +63,12 @@ nav {
 /* LEGAL PAGE */
 .legal-hero { padding: 140px clamp(1.5rem, 5vw, 4rem) 30px; }
 .legal-hero-inner { max-width: 760px; margin: 0 auto; }
+.draft-banner {
+  background: var(--burnt-orange); color: var(--cream); font-family: var(--mono);
+  font-size: 0.76rem; line-height: 1.55; text-align: center; letter-spacing: 0.03em;
+  padding: 0.85rem 1.1rem; border-radius: 6px; margin-bottom: 1.5rem;
+}
+.draft-banner strong { text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; }
 .breadcrumb {
   font-family: var(--mono); font-size: 0.72rem; color: var(--warm-gray-light); margin-bottom: 1.5rem;
 }
@@ -130,63 +136,6 @@ footer {
   }
   .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
 }
-
-
-/* === FOOTER NEWSLETTER === */
-.footer-newsletter {
-  display: grid; grid-template-columns: 1fr 1.2fr; gap: 3rem;
-  padding-bottom: 3rem; margin-bottom: 2.5rem;
-  border-bottom: 1px solid var(--border); align-items: start;
-}
-.footer-newsletter .fn-label {
-  font-family: var(--mono); font-size: 0.72rem; color: var(--burnt-orange);
-  text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.5rem;
-}
-.footer-newsletter .fn-label::before { content: '// '; color: var(--warm-gray-light); }
-.footer-newsletter h4 {
-  font-family: var(--serif); font-size: 1.3rem; font-weight: 400;
-  letter-spacing: -0.01em; margin-bottom: 0.5rem; color: var(--espresso);
-}
-.footer-newsletter .fn-text > p:last-of-type {
-  font-size: 0.9rem; color: var(--warm-gray); line-height: 1.6; max-width: 380px;
-}
-.fn-form { display: flex; flex-direction: column; gap: 0.85rem; }
-.fn-honeypot { position: absolute; left: -10000px; width: 1px; height: 1px; opacity: 0; pointer-events: none; }
-.fn-srlabel { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; }
-.fn-row { display: flex; gap: 0.5rem; }
-.fn-row input[type=email] {
-  flex: 1; min-width: 0; padding: 12px 16px;
-  font-family: var(--sans); font-size: 0.92rem; color: var(--espresso);
-  border: 1.5px solid var(--border); border-radius: 8px; background: var(--cream);
-  outline: none; transition: border-color 0.3s, box-shadow 0.3s;
-}
-.fn-row input[type=email]:focus {
-  border-color: var(--burnt-orange);
-  box-shadow: 0 0 0 3px var(--burnt-orange-light);
-}
-.fn-row input[type=email][aria-invalid="true"] { border-color: var(--burnt-orange); }
-.fn-btn {
-  padding: 12px 20px; background: var(--burnt-orange); color: var(--cream);
-  font-family: var(--mono); font-size: 0.8rem; font-weight: 500;
-  border: none; border-radius: 8px; cursor: pointer;
-  transition: all 0.3s; box-shadow: 0 2px 12px rgba(200, 90, 44, 0.2);
-  white-space: nowrap;
-}
-.fn-btn:hover { transform: translateY(-2px); box-shadow: 0 4px 20px rgba(200, 90, 44, 0.3); }
-.fn-btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
-.fn-consent { display: flex; gap: 0.5rem; align-items: flex-start; font-family: var(--mono); font-size: 0.7rem; color: var(--warm-gray); line-height: 1.5; }
-.fn-consent input { margin-top: 2px; accent-color: var(--burnt-orange); flex-shrink: 0; }
-.fn-consent a { color: var(--burnt-orange); text-decoration: none; }
-.fn-consent a:hover { text-decoration: underline; }
-.fn-status { font-family: var(--mono); font-size: 0.78rem; display: none; border-radius: 6px; line-height: 1.4; }
-.fn-status.show { display: block; padding: 10px 14px; }
-.fn-status.ok { background: var(--avocado-light); color: var(--avocado); }
-.fn-status.err { background: var(--burnt-orange-light); color: var(--burnt-orange); }
-@media (max-width: 768px) {
-  .footer-newsletter { grid-template-columns: 1fr; gap: 1.5rem; padding-bottom: 2rem; margin-bottom: 2rem; }
-  .fn-row { flex-direction: column; }
-  .fn-btn { width: 100%; }
-}
 </style>
 </head>
 <body>
@@ -207,64 +156,52 @@ footer {
 
 <section class="legal-hero">
   <div class="legal-hero-inner">
+    <p class="draft-banner"><strong>Draft — pending review by Alabama counsel.</strong> Not yet in effect.</p>
     <p class="breadcrumb"><a href="index.html">home</a> / terms of service</p>
     <h1>Terms of Service</h1>
-    <p class="legal-updated">Last updated: May 3, 2026</p>
+    <p class="legal-updated">Last updated: May 29, 2026</p>
   </div>
 </section>
 
 <section class="legal-content">
   <div class="legal-inner">
 
-    <p>These Terms of Service ("Terms") govern your access to and use of IronStratos LLC's website, mobile applications (including Root Cause AI), and related services (collectively, the "Services"). By accessing or using our Services, you agree to be bound by these Terms.</p>
+    <p>These Terms of Service ("Terms") govern your access to and use of the ironstratos.com website, the Root Cause AI and NConform mobile applications, and the Pro Web platform at app.ironstratos.com (collectively, the "Services"), each provided by Iron Stratos LLC ("Iron Stratos," "we," "us," or "our"). IronStratos is the trade name of Iron Stratos LLC. By accessing or using the Services, you agree to be bound by these Terms. If you do not agree, please do not use our Services.</p>
 
-    <h2>1. Acceptance of Terms</h2>
-    <p>By downloading, installing, or using any IronStratos application or accessing our website, you acknowledge that you have read, understood, and agree to be bound by these Terms. If you do not agree, you may not access or use our Services.</p>
+    <h2>Use of Services</h2>
+    <p>We provide software tools for manufacturing quality management, root cause analysis, and reliability engineering. You agree to use our Services only for lawful purposes and in accordance with these Terms.</p>
 
-    <h2>2. Use of Services</h2>
-    <p>You agree to use our Services only for lawful purposes and in accordance with these Terms. You are responsible for maintaining the confidentiality of your account credentials and for all activities that occur under your account.</p>
-    <p>You agree not to:</p>
-    <ul>
-      <li>Use the Services for any unlawful purpose or in violation of any applicable law or regulation</li>
-      <li>Attempt to reverse engineer, decompile, or disassemble any portion of the Services</li>
-      <li>Interfere with or disrupt the integrity or performance of the Services</li>
-      <li>Attempt to gain unauthorized access to any systems or networks connected to the Services</li>
-    </ul>
+    <h2>Accounts &amp; Responsibilities</h2>
+    <p>When you create an account, you are responsible for maintaining the confidentiality of your credentials and for all activities under your account. You agree to provide accurate information and to keep it up to date.</p>
 
-    <h2>3. Intellectual Property</h2>
-    <p>All content, features, and functionality of the Services — including but not limited to text, graphics, logos, icons, software, and the overall design — are the exclusive property of IronStratos LLC and are protected by copyright, trademark, and other intellectual property laws.</p>
+    <h2>Intellectual Property</h2>
+    <p>All content, features, and functionality of our Services — including software, text, graphics, and logos — are the property of Iron Stratos LLC and are protected by intellectual property laws. You retain ownership of the data and content you submit; see the applicable subscription agreement for details on data ownership and processing.</p>
 
-    <h2>4. User Content</h2>
-    <p>You retain ownership of any data, text, images, or other content you submit through our Services (including investigation reports, audit data, and photographs submitted through Root Cause AI). By submitting content, you grant IronStratos a limited license to process, store, and display your content solely for the purpose of providing the Services to you.</p>
+    <h2>Subscriptions and Payments</h2>
+    <p><strong>Pro Web (direct billing).</strong> Pro Web is offered on an annual subscription billed in advance through our payment processor, Stripe. Unless you cancel before the end of the then-current term, your subscription automatically renews for successive annual terms at the then-current rate, and you authorize us to charge your payment method on each renewal. New subscriptions may include a 14-day free trial; if you do not cancel during the trial, the subscription converts to a paid annual term. Fees are non-refundable except as required by law or as expressly stated in your subscription agreement. The specific terms for Pro Web are set out in the <a href="legal/subscription-agreement">IronStratos Pro Subscription Agreement</a>.</p>
+    <p><strong>Mobile in-app purchases.</strong> Subscriptions or purchases made through the Apple App Store or Google Play are billed by, and subject to the terms of, the respective app store. Those platform terms govern billing, renewals, and refunds for in-app purchases.</p>
 
-    <h2>5. Subscriptions and Payments</h2>
-    <p>Certain features of our Services may require a paid subscription. Subscription terms, pricing, and billing cycles will be presented to you at the time of purchase. All payments are processed through third-party payment providers (such as Google Play or Apple App Store). Refund policies are governed by the respective platform's terms.</p>
+    <h2>Service Availability</h2>
+    <p>We strive to provide reliable Services but do not guarantee uninterrupted access. We reserve the right to modify, suspend, or discontinue any part of the Services at any time.</p>
 
-    <h2>6. Disclaimer of Warranties</h2>
-    <p>The Services are provided on an "as is" and "as available" basis without warranties of any kind, either express or implied. IronStratos does not warrant that the Services will be uninterrupted, error-free, or free of viruses or other harmful components.</p>
-    <p>Root Cause AI is designed to assist with root cause analysis investigations but does not replace professional engineering judgment, safety assessments, or regulatory compliance evaluations. Users are responsible for verifying all findings and recommendations.</p>
+    <h2>Disclaimer of Warranties</h2>
+    <p>The Services are provided "as is" and "as available" without warranties of any kind, whether express or implied, including implied warranties of merchantability, fitness for a particular purpose, and non-infringement. Our software is designed to assist with quality, root-cause, and safety workflows; it does not replace professional engineering, quality, or safety judgment. You remain responsible for decisions made using the Services.</p>
 
-    <h2>7. Limitation of Liability</h2>
-    <p>To the maximum extent permitted by law, IronStratos LLC shall not be liable for any indirect, incidental, special, consequential, or punitive damages, including without limitation, loss of profits, data, use, or goodwill, arising out of or in connection with your use of the Services.</p>
+    <h2>Limitation of Liability</h2>
+    <p>To the maximum extent permitted by law, Iron Stratos LLC will not be liable for any indirect, incidental, special, consequential, or punitive damages, or any loss of profits, data, or goodwill. Our total aggregate liability arising out of or relating to the Services will not exceed the total fees you paid to us for the Services in the <strong>twelve (12) months</strong> immediately preceding the event giving rise to the claim.</p>
 
-    <h2>8. Indemnification</h2>
-    <p>You agree to indemnify and hold harmless IronStratos LLC, its officers, directors, employees, and agents from any claims, damages, losses, liabilities, and expenses arising out of your use of the Services or violation of these Terms.</p>
+    <h2>Governing Law</h2>
+    <p>These Terms shall be governed by and construed in accordance with the laws of the State of Alabama, United States, without regard to its conflict-of-law provisions. Any disputes arising under these Terms shall be subject to the exclusive jurisdiction of the state and federal courts located in [COUNTY], Alabama.</p>
 
-    <h2>9. Termination</h2>
-    <p>We may terminate or suspend your access to the Services immediately, without prior notice, for any reason, including if you breach these Terms. Upon termination, your right to use the Services will immediately cease.</p>
+    <h2>Changes to These Terms</h2>
+    <p>We may update these Terms from time to time. We will notify you of any material changes by posting the updated Terms on this page with a new "Last updated" date. Your continued use of the Services after changes take effect constitutes acceptance of the revised Terms.</p>
 
-    <h2>10. Governing Law</h2>
-    <p>These Terms shall be governed by and construed in accordance with the laws of the State of Alabama, United States, without regard to its conflict of law provisions. Any disputes arising under these Terms shall be subject to the exclusive jurisdiction of the courts located in Russell County, Alabama.</p>
-
-    <h2>11. Changes to Terms</h2>
-    <p>We reserve the right to modify these Terms at any time. We will provide notice of material changes by posting the updated Terms on our website. Your continued use of the Services following any changes constitutes your acceptance of the revised Terms.</p>
-
-    <h2>12. Contact</h2>
+    <h2>Contact Us</h2>
     <p>If you have questions about these Terms, please contact us at:</p>
     <p>
-      IronStratos LLC<br>
-      Smiths Station, Alabama<br>
-      <a href="mailto:info@ironstratos.com">info@ironstratos.com</a>
+      Iron Stratos LLC<br>
+      [BUSINESS ADDRESS]<br>
+      <a href="mailto:legal@ironstratos.com">legal@ironstratos.com</a>
     </p>
 
   </div>
@@ -272,91 +209,21 @@ footer {
 
 <footer>
   <div class="footer-inner">
-    
-    <div class="footer-newsletter">
-      <div class="fn-text">
-        <p class="fn-label">newsletter</p>
-        <h4>Field notes from the floor.</h4>
-        <p>Product updates, RCA patterns, and the occasional NConform release note. Maybe one email a month — no fluff.</p>
-      </div>
-      <form class="fn-form" id="footer-newsletter-form" novalidate>
-        <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" class="fn-honeypot">
-        <div class="fn-row">
-          <label class="fn-srlabel" for="footer-newsletter-email">Email</label>
-          <input type="email" id="footer-newsletter-email" name="email" placeholder="you@plant.com" required aria-required="true" autocomplete="email">
-          <button type="submit" class="fn-btn">Subscribe →</button>
-        </div>
-        <label class="fn-consent">
-          <input type="checkbox" name="consent" required aria-required="true">
-          <span>I agree to the <a href="/privacy">Privacy Policy</a> and <a href="/terms">Terms of Service</a>.</span>
-        </label>
-        <div class="fn-status" role="status" aria-live="polite"></div>
-      </form>
-    </div>
     <div class="footer-grid">
       <div>
         <div class="footer-brand-text">Iron<span>Stratos</span></div>
-        <p class="footer-tagline">Manufacturing quality &amp; reliability software.<br>IronStratos LLC — Smiths Station, Alabama.</p>
+        <p class="footer-tagline">Manufacturing quality &amp; reliability software.<br>IronStratos is the trade name of Iron Stratos LLC — Smiths Station, Alabama.</p>
       </div>
       <div class="footer-col"><h4>Platform</h4><a href="apps.html">All apps</a><a href="rootcause.html">Root Cause AI</a><a href="apps.html">NConform</a></div>
       <div class="footer-col"><h4>Company</h4><a href="about.html">About</a><a href="contact.html">Contact</a></div>
-      <div class="footer-col"><h4>Legal</h4><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></div>
+      <div class="footer-col"><h4>Legal</h4><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="legal/subscription-agreement.html">Subscription Agreement</a><a href="legal/dpa.html">DPA</a></div>
     </div>
     <div class="footer-bottom">
-      <span>&copy; 2026 IronStratos LLC</span>
+      <span>&copy; 2026 Iron Stratos LLC</span>
       <span>smiths station, al</span>
     </div>
   </div>
 </footer>
 
-
-<script>
-(function() {
-  var form = document.getElementById('footer-newsletter-form');
-  if (!form) return;
-  var status = form.querySelector('.fn-status');
-  var btn = form.querySelector('.fn-btn');
-  var email = form.querySelector('input[type=email]');
-  function setStatus(kind, msg) {
-    status.className = 'fn-status show ' + kind;
-    status.textContent = msg;
-  }
-  form.addEventListener('submit', async function(e) {
-    e.preventDefault();
-    email.setAttribute('aria-invalid', 'false');
-    if (!form.checkValidity()) {
-      email.setAttribute('aria-invalid', 'true');
-      setStatus('err', 'Please enter a valid email and accept the privacy terms.');
-      return;
-    }
-    btn.disabled = true;
-    var prev = btn.textContent;
-    btn.textContent = 'Sending...';
-    try {
-      var res = await fetch('/.netlify/functions/newsletter-subscribe', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          email: email.value,
-          website: form.querySelector('input[name=website]').value,
-          source: location.pathname || 'unknown'
-        })
-      });
-      var data = await res.json().catch(function() { return {}; });
-      if (res.ok && data.ok) {
-        setStatus('ok', '✓ Subscribed! Check your inbox for confirmation.');
-        form.reset();
-      } else {
-        setStatus('err', (data && data.error) || 'Something went wrong. Please try again.');
-      }
-    } catch (err) {
-      setStatus('err', 'Network error. Please try again.');
-    } finally {
-      btn.disabled = false;
-      btn.textContent = prev;
-    }
-  });
-})();
-</script>
 </body>
 </html>
