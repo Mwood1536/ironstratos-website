@@ -40,3 +40,13 @@
   from = "/terms"
   to   = "/terms.html"
   status = 200
+
+[[redirects]]
+  from = "/legal/subscription-agreement"
+  to   = "/legal/subscription-agreement.html"
+  status = 200
+
+[[redirects]]
+  from = "/legal/dpa"
+  to   = "/legal/dpa.html"
+  status = 200
