@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NConform Terms of Service — IronStratos</title>
+<link rel="canonical" href="https://ironstratos.com/nconform/terms.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="NConform Terms of Service — IronStratos">
+<meta property="og:description" content="Terms of service for the NConform mobile application.">
+<meta property="og:url" content="https://ironstratos.com/nconform/terms.html">
+<meta property="og:site_name" content="IronStratos">
+<meta name="description" content="Terms of service for the NConform mobile application.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Mono:wght@400;500;600&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --cream: #faf6f0; --cream-dark: #f0ebe3; --paper: #f5f1ea;
+  --burnt-orange: #c85a2c; --burnt-orange-light: rgba(200, 90, 44, 0.08);
+  --espresso: #2c1e13; --warm-gray: #8a7e72; --warm-gray-light: #b5aa9e;
+  --border: rgba(44, 30, 19, 0.1);
+  --serif: 'DM Serif Display', Georgia, serif;
+  --sans: 'DM Sans', -apple-system, sans-serif;
+  --mono: 'IBM Plex Mono', 'Courier New', monospace;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--sans); background: var(--cream);
+  color: var(--espresso); -webkit-font-smoothing: antialiased;
+}
+body::after {
+  content: ''; position: fixed; inset: 0; opacity: 0.35; pointer-events: none; z-index: 9999;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)' opacity='0.06'/%3E%3C/svg%3E");
+}
+::selection { background: var(--burnt-orange); color: var(--cream); }
+
+/* NAV */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  padding: 0 clamp(1.5rem, 5vw, 4rem); height: 64px;
+  display: flex; align-items: center; justify-content: space-between;
+  background: rgba(250, 246, 240, 0.9); backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+}
+.nav-logo { font-family: var(--serif); font-size: 1.3rem; color: var(--espresso); text-decoration: none; }
+.nav-logo span { color: var(--burnt-orange); }
+.nav-links { display: flex; gap: 2.5rem; list-style: none; align-items: center; }
+.nav-links a {
+  font-family: var(--mono); font-size: 0.78rem; color: var(--warm-gray);
+  text-decoration: none; text-transform: lowercase; letter-spacing: 0.02em; transition: color 0.3s;
+}
+.nav-links a:hover { color: var(--burnt-orange); }
+.nav-cta {
+  font-family: var(--mono) !important; font-size: 0.78rem !important;
+  padding: 8px 18px; background: var(--espresso); color: var(--cream) !important;
+  border-radius: 6px; transition: background 0.3s !important;
+}
+.nav-cta:hover { background: var(--burnt-orange) !important; }
+.mobile-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+.mobile-toggle span { width: 22px; height: 2px; background: var(--espresso); border-radius: 2px; }
+
+/* LEGAL PAGE */
+.legal-hero { padding: 140px clamp(1.5rem, 5vw, 4rem) 30px; }
+.legal-hero-inner { max-width: 760px; margin: 0 auto; }
+.breadcrumb {
+  font-family: var(--mono); font-size: 0.72rem; color: var(--warm-gray-light); margin-bottom: 1.5rem;
+}
+.breadcrumb a { color: var(--burnt-orange); text-decoration: none; }
+.legal-hero h1 {
+  font-family: var(--serif); font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  font-weight: 400; margin-bottom: 0.5rem;
+}
+.legal-updated {
+  font-family: var(--mono); font-size: 0.75rem; color: var(--warm-gray-light);
+}
+.draft-banner {
+  background: var(--burnt-orange); color: var(--cream); font-family: var(--mono);
+  font-size: 0.76rem; line-height: 1.55; text-align: center; letter-spacing: 0.03em;
+  padding: 0.85rem 1.1rem; border-radius: 6px; margin-bottom: 1.5rem;
+}
+.draft-banner strong { text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; }
+
+.legal-content { padding: 30px clamp(1.5rem, 5vw, 4rem) 100px; }
+.legal-inner { max-width: 760px; margin: 0 auto; }
+.legal-inner h2 {
+  font-family: var(--serif); font-size: 1.3rem; font-weight: 400;
+  margin-top: 2.5rem; margin-bottom: 0.75rem; color: var(--espresso);
+}
+.legal-inner p {
+  font-size: 0.95rem; color: var(--warm-gray); line-height: 1.8; margin-bottom: 1rem;
+}
+.legal-inner ul {
+  margin: 0.5rem 0 1rem 1.5rem; color: var(--warm-gray);
+  font-size: 0.95rem; line-height: 1.8;
+}
+.legal-inner a { color: var(--burnt-orange); text-decoration: none; }
+.legal-inner a:hover { text-decoration: underline; }
+.legal-inner strong { color: var(--espresso); font-weight: 600; }
+
+/* FOOTER */
+footer {
+  padding: 60px clamp(1.5rem, 5vw, 4rem) 30px; border-top: 1px solid var(--border);
+}
+.footer-inner { max-width: 1100px; margin: 0 auto; }
+.footer-grid {
+  display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 3rem; margin-bottom: 3rem;
+}
+.footer-brand-text { font-family: var(--serif); font-size: 1.3rem; color: var(--espresso); margin-bottom: 0.5rem; }
+.footer-brand-text span { color: var(--burnt-orange); }
+.footer-tagline { font-size: 0.88rem; color: var(--warm-gray); line-height: 1.6; }
+.footer-col h4 {
+  font-family: var(--mono); font-size: 0.7rem; text-transform: uppercase;
+  letter-spacing: 0.1em; color: var(--espresso); margin-bottom: 1rem;
+}
+.footer-col a {
+  display: block; color: var(--warm-gray); text-decoration: none;
+  font-size: 0.88rem; padding: 3px 0; transition: color 0.3s;
+}
+.footer-col a:hover { color: var(--burnt-orange); }
+.footer-bottom {
+  display: flex; justify-content: space-between; align-items: center;
+  padding-top: 1.5rem; border-top: 1px solid var(--border);
+  font-family: var(--mono); font-size: 0.72rem; color: var(--warm-gray-light);
+  flex-wrap: wrap; gap: 1rem;
+}
+
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .mobile-toggle { display: flex; }
+  .nav-links.open {
+    display: flex; flex-direction: column; position: absolute;
+    top: 64px; left: 0; right: 0;
+    background: rgba(250, 246, 240, 0.97); backdrop-filter: blur(16px);
+    padding: 1.5rem 2rem; gap: 1.25rem; border-bottom: 1px solid var(--border);
+  }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+}
+
+
+/* === FOOTER NEWSLETTER === */
+.footer-newsletter {
+  display: grid; grid-template-columns: 1fr 1.2fr; gap: 3rem;
+  padding-bottom: 3rem; margin-bottom: 2.5rem;
+  border-bottom: 1px solid var(--border); align-items: start;
+}
+.footer-newsletter .fn-label {
+  font-family: var(--mono); font-size: 0.72rem; color: var(--burnt-orange);
+  text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.5rem;
+}
+.footer-newsletter .fn-label::before { content: '// '; color: var(--warm-gray-light); }
+.footer-newsletter h4 {
+  font-family: var(--serif); font-size: 1.3rem; font-weight: 400;
+  letter-spacing: -0.01em; margin-bottom: 0.5rem; color: var(--espresso);
+}
+.footer-newsletter .fn-text > p:last-of-type {
+  font-size: 0.9rem; color: var(--warm-gray); line-height: 1.6; max-width: 380px;
+}
+.fn-form { display: flex; flex-direction: column; gap: 0.85rem; }
+.fn-honeypot { position: absolute; left: -10000px; width: 1px; height: 1px; opacity: 0; pointer-events: none; }
+.fn-srlabel { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; }
+.fn-row { display: flex; gap: 0.5rem; }
+.fn-row input[type=email] {
+  flex: 1; min-width: 0; padding: 12px 16px;
+  font-family: var(--sans); font-size: 0.92rem; color: var(--espresso);
+  border: 1.5px solid var(--border); border-radius: 8px; background: var(--cream);
+  outline: none; transition: border-color 0.3s, box-shadow 0.3s;
+}
+.fn-row input[type=email]:focus {
+  border-color: var(--burnt-orange);
+  box-shadow: 0 0 0 3px var(--burnt-orange-light);
+}
+.fn-row input[type=email][aria-invalid="true"] { border-color: var(--burnt-orange); }
+.fn-btn {
+  padding: 12px 20px; background: var(--burnt-orange); color: var(--cream);
+  font-family: var(--mono); font-size: 0.8rem; font-weight: 500;
+  border: none; border-radius: 8px; cursor: pointer;
+  transition: all 0.3s; box-shadow: 0 2px 12px rgba(200, 90, 44, 0.2);
+  white-space: nowrap;
+}
+.fn-btn:hover { transform: translateY(-2px); box-shadow: 0 4px 20px rgba(200, 90, 44, 0.3); }
+.fn-btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+.fn-consent { display: flex; gap: 0.5rem; align-items: flex-start; font-family: var(--mono); font-size: 0.7rem; color: var(--warm-gray); line-height: 1.5; }
+.fn-consent input { margin-top: 2px; accent-color: var(--burnt-orange); flex-shrink: 0; }
+.fn-consent a { color: var(--burnt-orange); text-decoration: none; }
+.fn-consent a:hover { text-decoration: underline; }
+.fn-status { font-family: var(--mono); font-size: 0.78rem; display: none; border-radius: 6px; line-height: 1.4; }
+.fn-status.show { display: block; padding: 10px 14px; }
+.fn-status.ok { background: var(--avocado-light); color: var(--avocado); }
+.fn-status.err { background: var(--burnt-orange-light); color: var(--burnt-orange); }
+@media (max-width: 768px) {
+  .footer-newsletter { grid-template-columns: 1fr; gap: 1.5rem; padding-bottom: 2rem; margin-bottom: 2rem; }
+  .fn-row { flex-direction: column; }
+  .fn-btn { width: 100%; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="../index.html" class="nav-logo">Iron<span>Stratos</span></a>
+  <div class="mobile-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">
+    <span></span><span></span><span></span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="../index.html">home</a></li>
+    <li><a href="../apps.html">apps</a></li>
+    <li><a href="../index.html#services">services</a></li>
+    <li><a href="../about.html">about</a></li>
+    <li><a href="../contact.html" class="nav-cta">get in touch</a></li>
+  </ul>
+</nav>
+
+<section class="legal-hero">
+  <div class="legal-hero-inner">
+    <p class="draft-banner"><strong>Draft — pending review by Alabama counsel.</strong> Not yet in effect.</p>
+    <p class="breadcrumb"><a href="../index.html">home</a> / <a href="../apps.html">nconform</a> / terms</p>
+    <h1>NConform Terms of Service</h1>
+    <p class="legal-updated">Last updated: June 1, 2026</p>
+  </div>
+</section>
+
+<section class="legal-content">
+  <div class="legal-inner">
+
+    <p>These Terms of Service ("Terms") govern your use of the <strong>NConform</strong> mobile application (the "App") published by Iron Stratos LLC ("IronStratos," "we," "us," or "our"). IronStratos is the trade name of Iron Stratos LLC. By downloading, installing, or using the App, you agree to be bound by these Terms. If you do not agree, do not use the App. For our website terms, see <a href="../terms.html">ironstratos.com/terms</a>.</p>
+
+    <h2>1. Informational Purposes Only</h2>
+    <p>NConform is a productivity tool that helps users document nonconformances (NCRs), manage corrective and preventive actions (CAPA), conduct LPA layered process audits, track training, and record safety observations. <strong>The App is provided for informational and educational purposes only and is not a substitute for professional engineering judgment, safety assessments, regulatory compliance evaluations, or qualified consulting services.</strong></p>
+    <p>Output generated by the App — including AI pattern-detection results, suggested actions, training assignments, and exported reports — is <strong>assistive, not authoritative</strong>. You are solely responsible for validating findings and recommendations against your organization's standards, applicable regulations, and qualified professional review before acting on them.</p>
+
+    <h2>2. Your Responsibility for Your Data</h2>
+    <p>You are solely responsible for the accuracy, completeness, and lawfulness of any data you enter into the App, including NCR descriptions, audit findings, training records, safety observations, and photos. IronStratos does not review, verify, or validate user-entered content, and we make no representation about its quality or correctness.</p>
+    <p>You agree not to:</p>
+    <ul>
+      <li>Enter information you do not have the right to use or share.</li>
+      <li>Upload photos containing other people without appropriate consent.</li>
+      <li>Use the App to record or document activity in violation of any workplace policy or law.</li>
+      <li>Rely on the App as the sole basis for safety-critical or compliance decisions.</li>
+    </ul>
+
+    <h2>3. AI-Generated Content</h2>
+    <p>The App uses AI pattern detection to analyze your records and surface recurring patterns and suggested actions. AI output may be inaccurate, incomplete, biased, or wrong. The App's AI features are designed to <strong>assist your thinking, not replace it</strong>. Treat every AI suggestion as a starting point — verify before adopting.</p>
+    <p>IronStratos makes no warranty that AI-generated content is accurate, fit for any particular purpose, or compliant with any standard or regulation.</p>
+
+    <h2>4. Pricing and In-App Purchases</h2>
+    <p>The App is offered free of charge and supported by ads served via Google AdMob. A one-time in-app purchase of <strong>$4.99 USD</strong> permanently removes all ads on the device of purchase, subject to platform store policies.</p>
+    <p>All in-app purchases are processed through Google Play. Refunds, billing disputes, and purchase management are governed by the Google Play Store's policies.</p>
+
+    <h2>5. Advertising</h2>
+    <p>The free tier displays ads served via Google AdMob. By using the free tier, you consent to the display of ads and the data collection described in our <a href="privacy.html">Privacy Policy</a>. The one-time in-app purchase removes all ads.</p>
+
+    <h2>6. Intellectual Property</h2>
+    <p>The App — including its code, design, brand, and AI prompts — is the property of Iron Stratos LLC and is protected by copyright, trademark, and other intellectual property laws. We grant you a limited, non-exclusive, non-transferable license to use the App for its intended purpose. You may not reverse engineer, decompile, redistribute, or create derivative works of the App.</p>
+    <p><strong>Your data is yours.</strong> You retain all rights to the NCRs, audits, training records, observations, and photos you create. The App stores this content on your device only.</p>
+
+    <h2>7. Disclaimer of Warranties</h2>
+    <p>THE APP IS PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, NON-INFRINGEMENT, OR ACCURACY OF AI OUTPUT. IRONSTRATOS DOES NOT WARRANT THAT THE APP WILL BE UNINTERRUPTED, ERROR-FREE, OR SECURE.</p>
+
+    <h2>8. Limitation of Liability</h2>
+    <p>TO THE MAXIMUM EXTENT PERMITTED BY LAW, IRON STRATOS LLC, ITS OFFICERS, DIRECTORS, EMPLOYEES, AND AGENTS SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, EXEMPLARY, OR PUNITIVE DAMAGES — INCLUDING WITHOUT LIMITATION LOST PROFITS, LOST DATA, BUSINESS INTERRUPTION, PERSONAL INJURY, PROPERTY DAMAGE, OR REGULATORY FINES — ARISING OUT OF OR IN CONNECTION WITH YOUR USE OF THE APP, EVEN IF IRONSTRATOS HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.</p>
+    <p>OUR TOTAL AGGREGATE LIABILITY ARISING OUT OF OR RELATING TO THESE TERMS OR THE APP SHALL NOT EXCEED THE AMOUNT YOU PAID FOR THE APP IN THE TWELVE MONTHS PRIOR TO THE CLAIM, OR FIVE U.S. DOLLARS, WHICHEVER IS GREATER.</p>
+
+    <h2>9. Indemnification</h2>
+    <p>You agree to indemnify and hold harmless Iron Stratos LLC and its affiliates from any claims, damages, losses, liabilities, and expenses (including reasonable attorneys' fees) arising out of your use of the App, your data, your reliance on AI-generated content, or your violation of these Terms.</p>
+
+    <h2>10. Termination</h2>
+    <p>You may stop using the App at any time by uninstalling it. We may suspend or terminate your access to paid features if you violate these Terms. Termination does not entitle you to a refund except as required by the platform store's refund policy or applicable law.</p>
+
+    <h2>11. Governing Law</h2>
+    <p>These Terms are governed by the laws of the State of Alabama, United States, without regard to conflict of law principles. Any disputes arising under these Terms shall be subject to the exclusive jurisdiction of the courts located in [COUNTY], Alabama.</p>
+
+    <h2>12. Changes to These Terms</h2>
+    <p>We may update these Terms as the App evolves. Material changes will be communicated through an in-app notice and via the "Last updated" date on this page. Your continued use of the App after changes are posted constitutes your acceptance of the revised Terms.</p>
+
+    <h2>13. Contact</h2>
+    <p>If you have questions about these Terms:</p>
+    <p>
+      Iron Stratos LLC<br>
+      [BUSINESS ADDRESS]<br>
+      <a href="mailto:info@ironstratos.com">info@ironstratos.com</a>
+    </p>
+
+    <p style="margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border); font-size: 0.85rem;">
+      See also: <a href="privacy.html">NConform Privacy Policy</a> · <a href="../terms.html">IronStratos website terms</a>
+    </p>
+
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+
+    <div class="footer-newsletter">
+      <div class="fn-text">
+        <p class="fn-label">newsletter</p>
+        <h4>Field notes from the floor.</h4>
+        <p>Product updates, RCA patterns, and the occasional NConform release note. Maybe one email a month — no fluff.</p>
+      </div>
+      <form class="fn-form" id="footer-newsletter-form" novalidate>
+        <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" class="fn-honeypot">
+        <div class="fn-row">
+          <label class="fn-srlabel" for="footer-newsletter-email">Email</label>
+          <input type="email" id="footer-newsletter-email" name="email" placeholder="you@plant.com" required aria-required="true" autocomplete="email">
+          <button type="submit" class="fn-btn">Subscribe →</button>
+        </div>
+        <label class="fn-consent">
+          <input type="checkbox" name="consent" required aria-required="true">
+          <span>I agree to the <a href="/privacy">Privacy Policy</a> and <a href="/terms">Terms of Service</a>.</span>
+        </label>
+        <div class="fn-status" role="status" aria-live="polite"></div>
+      </form>
+    </div>
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand-text">Iron<span>Stratos</span></div>
+        <p class="footer-tagline">Manufacturing quality &amp; reliability software.<br>Iron Stratos LLC — Smiths Station, Alabama.</p>
+      </div>
+      <div class="footer-col"><h4>Platform</h4><a href="../apps.html">All apps</a><a href="../rootcause.html">Root Cause AI</a><a href="../apps.html">NConform</a></div>
+      <div class="footer-col"><h4>Company</h4><a href="../about.html">About</a><a href="../contact.html">Contact</a></div>
+      <div class="footer-col"><h4>Legal</h4><a href="../privacy.html">Privacy</a><a href="../terms.html">Terms</a><a href="privacy.html">App Privacy</a><a href="terms.html">App Terms</a></div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Iron Stratos LLC</span>
+      <span>smiths station, al</span>
+    </div>
+  </div>
+</footer>
+
+
+<script>
+(function() {
+  var form = document.getElementById('footer-newsletter-form');
+  if (!form) return;
+  var status = form.querySelector('.fn-status');
+  var btn = form.querySelector('.fn-btn');
+  var email = form.querySelector('input[type=email]');
+  function setStatus(kind, msg) {
+    status.className = 'fn-status show ' + kind;
+    status.textContent = msg;
+  }
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    email.setAttribute('aria-invalid', 'false');
+    if (!form.checkValidity()) {
+      email.setAttribute('aria-invalid', 'true');
+      setStatus('err', 'Please enter a valid email and accept the privacy terms.');
+      return;
+    }
+    btn.disabled = true;
+    var prev = btn.textContent;
+    btn.textContent = 'Sending...';
+    try {
+      var res = await fetch('/.netlify/functions/newsletter-subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          email: email.value,
+          website: form.querySelector('input[name=website]').value,
+          source: location.pathname || 'unknown'
+        })
+      });
+      var data = await res.json().catch(function() { return {}; });
+      if (res.ok && data.ok) {
+        setStatus('ok', '✓ Subscribed! Check your inbox for confirmation.');
+        form.reset();
+      } else {
+        setStatus('err', (data && data.error) || 'Something went wrong. Please try again.');
+      }
+    } catch (err) {
+      setStatus('err', 'Network error. Please try again.');
+    } finally {
+      btn.disabled = false;
+      btn.textContent = prev;
+    }
+  });
+})();
+</script>
+</body>
+</html>
