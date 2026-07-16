@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Request Account Deletion — IronStratos</title>
+<link rel="canonical" href="https://ironstratos.com/delete-account">
+<meta name="description" content="How to request deletion of your Root Cause AI or NConform account and all synced data — Iron Stratos LLC (IronStratos).">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Request Account Deletion — IronStratos">
+<meta property="og:description" content="How to request deletion of your Root Cause AI or NConform account and all synced data — Iron Stratos LLC (IronStratos).">
+<meta property="og:url" content="https://ironstratos.com/delete-account">
+<meta property="og:site_name" content="IronStratos">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Mono:wght@400;500;600&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --cream: #faf6f0; --cream-dark: #f0ebe3; --paper: #f5f1ea;
+  --burnt-orange: #c85a2c; --burnt-orange-light: rgba(200, 90, 44, 0.08);
+  --espresso: #2c1e13; --warm-gray: #8a7e72; --warm-gray-light: #b5aa9e;
+  --border: rgba(44, 30, 19, 0.1);
+  --serif: 'DM Serif Display', Georgia, serif;
+  --sans: 'DM Sans', -apple-system, sans-serif;
+  --mono: 'IBM Plex Mono', 'Courier New', monospace;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--sans); background: var(--cream);
+  color: var(--espresso); -webkit-font-smoothing: antialiased;
+}
+body::after {
+  content: ''; position: fixed; inset: 0; opacity: 0.35; pointer-events: none; z-index: 9999;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)' opacity='0.06'/%3E%3C/svg%3E");
+}
+::selection { background: var(--burnt-orange); color: var(--cream); }
+
+/* NAV */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  padding: 0 clamp(1.5rem, 5vw, 4rem); height: 64px;
+  display: flex; align-items: center; justify-content: space-between;
+  background: rgba(250, 246, 240, 0.9); backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+}
+.nav-logo { font-family: var(--serif); font-size: 1.3rem; color: var(--espresso); text-decoration: none; }
+.nav-logo span { color: var(--burnt-orange); }
+.nav-links { display: flex; gap: 2.5rem; list-style: none; align-items: center; }
+.nav-links a {
+  font-family: var(--mono); font-size: 0.78rem; color: var(--warm-gray);
+  text-decoration: none; text-transform: lowercase; letter-spacing: 0.02em; transition: color 0.3s;
+}
+.nav-links a:hover { color: var(--burnt-orange); }
+.nav-cta {
+  font-family: var(--mono) !important; font-size: 0.78rem !important;
+  padding: 8px 18px; background: var(--espresso); color: var(--cream) !important;
+  border-radius: 6px; transition: background 0.3s !important;
+}
+.nav-cta:hover { background: var(--burnt-orange) !important; }
+.mobile-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+.mobile-toggle span { width: 22px; height: 2px; background: var(--espresso); border-radius: 2px; }
+
+/* LEGAL PAGE */
+.legal-hero { padding: 140px clamp(1.5rem, 5vw, 4rem) 30px; }
+.legal-hero-inner { max-width: 760px; margin: 0 auto; }
+.breadcrumb {
+  font-family: var(--mono); font-size: 0.72rem; color: var(--warm-gray-light); margin-bottom: 1.5rem;
+}
+.breadcrumb a { color: var(--burnt-orange); text-decoration: none; }
+.legal-hero h1 {
+  font-family: var(--serif); font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  font-weight: 400; margin-bottom: 0.5rem;
+}
+.legal-updated {
+  font-family: var(--mono); font-size: 0.75rem; color: var(--warm-gray-light);
+}
+
+.legal-content { padding: 30px clamp(1.5rem, 5vw, 4rem) 100px; }
+.legal-inner { max-width: 760px; margin: 0 auto; }
+.legal-inner h2 {
+  font-family: var(--serif); font-size: 1.3rem; font-weight: 400;
+  margin-top: 2.5rem; margin-bottom: 0.75rem; color: var(--espresso);
+}
+.legal-inner p {
+  font-size: 0.95rem; color: var(--warm-gray); line-height: 1.8; margin-bottom: 1rem;
+}
+.legal-inner ul {
+  margin: 0.5rem 0 1rem 1.5rem; color: var(--warm-gray);
+  font-size: 0.95rem; line-height: 1.8;
+}
+.legal-inner a { color: var(--burnt-orange); text-decoration: none; }
+.legal-inner a:hover { text-decoration: underline; }
+.callout {
+  padding: 1rem 1.25rem; background: var(--burnt-orange-light);
+  border-left: 3px solid var(--burnt-orange); border-radius: 6px; margin: 1.5rem 0;
+}
+
+/* FOOTER */
+footer {
+  padding: 60px clamp(1.5rem, 5vw, 4rem) 30px; border-top: 1px solid var(--border);
+}
+.footer-inner { max-width: 1100px; margin: 0 auto; }
+.footer-grid {
+  display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 3rem; margin-bottom: 3rem;
+}
+.footer-brand-text { font-family: var(--serif); font-size: 1.3rem; color: var(--espresso); margin-bottom: 0.5rem; }
+.footer-brand-text span { color: var(--burnt-orange); }
+.footer-tagline { font-size: 0.88rem; color: var(--warm-gray); line-height: 1.6; }
+.footer-col h4 {
+  font-family: var(--mono); font-size: 0.7rem; text-transform: uppercase;
+  letter-spacing: 0.1em; color: var(--espresso); margin-bottom: 1rem;
+}
+.footer-col a {
+  display: block; color: var(--warm-gray); text-decoration: none;
+  font-size: 0.88rem; padding: 3px 0; transition: color 0.3s;
+}
+.footer-col a:hover { color: var(--burnt-orange); }
+.footer-bottom {
+  display: flex; justify-content: space-between; align-items: center;
+  padding-top: 1.5rem; border-top: 1px solid var(--border);
+  font-family: var(--mono); font-size: 0.72rem; color: var(--warm-gray-light);
+  flex-wrap: wrap; gap: 1rem;
+}
+
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .mobile-toggle { display: flex; }
+  .nav-links.open {
+    display: flex; flex-direction: column; position: absolute;
+    top: 64px; left: 0; right: 0;
+    background: rgba(250, 246, 240, 0.97); backdrop-filter: blur(16px);
+    padding: 1.5rem 2rem; gap: 1.25rem; border-bottom: 1px solid var(--border);
+  }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Iron<span>Stratos</span></a>
+  <div class="mobile-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">
+    <span></span><span></span><span></span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="index.html">home</a></li>
+    <li><a href="apps.html">apps</a></li>
+    <li><a href="index.html#services">services</a></li>
+    <li><a href="about.html">about</a></li>
+    <li><a href="contact.html" class="nav-cta">get in touch</a></li>
+  </ul>
+</nav>
+
+<section class="legal-hero">
+  <div class="legal-hero-inner">
+    <p class="breadcrumb"><a href="index.html">home</a> / delete account</p>
+    <h1>Request Account Deletion</h1>
+    <p class="legal-updated">Iron Stratos LLC (IronStratos) — Root Cause AI &amp; NConform · Last updated: July 16, 2026</p>
+  </div>
+</section>
+
+<section class="legal-content">
+  <div class="legal-inner">
+
+    <p>This page explains how to request deletion of your account and associated data for the
+    <strong>Root Cause AI</strong> and <strong>NConform</strong> mobile apps, published by Iron Stratos LLC
+    (trade name IronStratos). You do not need to be signed in — or even have the app installed — to make a request.</p>
+
+    <h2>How to Request Deletion</h2>
+    <p>Email <a href="mailto:privacy@ironstratos.com?subject=Account%20Deletion%20Request"><strong>privacy@ironstratos.com</strong></a>
+    with the subject line <strong>"Account Deletion Request"</strong>, sent from the Google account email address you
+    used to sign in to the app. Tell us which app(s) the request covers — Root Cause AI, NConform, or both.</p>
+    <p>Sending from the sign-in address is how we verify the request. If you can no longer access that address,
+    say so in your email and we will work with you to verify your identity another way.</p>
+    <p>We respond to every request within <strong>7 business days</strong>, and complete verified deletions within
+    <strong>90 days</strong> as described in our <a href="privacy.html">Privacy Policy</a> (most are completed much sooner).
+    We will confirm by email when deletion is complete.</p>
+
+    <h2>What Is Deleted</h2>
+    <p>A verified deletion request removes, for the app(s) you name:</p>
+    <ul>
+      <li>Your account (Google sign-in identity, email address, and profile details)</li>
+      <li>All synced records tied to your account — investigations, NCRs, safety observations,
+          corrective actions, training records, and shift/hand-off data</li>
+      <li>Photos and other attachments you uploaded</li>
+      <li>Push-notification tokens and device registrations</li>
+      <li>The API keys that connected your device to cloud sync</li>
+    </ul>
+
+    <h2>What Is Retained, and for How Long</h2>
+    <p>We keep nothing beyond the following, and nothing indefinitely:</p>
+    <ul>
+      <li><strong>Legal and accounting records</strong> — if you had a paid subscription, we retain the minimal
+          transaction records we are legally required to keep for tax and accounting purposes. These do not include
+          your app content.</li>
+      <li><strong>Backups</strong> — deleted data may persist in encrypted database backups for a short period
+          before those backups expire on a rolling basis, within the 90-day window above.</li>
+      <li><strong>Team workspace records</strong> — if you shared records into a team workspace (Bundle),
+          copies already delivered to other members of that workspace may persist in the workspace after your
+          account is deleted, in the same way an email you sent remains with its recipients. Your name is retained
+          on those records only as attribution; ask us in your request if you want attribution removed too.</li>
+    </ul>
+    <p>Aside from the items above, nothing is retained after deletion is complete.</p>
+
+    <h2>Using the Free Tier? Your Data Is Already Local-Only</h2>
+    <p class="callout">If you never signed in to a cloud account, Root Cause AI and NConform store all of your data
+    <strong>only on your device</strong> — we hold no copy of it. Uninstalling the app removes it completely.
+    There is no account to delete on our side.</p>
+
+    <h2>Questions</h2>
+    <p>
+      Iron Stratos LLC<br>
+      Smiths Station, Alabama<br>
+      <a href="mailto:privacy@ironstratos.com">privacy@ironstratos.com</a>
+    </p>
+
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand-text">Iron<span>Stratos</span></div>
+        <p class="footer-tagline">Manufacturing quality &amp; reliability software.<br>IronStratos is the trade name of Iron Stratos LLC — Smiths Station, Alabama.</p>
+      </div>
+      <div class="footer-col"><h4>Platform</h4><a href="apps.html">All apps</a><a href="rootcause.html">Root Cause AI</a><a href="apps.html">NConform</a></div>
+      <div class="footer-col"><h4>Company</h4><a href="about.html">About</a><a href="contact.html">Contact</a></div>
+      <div class="footer-col"><h4>Legal</h4><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="delete-account.html">Delete Account</a><a href="legal/subscription-agreement.html">Subscription Agreement</a><a href="legal/dpa.html">DPA</a></div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Iron Stratos LLC</span>
+      <span>smiths station, al</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
