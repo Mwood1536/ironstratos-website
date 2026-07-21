@@ -3,17 +3,24 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>IronStratos — Manufacturing Quality & Reliability Software</title>
+<meta name="theme-color" content="#FAF6F0">
+<title>IronStratos - Root Cause Analysis &amp; CAPA Apps for Manufacturing</title>
 <link rel="canonical" href="https://ironstratos.com/">
+<meta name="description" content="IronStratos builds guided 5 Why root cause analysis, CAPA, and nonconformance tracking apps for the shop floor. Fix it, prove it, move on. Offline-first, audit-ready reports.">
 <meta property="og:type" content="website">
-<meta property="og:title" content="IronStratos — Manufacturing Quality & Reliability Software">
-<meta property="og:description" content="Root Cause AI and NConform — RCA, CAPA, layered process audits, and ISO compliance for plant floors. Starting free.">
+<meta property="og:title" content="IronStratos - Root Cause Analysis &amp; CAPA Apps for Manufacturing">
+<meta property="og:description" content="IronStratos builds guided 5 Why root cause analysis, CAPA, and nonconformance tracking apps for the shop floor. Fix it, prove it, move on. Offline-first, audit-ready reports.">
 <meta property="og:url" content="https://ironstratos.com/">
 <meta property="og:site_name" content="IronStratos">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="IronStratos — Manufacturing Quality & Reliability Software">
-<meta name="twitter:description" content="Root Cause AI and NConform. RCA, CAPA, audits, and ISO compliance for plant floors.">
-<meta name="description" content="Manufacturing quality and reliability software. Root Cause AI for RCA. NConform for CAPA, layered process audits, and ISO 9001 / IATF 16949 / AS9100 compliance.">
+<meta property="og:image" content="https://ironstratos.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="IronStratos - Root Cause Analysis &amp; CAPA Apps for Manufacturing">
+<meta name="twitter:description" content="IronStratos builds guided 5 Why root cause analysis, CAPA, and nonconformance tracking apps for the shop floor. Fix it, prove it, move on. Offline-first, audit-ready reports.">
+<meta name="twitter:image" content="https://ironstratos.com/og-image.png">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/manifest.webmanifest">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Mono:wght@400;500;600&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -178,6 +185,7 @@ nav {
   animation: fadeUp 0.9s ease forwards;
 }
 .hero-label {
+  line-height: 1.5;
   font-family: var(--mono);
   font-size: 0.75rem;
   color: var(--burnt-orange);
@@ -980,13 +988,16 @@ footer {
   .fn-row { flex-direction: column; }
   .fn-btn { width: 100%; }
 }
+
+.nav-logo { display: inline-flex; align-items: center; gap: 8px; }
+.nav-mark { height: 1.05em; width: auto; display: block; }
 </style>
 </head>
 <body>
 
 <!-- NAV -->
 <nav>
-  <a href="index.html" class="nav-logo">Iron<span>Stratos</span></a>
+  <a href="index.html" class="nav-logo"><img src="/ironstratos-mark-transparent.svg" alt="IronStratos logo" class="nav-mark">Iron<span>Stratos</span></a>
   <div class="mobile-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">
     <span></span><span></span><span></span>
   </div>
@@ -1003,8 +1014,7 @@ footer {
 <section class="hero">
   <div class="hero-layout">
     <div class="hero-text">
-      <p class="hero-label">Manufacturing Quality &amp; Reliability Software</p>
-      <h1>Fix it. <em>Prove it.</em><br>Move on.</h1>
+      <h1><span class="hero-label">Root Cause Analysis &amp; CAPA Software</span>Fix it. <em>Prove it.</em><br>Move on.</h1>
       <p class="hero-desc">
         Root Cause AI and NConform give your plant floor the same RCA, CAPA, and audit tools that Fortune 500s pay six figures for — starting free.
       </p>
@@ -1024,9 +1034,9 @@ footer {
       <div class="terminal-body">
         <span class="comment"># platform status</span><br>
         <span class="prompt">$</span> <span class="cmd">ironstratos status</span><br><br>
-        <span class="output">Root Cause AI (Android)</span> ... <span style="color:var(--avocado);">LIVE</span><br>
-        <span class="output">Root Cause AI (iOS)</span> ........ <span style="color:#e8b73a;">IN BETA</span><br>
-        <span class="output">NConform</span> ................... <span style="color:#e8b73a;">IN DEVELOPMENT</span><br>
+        <span class="output">Root Cause AI (Android)</span> ... <span style="color:var(--avocado);">LIVE ON GOOGLE PLAY</span><br>
+        <span class="output">Root Cause AI (iOS)</span> ....... <span style="color:#e8b73a;">IN QUEUE</span><br>
+        <span class="output">NConform (Android)</span> ........ <span style="color:#e8b73a;">IN REVIEW</span><br>
         <span class="output">ISO 9001 / IATF 16949</span> ..... <span style="color:var(--avocado);">ALIGNED</span><br>
         <span class="output">AS9100 / ISO 45001</span> ........ <span style="color:var(--avocado);">ALIGNED</span><br><br>
         <span class="prompt">$</span> <span class="cmd">ironstratos audit --ready</span><br>
@@ -1086,7 +1096,7 @@ footer {
       <div class="audience-card reveal reveal-d1">
         <p class="audience-role">Quality Managers</p>
         <h3>Stop chasing CARs in email.</h3>
-        <p>See every open CAPA, NCR, and audit finding in one dashboard — with the evidence chain attached, ready for the next surveillance audit.</p>
+        <p>See every open CAPA, nonconformance (NCR), and audit finding in one dashboard — with the evidence chain attached, ready for the next surveillance audit.</p>
       </div>
       <div class="audience-card reveal reveal-d2">
         <p class="audience-role">Plant / Ops Managers</p>
@@ -1096,12 +1106,12 @@ footer {
       <div class="audience-card reveal reveal-d3">
         <p class="audience-role">Maintenance Leads</p>
         <h3>Plain English. AI does the rest.</h3>
-        <p>Your techs describe the failure in their own words. The app walks them through the 5 Why on the spot — no certification, no training class.</p>
+        <p>Your techs describe the failure in their own words. The app walks them through a guided 5 Why on the spot — no certification, no training class.</p>
       </div>
       <div class="audience-card reveal reveal-d4">
         <p class="audience-role">EHS / Safety Teams</p>
         <h3>Audits, training, incidents — tied.</h3>
-        <p>Layered process audits, training compliance, and incident investigation all aligned to ISO 45001 — and linked back to the root cause that triggered them.</p>
+        <p>Layered process audits, safety observations, training compliance, and incident investigation all aligned to ISO 45001 — and linked back to the root cause that triggered them.</p>
       </div>
     </div>
   </div>
@@ -1123,7 +1133,7 @@ footer {
         <ul class="pricing-features">
           <li>Conversational RCA + 5 Whys</li>
           <li>5S audits, OEE tracking, action tracker</li>
-          <li>AI-generated reports</li>
+          <li>AI-generated, audit-ready reports</li>
           <li>Local-only storage</li>
           <li>Pro upgrade: $4.99 one-time removes ads</li>
         </ul>
@@ -1179,6 +1189,7 @@ footer {
     </div>
 
     <p class="pricing-note reveal">All tiers ship with ISO 9001, IATF 16949, AS9100, and ISO 45001 alignment built in. <a href="contact.html">Compare against your current QMS →</a></p>
+    <p class="pricing-note reveal">In-app purchases rolling out; current downloads include full access.</p>
   </div>
 </section>
 
@@ -1195,15 +1206,15 @@ footer {
         <div class="build-info">
           <h3>Root Cause AI</h3>
           <p>Conversational RCA, 5 Whys, 5S audits, OEE tracking, and action management. Built for maintenance and quality teams on the floor.</p>
-          <p class="build-date">Live on Google Play · v1.0</p>
+          <p class="build-date">Live on Google Play · v1.1.4</p>
         </div>
       </div>
       <div class="build-item reveal reveal-d2">
-        <span class="build-status in-progress">building</span>
+        <span class="build-status in-progress">in review</span>
         <div class="build-info">
           <h3>NConform</h3>
           <p>NCR, CAPA, 8D, layered process audits, and training compliance in one app. Designed around ISO 9001, IATF 16949, and AS9100.</p>
-          <p class="build-date">In development · early access soon</p>
+          <p class="build-date">In review on Google Play · early access soon</p>
         </div>
       </div>
       <div class="build-item reveal reveal-d3">
@@ -1243,7 +1254,7 @@ footer {
       <div class="devlog-card reveal reveal-d2">
         <p class="devlog-date">April 2026</p>
         <h3>Why conversational RCA changes the equation</h3>
-        <p>Most RCA tools start with a blank fishbone diagram. Root Cause AI starts with a question: "Tell me what happened." Here's why that matters on a noisy floor.</p>
+        <p>Most RCA tools start with a blank diagram. Root Cause AI starts with a question: "Tell me what happened." Here's why that matters on a noisy floor.</p>
         <span class="devlog-tag">product</span>
       </div>
       <div class="devlog-card reveal reveal-d3">
@@ -1305,15 +1316,15 @@ footer {
         <div class="footer-brand-text">Iron<span>Stratos</span></div>
         <p class="footer-tagline">Manufacturing quality &amp; reliability software.<br>Iron Stratos LLC — Smiths Station, Alabama.</p>
         <div class="social-links">
-          <a href="#" class="social-link" title="GitHub" aria-label="GitHub">
+          <span class="social-link" title="GitHub">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-          </a>
-          <a href="#" class="social-link" title="X / Twitter" aria-label="X / Twitter">
+          </span>
+          <span class="social-link" title="X / Twitter">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-          </a>
-          <a href="#" class="social-link" title="LinkedIn" aria-label="LinkedIn">
+          </span>
+          <span class="social-link" title="LinkedIn">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-          </a>
+          </span>
           <a href="mailto:info@ironstratos.com" class="social-link" title="Email" aria-label="Email">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 7L2 7"/></svg>
           </a>
@@ -1349,8 +1360,10 @@ footer {
 {
   "@context": "https://schema.org",
   "@type": "Organization",
-  "name": "Iron Stratos LLC",
+  "name": "IronStratos",
+  "legalName": "Iron Stratos LLC",
   "url": "https://ironstratos.com",
+  "logo": "https://ironstratos.com/icon-512.png",
   "description": "Manufacturing quality and reliability software. Root Cause AI for RCA. NConform for CAPA, layered process audits, and ISO compliance.",
   "address": {
     "@type": "PostalAddress",
@@ -1371,10 +1384,12 @@ footer {
   "name": "Root Cause AI",
   "operatingSystem": "Android",
   "applicationCategory": "BusinessApplication",
+  "installUrl": "https://play.google.com/store/apps/details?id=com.ironstratos.rootcauseai",
   "offers": {
     "@type": "Offer",
     "price": "0",
-    "priceCurrency": "USD"
+    "priceCurrency": "USD",
+    "url": "https://play.google.com/store/apps/details?id=com.ironstratos.rootcauseai"
   },
   "description": "AI-driven root cause analysis app with conversational RCA, 5S audits, action tracking, and AI-generated reports.",
   "author": {

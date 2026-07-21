@@ -3,17 +3,24 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Root Cause AI — IronStratos</title>
+<meta name="theme-color" content="#FAF6F0">
+<title>Root Cause AI - Guided 5 Why Root Cause Analysis App</title>
 <link rel="canonical" href="https://ironstratos.com/rootcause.html">
+<meta name="description" content="Guided 5 Why root cause analysis with corrective actions, safety observations, and audit-ready reports for maintenance and manufacturing teams. Available on Google Play.">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Root Cause AI — IronStratos">
-<meta property="og:description" content="AI-driven root cause analysis app. Conversational RCA, 5S audits, action tracking.">
+<meta property="og:title" content="Root Cause AI - Guided 5 Why Root Cause Analysis App">
+<meta property="og:description" content="Guided 5 Why root cause analysis with corrective actions, safety observations, and audit-ready reports for maintenance and manufacturing teams. Available on Google Play.">
 <meta property="og:url" content="https://ironstratos.com/rootcause.html">
 <meta property="og:site_name" content="IronStratos">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Root Cause AI — IronStratos">
-<meta name="twitter:description" content="AI-driven root cause analysis for the shop floor. Available on Google Play.">
-<meta name="description" content="AI-driven root cause analysis for the shop floor. Conversational RCA, 5S audits, action tracking, and AI-generated reports. Available on Google Play.">
+<meta property="og:image" content="https://ironstratos.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Root Cause AI - Guided 5 Why Root Cause Analysis App">
+<meta name="twitter:description" content="Guided 5 Why root cause analysis with corrective actions, safety observations, and audit-ready reports for maintenance and manufacturing teams. Available on Google Play.">
+<meta name="twitter:image" content="https://ironstratos.com/og-image.png">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/manifest.webmanifest">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Mono:wght@400;500;600&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -352,12 +359,15 @@ footer {
   .fn-row { flex-direction: column; }
   .fn-btn { width: 100%; }
 }
+
+.nav-logo { display: inline-flex; align-items: center; gap: 8px; }
+.nav-mark { height: 1.05em; width: auto; display: block; }
 </style>
 </head>
 <body>
 
 <nav>
-  <a href="index.html" class="nav-logo">Iron<span>Stratos</span></a>
+  <a href="index.html" class="nav-logo"><img src="/ironstratos-mark-transparent.svg" alt="IronStratos logo" class="nav-mark">Iron<span>Stratos</span></a>
   <div class="mobile-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">
     <span></span><span></span><span></span>
   </div>
@@ -382,8 +392,8 @@ footer {
           AI-driven root cause analysis for the shop floor. Walk your team through structured investigations with conversational AI — no training required. Just tell it what happened.
         </p>
         <div class="hero-ctas">
-          <a href="#" class="btn-primary">Get on Google Play →</a>
-          <a href="#" class="btn-ghost">App Store (coming soon)</a>
+          <a href="https://play.google.com/store/apps/details?id=com.ironstratos.rootcauseai" target="_blank" rel="noopener" class="btn-primary">Get on Google Play →</a>
+          <span class="btn-ghost" aria-disabled="true">App Store (coming soon)</span>
         </div>
       </div>
     </div>
@@ -455,7 +465,7 @@ footer {
       <div class="feature-card reveal reveal-d1">
         <div class="feature-icon">💬</div>
         <h3>Conversational RCA</h3>
-        <p>AI-guided root cause analysis through natural conversation. No 5-why templates or fishbone diagrams required — just talk through the problem.</p>
+        <p>AI-guided root cause analysis through natural conversation. No blank templates or diagrams required — just talk through the problem.</p>
       </div>
       <div class="feature-card reveal reveal-d2">
         <div class="feature-icon">📋</div>
@@ -516,7 +526,7 @@ footer {
     <h2>Ready to try it?</h2>
     <p>Root Cause AI is free to download. Start your first investigation in under two minutes.</p>
     <div class="cta-buttons">
-      <a href="#" class="btn-primary">Download on Google Play →</a>
+      <a href="https://play.google.com/store/apps/details?id=com.ironstratos.rootcauseai" target="_blank" rel="noopener" class="btn-primary">Download on Google Play →</a>
       <a href="contact.html" class="btn-ghost">Have questions?</a>
     </div>
   </div>
@@ -616,6 +626,21 @@ document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
     }
   });
 })();
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Root Cause AI",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Android",
+  "installUrl": "https://play.google.com/store/apps/details?id=com.ironstratos.rootcauseai",
+  "description": "Guided 5 Why root cause analysis with CAPA and audit-ready reports for maintenance and manufacturing teams.",
+  "author": {
+    "@type": "Organization",
+    "name": "Iron Stratos LLC"
+  }
+}
 </script>
 </body>
 </html>

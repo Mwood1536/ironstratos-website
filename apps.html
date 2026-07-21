@@ -3,17 +3,24 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Apps — IronStratos</title>
+<meta name="theme-color" content="#FAF6F0">
+<title>Apps - Root Cause AI &amp; NConform | IronStratos</title>
 <link rel="canonical" href="https://ironstratos.com/apps.html">
+<meta name="description" content="The IronStratos apps: Root Cause AI for guided root cause analysis, live on Android, and NConform for nonconformance (NCR) and CAPA tracking, in review on Google Play.">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Apps — IronStratos">
-<meta property="og:description" content="Root Cause AI and NConform — manufacturing quality and reliability software for plant floors. Live on Android, iOS and NConform in development.">
+<meta property="og:title" content="Apps - Root Cause AI &amp; NConform | IronStratos">
+<meta property="og:description" content="The IronStratos apps: Root Cause AI for guided root cause analysis, live on Android, and NConform for nonconformance (NCR) and CAPA tracking, in review on Google Play.">
 <meta property="og:url" content="https://ironstratos.com/apps.html">
 <meta property="og:site_name" content="IronStratos">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Apps — IronStratos">
-<meta name="twitter:description" content="Root Cause AI and NConform — manufacturing quality and reliability software.">
-<meta name="description" content="Root Cause AI and NConform. Manufacturing quality and reliability software built around ISO 9001, IATF 16949, AS9100, and ISO 45001.">
+<meta property="og:image" content="https://ironstratos.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Apps - Root Cause AI &amp; NConform | IronStratos">
+<meta name="twitter:description" content="The IronStratos apps: Root Cause AI for guided root cause analysis, live on Android, and NConform for nonconformance (NCR) and CAPA tracking, in review on Google Play.">
+<meta name="twitter:image" content="https://ironstratos.com/og-image.png">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/manifest.webmanifest">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Mono:wght@400;500;600&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -390,12 +397,15 @@ footer {
   .fn-row { flex-direction: column; }
   .fn-btn { width: 100%; }
 }
+
+.nav-logo { display: inline-flex; align-items: center; gap: 8px; }
+.nav-mark { height: 1.05em; width: auto; display: block; }
 </style>
 </head>
 <body>
 
 <nav>
-  <a href="index.html" class="nav-logo">Iron<span>Stratos</span></a>
+  <a href="index.html" class="nav-logo"><img src="/ironstratos-mark-transparent.svg" alt="IronStratos logo" class="nav-mark">Iron<span>Stratos</span></a>
   <div class="mobile-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">
     <span></span><span></span><span></span>
   </div>
@@ -440,8 +450,8 @@ footer {
           <span class="feature-tag">AI Reports</span>
         </div>
         <div class="app-ctas">
-          <a href="#" class="btn-sm btn-sm-primary">Google Play →</a>
-          <a href="#" class="btn-sm btn-sm-outline">App Store (soon)</a>
+          <a href="https://play.google.com/store/apps/details?id=com.ironstratos.rootcauseai" target="_blank" rel="noopener" class="btn-sm btn-sm-primary">Google Play →</a>
+          <span class="btn-sm btn-sm-outline" aria-disabled="true">App Store (soon)</span>
           <a href="rootcause.html" class="btn-sm btn-sm-outline" style="color:var(--burnt-orange);border-color:var(--burnt-orange);">Learn more →</a>
         </div>
         <div class="stats-tracker">
@@ -491,7 +501,7 @@ footer {
           <span class="feature-tag">AS9100</span>
         </div>
         <div class="app-ctas">
-          <a href="#" class="btn-sm btn-sm-muted">Get Notified</a>
+          <a href="/beta" class="btn-sm btn-sm-muted">Get Notified</a>
         </div>
         <div class="stats-tracker">
           <p class="stats-label">performance</p>
@@ -645,6 +655,20 @@ document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
     }
   });
 })();
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "NConform",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Android",
+  "description": "Nonconformance (NCR) logging, corrective action, and standards-referenced audit reports for the shop floor.",
+  "author": {
+    "@type": "Organization",
+    "name": "Iron Stratos LLC"
+  }
+}
 </script>
 </body>
 </html>

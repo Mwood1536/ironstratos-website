@@ -61,3 +61,14 @@
   from = "/legal/dpa"
   to   = "/legal/dpa.html"
   status = 200
+
+# Retired near-duplicate app page; canonical lives at /rootcause.html
+[[redirects]]
+  from = "/rootcause/"
+  to   = "/rootcause.html"
+  status = 301
+
+[[redirects]]
+  from = "/rootcause"
+  to   = "/rootcause.html"
+  status = 301
