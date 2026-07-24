@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#FAF6F0">
+<title>How to Write a Corrective Action That Passes an Audit</title>
+<link rel="canonical" href="https://ironstratos.com/guides/corrective-action-audit.html">
+<meta name="description" content="How to write a corrective action auditors accept: stated root cause, action that addresses the cause, owner, due date, and verified effectiveness.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="How to Write a Corrective Action That Passes an Audit">
+<meta property="og:description" content="How to write a corrective action auditors accept: stated root cause, action that addresses the cause, owner, due date, and verified effectiveness.">
+<meta property="og:url" content="https://ironstratos.com/guides/corrective-action-audit.html">
+<meta property="og:site_name" content="IronStratos">
+<meta property="og:image" content="https://ironstratos.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="How to Write a Corrective Action That Passes an Audit">
+<meta name="twitter:description" content="How to write a corrective action auditors accept: stated root cause, action that addresses the cause, owner, due date, and verified effectiveness.">
+<meta name="twitter:image" content="https://ironstratos.com/og-image.png">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Mono:wght@400;500;600&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "How to Write a Corrective Action That Passes an Audit",
+  "datePublished": "2026-07-23",
+  "url": "https://ironstratos.com/guides/corrective-action-audit.html",
+  "author": { "@type": "Organization", "name": "IronStratos" },
+  "publisher": {
+    "@type": "Organization",
+    "name": "IronStratos",
+    "logo": { "@type": "ImageObject", "url": "https://ironstratos.com/icon-512.png" }
+  }
+}
+</script>
+<style>
+:root {
+  --cream: #faf6f0; --cream-dark: #f0ebe3; --paper: #f5f1ea;
+  --burnt-orange: #c85a2c; --burnt-orange-light: rgba(200, 90, 44, 0.08);
+  --avocado: #5a7247; --avocado-light: rgba(90, 114, 71, 0.1);
+  --espresso: #2c1e13; --espresso-soft: #4a3828;
+  --warm-gray: #8a7e72; --warm-gray-light: #b5aa9e;
+  --border: rgba(44, 30, 19, 0.1); --border-hover: rgba(200, 90, 44, 0.3);
+  --shadow-sm: 0 1px 3px rgba(44, 30, 19, 0.06);
+  --shadow-md: 0 4px 20px rgba(44, 30, 19, 0.08);
+  --serif: 'DM Serif Display', Georgia, serif;
+  --sans: 'DM Sans', -apple-system, sans-serif;
+  --mono: 'IBM Plex Mono', 'Courier New', monospace;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--sans); background: var(--cream);
+  color: var(--espresso); overflow-x: hidden; -webkit-font-smoothing: antialiased;
+}
+body::after {
+  content: ''; position: fixed; inset: 0; opacity: 0.35; pointer-events: none; z-index: 9999;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)' opacity='0.06'/%3E%3C/svg%3E");
+}
+::selection { background: var(--burnt-orange); color: var(--cream); }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* NAV */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  padding: 0 clamp(1.5rem, 5vw, 4rem); height: 64px;
+  display: flex; align-items: center; justify-content: space-between;
+  background: rgba(250, 246, 240, 0.9); backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+}
+.nav-logo { font-family: var(--serif); font-size: 1.3rem; color: var(--espresso); text-decoration: none; }
+.nav-logo span { color: var(--burnt-orange); }
+.nav-links { display: flex; gap: 2.5rem; list-style: none; align-items: center; }
+.nav-links a {
+  font-family: var(--mono); font-size: 0.78rem; color: var(--warm-gray);
+  text-decoration: none; text-transform: lowercase; letter-spacing: 0.02em; transition: color 0.3s;
+}
+.nav-links a:hover { color: var(--burnt-orange); }
+.nav-links a.active { color: var(--burnt-orange); }
+.nav-cta {
+  font-family: var(--mono) !important; font-size: 0.78rem !important;
+  padding: 8px 18px; background: var(--espresso); color: var(--cream) !important;
+  border-radius: 6px; transition: background 0.3s !important;
+}
+.nav-cta:hover { background: var(--burnt-orange) !important; }
+.mobile-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+.mobile-toggle span { width: 22px; height: 2px; background: var(--espresso); border-radius: 2px; }
+
+/* ARTICLE */
+.page-hero { padding: 140px clamp(1.5rem, 5vw, 4rem) 30px; }
+.page-hero-inner { max-width: 720px; margin: 0 auto; }
+.breadcrumb {
+  font-family: var(--mono); font-size: 0.72rem; color: var(--warm-gray-light);
+  margin-bottom: 1.5rem; animation: fadeUp 0.7s ease forwards;
+}
+.breadcrumb a { color: var(--burnt-orange); text-decoration: none; }
+.page-hero h1 {
+  font-family: var(--serif); font-size: clamp(2rem, 4vw, 2.8rem);
+  font-weight: 400; letter-spacing: -0.02em; margin-bottom: 1rem; line-height: 1.15;
+  animation: fadeUp 0.7s ease 0.1s forwards; opacity: 0;
+}
+.article-meta {
+  font-family: var(--mono); font-size: 0.72rem; color: var(--warm-gray-light);
+  animation: fadeUp 0.7s ease 0.2s forwards; opacity: 0;
+}
+.article-meta span { color: var(--burnt-orange); }
+
+.article-content { padding: 30px clamp(1.5rem, 5vw, 4rem) 80px; }
+.article-inner { max-width: 720px; margin: 0 auto; }
+.article-inner h2 {
+  font-family: var(--serif); font-size: 1.6rem; font-weight: 400;
+  margin: 3rem 0 1rem; color: var(--espresso); letter-spacing: -0.01em;
+}
+.article-inner h3 {
+  font-family: var(--serif); font-size: 1.15rem; font-weight: 400;
+  margin: 1.75rem 0 0.6rem; color: var(--espresso);
+}
+.article-inner p {
+  font-size: 1.05rem; color: var(--espresso-soft); line-height: 1.8; margin-bottom: 1.25rem;
+}
+.article-inner p strong { color: var(--espresso); }
+.article-inner a { color: var(--burnt-orange); text-decoration: none; border-bottom: 1px solid var(--border-hover); transition: border-color 0.3s; }
+.article-inner a:hover { border-color: var(--burnt-orange); }
+.article-inner ul, .article-inner ol { margin: 0 0 1.25rem 1.4rem; }
+.article-inner li { font-size: 1.05rem; color: var(--espresso-soft); line-height: 1.8; margin-bottom: 0.5rem; }
+.article-inner li strong { color: var(--espresso); }
+.rewrite {
+  border: 1px solid var(--border); border-radius: 12px; overflow: hidden; margin: 0 0 1.25rem;
+}
+.rewrite .rw-row { padding: 1.25rem 1.5rem; }
+.rewrite .rw-weak { background: var(--burnt-orange-light); border-bottom: 1px solid var(--border); }
+.rewrite .rw-strong { background: var(--avocado-light); }
+.rewrite .rw-tag {
+  font-family: var(--mono); font-size: 0.68rem; text-transform: uppercase;
+  letter-spacing: 0.1em; margin-bottom: 0.4rem;
+}
+.rewrite .rw-weak .rw-tag { color: var(--burnt-orange); }
+.rewrite .rw-strong .rw-tag { color: var(--avocado); }
+.rewrite p { margin: 0; font-size: 0.98rem; }
+.callout {
+  background: var(--burnt-orange-light); border-left: 3px solid var(--burnt-orange);
+  border-radius: 0 12px 12px 0; padding: 1.25rem 1.5rem; margin: 0 0 1.25rem;
+}
+.callout p { margin: 0; font-size: 0.98rem; }
+.product-note {
+  margin-top: 3.5rem; padding: 1.75rem; border: 1.5px solid var(--border);
+  border-radius: 12px; background: var(--paper);
+}
+.product-note p { margin: 0; font-size: 0.98rem; }
+.article-nav { margin-top: 2.5rem; display: flex; flex-direction: column; gap: 0.5rem; }
+.article-nav .an-label {
+  font-family: var(--mono); font-size: 0.7rem; color: var(--warm-gray-light);
+  text-transform: uppercase; letter-spacing: 0.1em;
+}
+.article-nav a { font-size: 0.95rem; width: fit-content; }
+
+/* FOOTER */
+footer { padding: 60px clamp(1.5rem, 5vw, 4rem) 30px; border-top: 1px solid var(--border); }
+.footer-inner { max-width: 1100px; margin: 0 auto; }
+.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; }
+.footer-brand-text { font-family: var(--serif); font-size: 1.3rem; color: var(--espresso); margin-bottom: 0.5rem; }
+.footer-brand-text span { color: var(--burnt-orange); }
+.footer-tagline { font-size: 0.88rem; color: var(--warm-gray); line-height: 1.6; }
+.footer-col h4 {
+  font-family: var(--mono); font-size: 0.7rem; text-transform: uppercase;
+  letter-spacing: 0.1em; color: var(--espresso); margin-bottom: 1rem;
+}
+.footer-col a {
+  display: block; color: var(--warm-gray); text-decoration: none;
+  font-size: 0.88rem; padding: 3px 0; transition: color 0.3s;
+}
+.footer-col a:hover { color: var(--burnt-orange); }
+.footer-bottom {
+  display: flex; justify-content: space-between; align-items: center;
+  padding-top: 1.5rem; border-top: 1px solid var(--border);
+  font-family: var(--mono); font-size: 0.72rem; color: var(--warm-gray-light);
+  flex-wrap: wrap; gap: 1rem;
+}
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .mobile-toggle { display: flex; }
+  .nav-links.open {
+    display: flex; flex-direction: column; position: absolute;
+    top: 64px; left: 0; right: 0;
+    background: rgba(250, 246, 240, 0.97); backdrop-filter: blur(16px);
+    padding: 1.5rem 2rem; gap: 1.25rem; border-bottom: 1px solid var(--border);
+  }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+}
+/* === FOOTER NEWSLETTER === */
+.footer-newsletter {
+  display: grid; grid-template-columns: 1fr 1.2fr; gap: 3rem;
+  padding-bottom: 3rem; margin-bottom: 2.5rem;
+  border-bottom: 1px solid var(--border); align-items: start;
+}
+.footer-newsletter .fn-label {
+  font-family: var(--mono); font-size: 0.72rem; color: var(--burnt-orange);
+  text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.5rem;
+}
+.footer-newsletter .fn-label::before { content: '// '; color: var(--warm-gray-light); }
+.footer-newsletter h4 {
+  font-family: var(--serif); font-size: 1.3rem; font-weight: 400;
+  letter-spacing: -0.01em; margin-bottom: 0.5rem; color: var(--espresso);
+}
+.footer-newsletter .fn-text > p:last-of-type {
+  font-size: 0.9rem; color: var(--warm-gray); line-height: 1.6; max-width: 380px;
+}
+.fn-form { display: flex; flex-direction: column; gap: 0.85rem; }
+.fn-honeypot { position: absolute; left: -10000px; width: 1px; height: 1px; opacity: 0; pointer-events: none; }
+.fn-srlabel { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; }
+.fn-row { display: flex; gap: 0.5rem; }
+.fn-row input[type=email] {
+  flex: 1; min-width: 0; padding: 12px 16px;
+  font-family: var(--sans); font-size: 0.92rem; color: var(--espresso);
+  border: 1.5px solid var(--border); border-radius: 8px; background: var(--cream);
+  outline: none; transition: border-color 0.3s, box-shadow 0.3s;
+}
+.fn-row input[type=email]:focus {
+  border-color: var(--burnt-orange);
+  box-shadow: 0 0 0 3px var(--burnt-orange-light);
+}
+.fn-row input[type=email][aria-invalid="true"] { border-color: var(--burnt-orange); }
+.fn-btn {
+  padding: 12px 20px; background: var(--burnt-orange); color: var(--cream);
+  font-family: var(--mono); font-size: 0.8rem; font-weight: 500;
+  border: none; border-radius: 8px; cursor: pointer;
+  transition: all 0.3s; box-shadow: 0 2px 12px rgba(200, 90, 44, 0.2);
+  white-space: nowrap;
+}
+.fn-btn:hover { transform: translateY(-2px); box-shadow: 0 4px 20px rgba(200, 90, 44, 0.3); }
+.fn-btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+.fn-consent { display: flex; gap: 0.5rem; align-items: flex-start; font-family: var(--mono); font-size: 0.7rem; color: var(--warm-gray); line-height: 1.5; }
+.fn-consent input { margin-top: 2px; accent-color: var(--burnt-orange); flex-shrink: 0; }
+.fn-consent a { color: var(--burnt-orange); text-decoration: none; }
+.fn-consent a:hover { text-decoration: underline; }
+.fn-status { font-family: var(--mono); font-size: 0.78rem; display: none; border-radius: 6px; line-height: 1.4; }
+.fn-status.show { display: block; padding: 10px 14px; }
+.fn-status.ok { background: var(--avocado-light); color: var(--avocado); }
+.fn-status.err { background: var(--burnt-orange-light); color: var(--burnt-orange); }
+@media (max-width: 768px) {
+  .footer-newsletter { grid-template-columns: 1fr; gap: 1.5rem; padding-bottom: 2rem; margin-bottom: 2rem; }
+  .fn-row { flex-direction: column; }
+  .fn-btn { width: 100%; }
+}
+
+.nav-logo { display: inline-flex; align-items: center; gap: 8px; }
+.nav-mark { height: 1.05em; width: auto; display: block; }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo"><img src="/ironstratos-mark-transparent.svg" alt="IronStratos logo" class="nav-mark">Iron<span>Stratos</span></a>
+  <div class="mobile-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">
+    <span></span><span></span><span></span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="/">home</a></li>
+    <li><a href="/apps.html">apps</a></li>
+    <li><a href="/guides.html" class="active">guides</a></li>
+    <li><a href="/index.html#services">services</a></li>
+    <li><a href="/about.html">about</a></li>
+    <li><a href="/contact.html" class="nav-cta">get in touch</a></li>
+  </ul>
+</nav>
+
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <p class="breadcrumb"><a href="/">home</a> / <a href="/guides.html">guides</a> / corrective action</p>
+    <h1>How to Write a Corrective Action That Passes an Audit</h1>
+    <p class="article-meta"><span>//</span> published 2026-07-23 · audit readiness · ~8 min read</p>
+  </div>
+</section>
+
+<section class="article-content">
+  <div class="article-inner">
+
+    <p>I've sat on both sides of the audit table — walking auditors through my own corrective actions, and reviewing supplier CAPAs that made me wince. The pattern is always the same: corrective actions don't fail audits because the form was filled out wrong. They fail because the <em>content</em> can't survive five minutes of an auditor pulling on the thread. Learning <strong>how to write a corrective action</strong> that holds up isn't about better paperwork. It's about writing down a fix that actually connects to a cause.</p>
+
+    <p>Here's what that looks like in practice.</p>
+
+    <h2>What auditors actually check</h2>
+
+    <p>Whether it's a customer auditor, a registrar, or your own internal team, everyone reviewing a corrective action is walking the same five checkpoints:</p>
+
+    <ul>
+      <li><strong>Is a root cause stated — and is it a real one?</strong> Not "operator error," not a restatement of the defect. A specific process condition, backed by an investigation they can read. This is where your <a href="/guides/5-why-analysis-shop-floor.html">5 Why or other RCA</a> gets attached — an audit-ready corrective action without an analysis behind it reads as a guess.</li>
+      <li><strong>Does the action address the cause, not the symptom?</strong> The auditor puts the root cause statement and the action side by side and checks that one removes the other. If the cause is a missing PM and the action is "increased inspection," they don't match, and the auditor knows it instantly.</li>
+      <li><strong>Is there an owner?</strong> A name — not a department. "Quality" owns nothing; a person with authority over the affected process owns something.</li>
+      <li><strong>Is there a due date — and was it met?</strong> Open corrective actions with due dates six months in the rearview are audit findings in themselves.</li>
+      <li><strong>Was effectiveness verified?</strong> Not "action complete" — <em>did it work?</em> Somebody checked, after enough time or volume, that the failure hasn't recurred and the new control is actually in use. This is the checkpoint most plants skip, and the first one experienced auditors go looking for.</li>
+    </ul>
+
+    <p>Miss any one of the five and the corrective action is vulnerable. Miss two and it's a finding.</p>
+
+    <h2>Weak vs strong: the same corrective action, rewritten</h2>
+
+    <p>The fastest way to calibrate your writing is to see the same failure handled both ways. These are the patterns I've seen (and, early on, written) most often.</p>
+
+    <h3>The retraining reflex</h3>
+    <div class="rewrite">
+      <div class="rw-row rw-weak">
+        <p class="rw-tag">weak</p>
+        <p>"Root cause: operator did not follow work instruction. Corrective action: operator retrained on work instruction."</p>
+      </div>
+      <div class="rw-row rw-strong">
+        <p class="rw-tag">strong</p>
+        <p>"Root cause: work instruction requires a die-temperature check before first strike, but the pyrometer is mounted where the reading can't be seen from the press controls, so the check is routinely skipped during changeovers. Corrective action: relocate pyrometer display to the operator station and add die-temp confirmation to the changeover checklist; work instruction revised to Rev C. Owner: J. — cell lead. Due: 8/15. Effectiveness check: changeover audits for 60 days, zero skipped checks."</p>
+      </div>
+    </div>
+
+    <p>The weak version blames a person and prescribes a memory upgrade. The strong version explains <em>why</em> the instruction was being skipped, changes the condition that made skipping easy, and commits to a measurable check. Retraining is only a legitimate corrective action when the root cause is genuinely "this person was never trained" — and even then, the deeper cause is usually a broken training process.</p>
+
+    <h3>The inspection band-aid</h3>
+    <div class="rewrite">
+      <div class="rw-row rw-weak">
+        <p class="rw-tag">weak</p>
+        <p>"Root cause: defective parts shipped to customer. Corrective action: added 100% inspection before shipping."</p>
+      </div>
+      <div class="rw-row rw-strong">
+        <p class="rw-tag">strong</p>
+        <p>"Root cause: trim die clearance drifted out of spec because die wear is tracked by calendar time, not cycle count, and the affected die ran double volume last quarter. Corrective action: die maintenance interval converted to cycle-count basis in the CMMS; wear measurement added to die-change checklist. 100% inspection retained as containment until effectiveness is verified, then withdrawn. Owner: tooling supervisor. Due: 9/1."</p>
+      </div>
+    </div>
+
+    <p>Note what the strong version does with the inspection: it names it as <strong>containment</strong>, keeps it temporarily, and plans its removal. Auditors don't object to inspection — they object to inspection <em>presented as the corrective action</em>, because catching defects isn't preventing them. (The full distinction between correction, corrective, and preventive action is covered in <a href="/guides/rca-vs-capa.html">RCA vs CAPA</a>.)</p>
+
+    <h3>The vague commitment</h3>
+    <div class="rewrite">
+      <div class="rw-row rw-weak">
+        <p class="rw-tag">weak</p>
+        <p>"Corrective action: improve communication between shifts. Owner: production. Due: ongoing."</p>
+      </div>
+      <div class="rw-row rw-strong">
+        <p class="rw-tag">strong</p>
+        <p>"Corrective action: shift-handoff form revised to include open die-change status and any out-of-spec readings from the last four hours; handoff review added to shift-start meeting agenda. Owner: A. — production manager. Due: 8/1. Effectiveness check: handoff forms sampled weekly for one month; recurrence of handoff-related defects reviewed at 90 days."</p>
+      </div>
+    </div>
+
+    <p>"Improve," "reinforce," "emphasize," "ongoing" — an auditor reads these as "nothing specific will happen." If you can't say what physically changes on the floor, when, and who makes it happen, you don't have a corrective action yet. You have an intention.</p>
+
+    <h2>Scope it honestly: one cause, one action</h2>
+
+    <p>A subtler way corrective actions fail audits is scope creep in both directions. Too narrow, and the action fixes one die on one press while three sister dies carry the same wear-tracking gap — the auditor will ask "did you check the other presses?" and "no" is a bad answer with a name: you skipped the preventive-action question. Too broad, and the record turns into a five-item wish list — new software, a reorganized tool crib, a training overhaul — where nobody can say which item actually addressed the cause, half the items blow the due date, and the whole CAPA sits open for a year.</p>
+
+    <p>The discipline is one cause, one action that removes it, plus an explicit answer to "where else could this same cause bite us?" If the fix genuinely requires three changes, write three actions with three owners and three dates so each one can close on its own evidence. An auditor would rather see four small, closed, verified corrective actions than one sprawling epic that's 80% done forever.</p>
+
+    <h2>The evidence trail</h2>
+
+    <p>An audit-ready corrective action is a story with receipts. By the time it's closed, the record should contain, attached or referenced:</p>
+
+    <ul>
+      <li><strong>The nonconformance</strong> that started it — NCR, customer complaint, or audit finding, with part numbers and dates.</li>
+      <li><strong>Containment records</strong> — what was quarantined, sorted, or recalled, and the disposition.</li>
+      <li><strong>The RCA itself</strong> — the why chain or fishbone, with the photos, readings, and work-order history that support each link, captured <a href="/guides/5-why-analysis-shop-floor.html">while the evidence was fresh</a>.</li>
+      <li><strong>Proof of implementation</strong> — the revised work instruction with its revision number, the closed work order for the interlock install, the updated PM schedule. Documents an auditor can pull independently and find matching.</li>
+      <li><strong>Effectiveness evidence</strong> — the follow-up audit results, the scrap or defect data after the change, the tested interlock.</li>
+    </ul>
+
+    <p>The standard I hold my own team to: a stranger should be able to reconstruct the whole event from the record alone, without hallway explanations. If closing the loop requires someone's memory, the record isn't done.</p>
+
+    <h2>Closing the loop</h2>
+
+    <p>The difference between "action complete" and "corrective action closed" is verification of effectiveness, and the difference matters. Complete means the work order was done. Closed means you waited — thirty, sixty, ninety days, or enough production volume to be meaningful — went back, and confirmed three things: the failure hasn't recurred, the new control is still being used (not quietly abandoned the week after the auditor left), and the fix didn't create a new problem somewhere downstream.</p>
+
+    <p>Put the verification date on the calendar the day you write the action, with a named owner. Corrective actions that rely on someone remembering to check back are corrective actions that never get verified — and an auditor who finds three unverified "closed" CAPAs stops trusting the whole system, which is when a records review becomes an excavation.</p>
+
+    <p>Write the cause honestly, fix the cause and not the symptom, name a person, set a date, and prove it worked. That's the entire trick. Everything else is formatting.</p>
+
+    <div class="product-note">
+      <p><strong>One more thing.</strong> The hardest part of a strong corrective action is the investigation underneath it. <a href="/rootcause.html">Root Cause AI</a> walks your team through the <a href="/rootcause.html">root cause analysis</a> conversationally at the machine, captures the evidence as you go, and hands you a structured, audit-ready record your corrective action can stand on.</p>
+    </div>
+
+    <div class="article-nav">
+      <span class="an-label">// keep reading</span>
+      <a href="/guides/5-why-analysis-shop-floor.html">How to Run a 5 Why Analysis on the Shop Floor →</a>
+      <a href="/guides/rca-vs-capa.html">RCA vs CAPA: What's the Difference and How They Fit Together →</a>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+
+    <div class="footer-newsletter">
+      <div class="fn-text">
+        <p class="fn-label">newsletter</p>
+        <h4>Field notes from the floor.</h4>
+        <p>Product updates, RCA patterns, and the occasional NConform release note. Maybe one email a month — no fluff.</p>
+      </div>
+      <form class="fn-form" id="footer-newsletter-form" novalidate>
+        <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" class="fn-honeypot">
+        <div class="fn-row">
+          <label class="fn-srlabel" for="footer-newsletter-email">Email</label>
+          <input type="email" id="footer-newsletter-email" name="email" placeholder="you@plant.com" required aria-required="true" autocomplete="email">
+          <button type="submit" class="fn-btn">Subscribe →</button>
+        </div>
+        <label class="fn-consent">
+          <input type="checkbox" name="consent" required aria-required="true">
+          <span>I agree to the <a href="/privacy">Privacy Policy</a> and <a href="/terms">Terms of Service</a>.</span>
+        </label>
+        <div class="fn-status" role="status" aria-live="polite"></div>
+      </form>
+    </div>
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand-text">Iron<span>Stratos</span></div>
+        <p class="footer-tagline">Manufacturing quality &amp; reliability software.<br>Iron Stratos LLC — Smiths Station, Alabama.</p>
+      </div>
+      <div class="footer-col"><h4>Platform</h4><a href="/apps.html">All apps</a><a href="/rootcause.html">Root Cause AI</a><a href="/apps.html">NConform</a></div>
+      <div class="footer-col"><h4>Company</h4><a href="/about.html">About</a><a href="/guides.html">Guides</a><a href="/contact.html">Contact</a></div>
+      <div class="footer-col"><h4>Legal</h4><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a><a href="/legal/subscription-agreement.html">Subscription Agreement</a><a href="/legal/dpa.html">DPA</a></div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Iron Stratos LLC</span>
+      <span>smiths station, al</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+<script>
+(function() {
+  var form = document.getElementById('footer-newsletter-form');
+  if (!form) return;
+  var status = form.querySelector('.fn-status');
+  var btn = form.querySelector('.fn-btn');
+  var email = form.querySelector('input[type=email]');
+  function setStatus(kind, msg) {
+    status.className = 'fn-status show ' + kind;
+    status.textContent = msg;
+  }
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    email.setAttribute('aria-invalid', 'false');
+    if (!form.checkValidity()) {
+      email.setAttribute('aria-invalid', 'true');
+      setStatus('err', 'Please enter a valid email and accept the privacy terms.');
+      return;
+    }
+    btn.disabled = true;
+    var prev = btn.textContent;
+    btn.textContent = 'Sending...';
+    try {
+      var res = await fetch('/.netlify/functions/newsletter-subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          email: email.value,
+          website: form.querySelector('input[name=website]').value,
+          source: location.pathname || 'unknown'
+        })
+      });
+      var data = await res.json().catch(function() { return {}; });
+      if (res.ok && data.ok) {
+        setStatus('ok', '✓ Subscribed! Check your inbox for confirmation.');
+        form.reset();
+      } else {
+        setStatus('err', (data && data.error) || 'Something went wrong. Please try again.');
+      }
+    } catch (err) {
+      setStatus('err', 'Network error. Please try again.');
+    } finally {
+      btn.disabled = false;
+      btn.textContent = prev;
+    }
+  });
+})();
+</script>
+</body>
+</html>

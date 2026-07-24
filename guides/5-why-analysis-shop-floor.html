@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#FAF6F0">
+<title>5 Why Analysis on the Shop Floor: A Practical Guide</title>
+<link rel="canonical" href="https://ironstratos.com/guides/5-why-analysis-shop-floor.html">
+<meta name="description" content="How to do 5 why root cause analysis at the machine: when it fits, how to phrase each why, evidence to capture, and getting past 'operator error'.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="5 Why Analysis on the Shop Floor: A Practical Guide">
+<meta property="og:description" content="How to do 5 why root cause analysis at the machine: when it fits, how to phrase each why, evidence to capture, and getting past 'operator error'.">
+<meta property="og:url" content="https://ironstratos.com/guides/5-why-analysis-shop-floor.html">
+<meta property="og:site_name" content="IronStratos">
+<meta property="og:image" content="https://ironstratos.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="5 Why Analysis on the Shop Floor: A Practical Guide">
+<meta name="twitter:description" content="How to do 5 why root cause analysis at the machine: when it fits, how to phrase each why, evidence to capture, and getting past 'operator error'.">
+<meta name="twitter:image" content="https://ironstratos.com/og-image.png">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Mono:wght@400;500;600&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "How to Run a 5 Why Analysis on the Shop Floor (Without a Conference Room)",
+  "datePublished": "2026-07-23",
+  "url": "https://ironstratos.com/guides/5-why-analysis-shop-floor.html",
+  "author": { "@type": "Organization", "name": "IronStratos" },
+  "publisher": {
+    "@type": "Organization",
+    "name": "IronStratos",
+    "logo": { "@type": "ImageObject", "url": "https://ironstratos.com/icon-512.png" }
+  }
+}
+</script>
+<style>
+:root {
+  --cream: #faf6f0; --cream-dark: #f0ebe3; --paper: #f5f1ea;
+  --burnt-orange: #c85a2c; --burnt-orange-light: rgba(200, 90, 44, 0.08);
+  --avocado: #5a7247; --avocado-light: rgba(90, 114, 71, 0.1);
+  --espresso: #2c1e13; --espresso-soft: #4a3828;
+  --warm-gray: #8a7e72; --warm-gray-light: #b5aa9e;
+  --border: rgba(44, 30, 19, 0.1); --border-hover: rgba(200, 90, 44, 0.3);
+  --shadow-sm: 0 1px 3px rgba(44, 30, 19, 0.06);
+  --shadow-md: 0 4px 20px rgba(44, 30, 19, 0.08);
+  --serif: 'DM Serif Display', Georgia, serif;
+  --sans: 'DM Sans', -apple-system, sans-serif;
+  --mono: 'IBM Plex Mono', 'Courier New', monospace;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--sans); background: var(--cream);
+  color: var(--espresso); overflow-x: hidden; -webkit-font-smoothing: antialiased;
+}
+body::after {
+  content: ''; position: fixed; inset: 0; opacity: 0.35; pointer-events: none; z-index: 9999;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)' opacity='0.06'/%3E%3C/svg%3E");
+}
+::selection { background: var(--burnt-orange); color: var(--cream); }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* NAV */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  padding: 0 clamp(1.5rem, 5vw, 4rem); height: 64px;
+  display: flex; align-items: center; justify-content: space-between;
+  background: rgba(250, 246, 240, 0.9); backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+}
+.nav-logo { font-family: var(--serif); font-size: 1.3rem; color: var(--espresso); text-decoration: none; }
+.nav-logo span { color: var(--burnt-orange); }
+.nav-links { display: flex; gap: 2.5rem; list-style: none; align-items: center; }
+.nav-links a {
+  font-family: var(--mono); font-size: 0.78rem; color: var(--warm-gray);
+  text-decoration: none; text-transform: lowercase; letter-spacing: 0.02em; transition: color 0.3s;
+}
+.nav-links a:hover { color: var(--burnt-orange); }
+.nav-links a.active { color: var(--burnt-orange); }
+.nav-cta {
+  font-family: var(--mono) !important; font-size: 0.78rem !important;
+  padding: 8px 18px; background: var(--espresso); color: var(--cream) !important;
+  border-radius: 6px; transition: background 0.3s !important;
+}
+.nav-cta:hover { background: var(--burnt-orange) !important; }
+.mobile-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+.mobile-toggle span { width: 22px; height: 2px; background: var(--espresso); border-radius: 2px; }
+
+/* ARTICLE */
+.page-hero { padding: 140px clamp(1.5rem, 5vw, 4rem) 30px; }
+.page-hero-inner { max-width: 720px; margin: 0 auto; }
+.breadcrumb {
+  font-family: var(--mono); font-size: 0.72rem; color: var(--warm-gray-light);
+  margin-bottom: 1.5rem; animation: fadeUp 0.7s ease forwards;
+}
+.breadcrumb a { color: var(--burnt-orange); text-decoration: none; }
+.page-hero h1 {
+  font-family: var(--serif); font-size: clamp(2rem, 4vw, 2.8rem);
+  font-weight: 400; letter-spacing: -0.02em; margin-bottom: 1rem; line-height: 1.15;
+  animation: fadeUp 0.7s ease 0.1s forwards; opacity: 0;
+}
+.article-meta {
+  font-family: var(--mono); font-size: 0.72rem; color: var(--warm-gray-light);
+  animation: fadeUp 0.7s ease 0.2s forwards; opacity: 0;
+}
+.article-meta span { color: var(--burnt-orange); }
+
+.article-content { padding: 30px clamp(1.5rem, 5vw, 4rem) 80px; }
+.article-inner { max-width: 720px; margin: 0 auto; }
+.article-inner h2 {
+  font-family: var(--serif); font-size: 1.6rem; font-weight: 400;
+  margin: 3rem 0 1rem; color: var(--espresso); letter-spacing: -0.01em;
+}
+.article-inner p {
+  font-size: 1.05rem; color: var(--espresso-soft); line-height: 1.8; margin-bottom: 1.25rem;
+}
+.article-inner p strong { color: var(--espresso); }
+.article-inner a { color: var(--burnt-orange); text-decoration: none; border-bottom: 1px solid var(--border-hover); transition: border-color 0.3s; }
+.article-inner a:hover { border-color: var(--burnt-orange); }
+.article-inner ul, .article-inner ol { margin: 0 0 1.25rem 1.4rem; }
+.article-inner li { font-size: 1.05rem; color: var(--espresso-soft); line-height: 1.8; margin-bottom: 0.5rem; }
+.article-inner li strong { color: var(--espresso); }
+.why-chain {
+  background: var(--paper); border: 1px solid var(--border); border-radius: 12px;
+  padding: 1.75rem; margin: 0 0 1.25rem; font-family: var(--mono); font-size: 0.85rem;
+  line-height: 1.9; color: var(--espresso-soft);
+}
+.why-chain .wq { color: var(--burnt-orange); }
+.callout {
+  background: var(--burnt-orange-light); border-left: 3px solid var(--burnt-orange);
+  border-radius: 0 12px 12px 0; padding: 1.25rem 1.5rem; margin: 0 0 1.25rem;
+}
+.callout p { margin: 0; font-size: 0.98rem; }
+.product-note {
+  margin-top: 3.5rem; padding: 1.75rem; border: 1.5px solid var(--border);
+  border-radius: 12px; background: var(--paper);
+}
+.product-note p { margin: 0; font-size: 0.98rem; }
+.article-nav { margin-top: 2.5rem; display: flex; flex-direction: column; gap: 0.5rem; }
+.article-nav .an-label {
+  font-family: var(--mono); font-size: 0.7rem; color: var(--warm-gray-light);
+  text-transform: uppercase; letter-spacing: 0.1em;
+}
+.article-nav a { font-size: 0.95rem; width: fit-content; }
+
+/* FOOTER */
+footer { padding: 60px clamp(1.5rem, 5vw, 4rem) 30px; border-top: 1px solid var(--border); }
+.footer-inner { max-width: 1100px; margin: 0 auto; }
+.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; }
+.footer-brand-text { font-family: var(--serif); font-size: 1.3rem; color: var(--espresso); margin-bottom: 0.5rem; }
+.footer-brand-text span { color: var(--burnt-orange); }
+.footer-tagline { font-size: 0.88rem; color: var(--warm-gray); line-height: 1.6; }
+.footer-col h4 {
+  font-family: var(--mono); font-size: 0.7rem; text-transform: uppercase;
+  letter-spacing: 0.1em; color: var(--espresso); margin-bottom: 1rem;
+}
+.footer-col a {
+  display: block; color: var(--warm-gray); text-decoration: none;
+  font-size: 0.88rem; padding: 3px 0; transition: color 0.3s;
+}
+.footer-col a:hover { color: var(--burnt-orange); }
+.footer-bottom {
+  display: flex; justify-content: space-between; align-items: center;
+  padding-top: 1.5rem; border-top: 1px solid var(--border);
+  font-family: var(--mono); font-size: 0.72rem; color: var(--warm-gray-light);
+  flex-wrap: wrap; gap: 1rem;
+}
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .mobile-toggle { display: flex; }
+  .nav-links.open {
+    display: flex; flex-direction: column; position: absolute;
+    top: 64px; left: 0; right: 0;
+    background: rgba(250, 246, 240, 0.97); backdrop-filter: blur(16px);
+    padding: 1.5rem 2rem; gap: 1.25rem; border-bottom: 1px solid var(--border);
+  }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+}
+/* === FOOTER NEWSLETTER === */
+.footer-newsletter {
+  display: grid; grid-template-columns: 1fr 1.2fr; gap: 3rem;
+  padding-bottom: 3rem; margin-bottom: 2.5rem;
+  border-bottom: 1px solid var(--border); align-items: start;
+}
+.footer-newsletter .fn-label {
+  font-family: var(--mono); font-size: 0.72rem; color: var(--burnt-orange);
+  text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.5rem;
+}
+.footer-newsletter .fn-label::before { content: '// '; color: var(--warm-gray-light); }
+.footer-newsletter h4 {
+  font-family: var(--serif); font-size: 1.3rem; font-weight: 400;
+  letter-spacing: -0.01em; margin-bottom: 0.5rem; color: var(--espresso);
+}
+.footer-newsletter .fn-text > p:last-of-type {
+  font-size: 0.9rem; color: var(--warm-gray); line-height: 1.6; max-width: 380px;
+}
+.fn-form { display: flex; flex-direction: column; gap: 0.85rem; }
+.fn-honeypot { position: absolute; left: -10000px; width: 1px; height: 1px; opacity: 0; pointer-events: none; }
+.fn-srlabel { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; }
+.fn-row { display: flex; gap: 0.5rem; }
+.fn-row input[type=email] {
+  flex: 1; min-width: 0; padding: 12px 16px;
+  font-family: var(--sans); font-size: 0.92rem; color: var(--espresso);
+  border: 1.5px solid var(--border); border-radius: 8px; background: var(--cream);
+  outline: none; transition: border-color 0.3s, box-shadow 0.3s;
+}
+.fn-row input[type=email]:focus {
+  border-color: var(--burnt-orange);
+  box-shadow: 0 0 0 3px var(--burnt-orange-light);
+}
+.fn-row input[type=email][aria-invalid="true"] { border-color: var(--burnt-orange); }
+.fn-btn {
+  padding: 12px 20px; background: var(--burnt-orange); color: var(--cream);
+  font-family: var(--mono); font-size: 0.8rem; font-weight: 500;
+  border: none; border-radius: 8px; cursor: pointer;
+  transition: all 0.3s; box-shadow: 0 2px 12px rgba(200, 90, 44, 0.2);
+  white-space: nowrap;
+}
+.fn-btn:hover { transform: translateY(-2px); box-shadow: 0 4px 20px rgba(200, 90, 44, 0.3); }
+.fn-btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+.fn-consent { display: flex; gap: 0.5rem; align-items: flex-start; font-family: var(--mono); font-size: 0.7rem; color: var(--warm-gray); line-height: 1.5; }
+.fn-consent input { margin-top: 2px; accent-color: var(--burnt-orange); flex-shrink: 0; }
+.fn-consent a { color: var(--burnt-orange); text-decoration: none; }
+.fn-consent a:hover { text-decoration: underline; }
+.fn-status { font-family: var(--mono); font-size: 0.78rem; display: none; border-radius: 6px; line-height: 1.4; }
+.fn-status.show { display: block; padding: 10px 14px; }
+.fn-status.ok { background: var(--avocado-light); color: var(--avocado); }
+.fn-status.err { background: var(--burnt-orange-light); color: var(--burnt-orange); }
+@media (max-width: 768px) {
+  .footer-newsletter { grid-template-columns: 1fr; gap: 1.5rem; padding-bottom: 2rem; margin-bottom: 2rem; }
+  .fn-row { flex-direction: column; }
+  .fn-btn { width: 100%; }
+}
+
+.nav-logo { display: inline-flex; align-items: center; gap: 8px; }
+.nav-mark { height: 1.05em; width: auto; display: block; }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo"><img src="/ironstratos-mark-transparent.svg" alt="IronStratos logo" class="nav-mark">Iron<span>Stratos</span></a>
+  <div class="mobile-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">
+    <span></span><span></span><span></span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="/">home</a></li>
+    <li><a href="/apps.html">apps</a></li>
+    <li><a href="/guides.html" class="active">guides</a></li>
+    <li><a href="/index.html#services">services</a></li>
+    <li><a href="/about.html">about</a></li>
+    <li><a href="/contact.html" class="nav-cta">get in touch</a></li>
+  </ul>
+</nav>
+
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <p class="breadcrumb"><a href="/">home</a> / <a href="/guides.html">guides</a> / 5 why analysis</p>
+    <h1>How to Run a 5 Why Analysis on the Shop Floor (Without a Conference Room)</h1>
+    <p class="article-meta"><span>//</span> published 2026-07-23 · root cause analysis · ~8 min read</p>
+  </div>
+</section>
+
+<section class="article-content">
+  <div class="article-inner">
+
+    <p>Most 5 Why write-ups assume you have a whiteboard, a facilitator, and ninety minutes of everyone's afternoon. On a forging floor you have none of those things. You have a press that just scrapped a heat lot, a shift that ends in three hours, and a supervisor who wants to know whether to keep running. The good news: a <strong>5 why analysis</strong> was never supposed to be a meeting. It's a line of questioning, and the best place to ask it is standing at the machine while the problem is still warm.</p>
+
+    <p>I've run these on hydraulic presses, furnaces, and trim lines. What follows is the version that actually works out there — not the laminated-poster version.</p>
+
+    <h2>When 5 Why fits — and when it doesn't</h2>
+
+    <p>5 Why is the right tool when you're chasing <strong>a single failure path</strong>: one part, one machine, one event, and a chain of causes you can walk backward one link at a time. A cracked die, a missed PM, an overheated billet, a torqued-wrong fastener — these are 5 Why problems. The method is fast, needs no software or training beyond discipline, and everybody on the crew can follow the logic.</p>
+
+    <p>It's the wrong tool when:</p>
+
+    <ul>
+      <li><strong>Multiple causes interact.</strong> If scrap only shows up when a certain alloy meets a certain die temperature on a certain shift, a single chain of whys will flatten that into a story that's too simple. That's fishbone-and-data territory.</li>
+      <li><strong>The problem is intermittent and nobody saw it happen.</strong> Asking "why" five times about an event nobody witnessed produces five guesses. Get data first, then ask why.</li>
+      <li><strong>The answer is genuinely unknown territory</strong> — a metallurgical failure you've never seen, a new process. You need a lab report or a trial plan, not a questioning technique.</li>
+    </ul>
+
+    <p>Be honest about this up front. Half the bad 5 Whys I've seen weren't done badly — they were done on the wrong kind of problem.</p>
+
+    <h2>Run it at the machine, not next Tuesday</h2>
+
+    <p>Evidence on a shop floor has a half-life measured in hours. The scale pattern on the billet gets swept up. The die gets pulled and sent to the tool room. The operator who saw the press stutter goes home, and by Monday remembers it differently. If you book a conference room for Thursday, you'll be doing archaeology instead of analysis.</p>
+
+    <p>So run the first pass immediately, at the machine, with whoever was there. It takes fifteen minutes. You're not writing the final report — you're capturing the chain of causes while every link is still checkable. Walk the line of questioning right where you can point at things: <em>show me</em> the reading, <em>show me</em> the lube line, <em>show me</em> the last work order. Every answer you can verify on the spot is an answer that won't fall apart in the CAPA review.</p>
+
+    <p>If the full analysis needs more people, fine — but the at-the-machine pass is the raw material. The conference room, if it ever happens, is for confirming, not discovering.</p>
+
+    <h2>The "operator error" trap</h2>
+
+    <p>Here's the most common way a 5 why root cause analysis dies: it stops at a person.</p>
+
+    <div class="callout">
+      <p><strong>"Why did the part crack?" — "Operator loaded it cold." — Root cause: operator error. Action: retrain operator.</strong> That's not a root cause. That's an accusation with paperwork.</p>
+    </div>
+
+    <p>"Operator error" is almost never the bottom of the chain — it's the middle. The question that matters is: <strong>why was it possible for the operator to load a cold billet?</strong> Was there no temperature check before the press cycle? No interlock? Was the pyrometer reading wrong? Was the standard work unclear, or was the takt so tight that the check gets skipped every time the line falls behind? Keep asking why until you hit something about the <em>process</em> — a missing control, a broken standard, a design that invites the mistake.</p>
+
+    <p>A practical rule: if your last why names a person, you have at least two more whys to go. People are how failures surface; systems are why they happen. And practically speaking, "retrain operator" fixes nothing — the next operator inherits the same trap.</p>
+
+    <h2>How to phrase each why</h2>
+
+    <p>The quality of a 5 Why lives or dies on phrasing. Each question should be aimed at the previous <em>answer</em>, and each answer should be something you could verify — a reading, a record, a condition you can point at. Not an opinion.</p>
+
+    <p>A chain from a forging cell, the shape of dozens I've run:</p>
+
+    <div class="why-chain">
+      <span class="wq">why 1:</span> Why did the forging crack at trim? → Billet temperature was below the forging window at the press.<br>
+      <span class="wq">why 2:</span> Why was the billet below temperature? → It sat in the transfer queue longer than the standard allows.<br>
+      <span class="wq">why 3:</span> Why did it sit too long? → The press was down for eleven minutes mid-sequence.<br>
+      <span class="wq">why 4:</span> Why was the press down? → The main hydraulic pump tripped on temperature.<br>
+      <span class="wq">why 5:</span> Why did the pump overheat? → The heat exchanger was fouled; it wasn't on the PM schedule after the coolant system was modified last year.
+    </div>
+
+    <p>Notice what each answer is: a checkable fact. Queue time is on the furnace log. The press stoppage is in the downtime record. The pump trip is in the alarm history. The PM gap is visible in the CMMS. Nobody has to take anyone's word for anything — and the chain survives scrutiny because of it.</p>
+
+    <p>Three phrasing habits that keep the chain honest:</p>
+
+    <ul>
+      <li><strong>Ask why about the condition, not the person.</strong> "Why was the billet cold?" not "Why did you load a cold billet?"</li>
+      <li><strong>Ban "because they didn't follow the procedure"</strong> as a terminal answer. Ask why the procedure wasn't followed — unclear? impractical? unknown? never trained?</li>
+      <li><strong>Stop when you reach something you can act on.</strong> Five is a guideline, not a rule. Sometimes it's three whys, sometimes seven. You're done when the answer is a process condition your team has the authority to change.</li>
+    </ul>
+
+    <h2>Evidence to capture while you're standing there</h2>
+
+    <p>The 5 Why gives you the chain; evidence is what makes anyone believe it — including an auditor eight months later. While you're at the machine, capture:</p>
+
+    <ul>
+      <li><strong>Photos</strong> of the failed part (fracture face, scale, witness marks), the machine state, gauge readings, and anything about to be cleaned up or torn down.</li>
+      <li><strong>Process readings</strong> — actual temperatures, pressures, cycle times, alarm codes. Pull them now; some HMIs only buffer a shift's worth.</li>
+      <li><strong>Work order and PM history</strong> for the equipment in the chain. In the example above, the whole root cause lived in the gap between a coolant modification and the PM schedule — you find that in the records, not on the floor.</li>
+      <li><strong>The paperwork in play</strong> — traveler, heat lot cert, setup sheet, last first-piece inspection.</li>
+      <li><strong>Names and times</strong> — who was running, who responded, when each event happened. Not for blame; for sequence.</li>
+    </ul>
+
+    <p>A 5 Why with photos and log excerpts attached is a different animal from one scribbled from memory. One closes CAPAs; the other reopens them.</p>
+
+    <h2>Turn the last why into a corrective action</h2>
+
+    <p>The final why is only worth the walk if it becomes an action that removes the cause. From the chain above: put the heat exchanger on the PM schedule, add the coolant-system modification to the management-of-change checklist so the next modification updates PMs automatically, and add a low-temperature hold at the press so a cold billet can't be struck. Cause removed, recurrence blocked, and a control added for the failure mode in general.</p>
+
+    <p>That handoff — from cause to documented corrective action with an owner, a due date, and a verification step — is its own discipline, and it's <a href="/guides/corrective-action-audit.html">where audits are won or lost</a>. And if you're wondering how the 5 Why fits into the bigger corrective-action machinery your quality system requires, that's the <a href="/guides/rca-vs-capa.html">RCA-versus-CAPA distinction</a> in a nutshell: the whys find the cause, the CAPA fixes and prevents it.</p>
+
+    <div class="product-note">
+      <p><strong>One more thing.</strong> If you want the questioning discipline without carrying the method in your head, <a href="/rootcause.html">Root Cause AI</a> walks your team through a <a href="/rootcause.html">root cause analysis</a> conversationally — asking the whys, pushing past "operator error," and capturing photos and evidence right at the machine, then turning the result into an audit-ready report.</p>
+    </div>
+
+    <div class="article-nav">
+      <span class="an-label">// keep reading</span>
+      <a href="/guides/rca-vs-capa.html">RCA vs CAPA: What's the Difference and How They Fit Together →</a>
+      <a href="/guides/corrective-action-audit.html">How to Write a Corrective Action That Passes an Audit →</a>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+
+    <div class="footer-newsletter">
+      <div class="fn-text">
+        <p class="fn-label">newsletter</p>
+        <h4>Field notes from the floor.</h4>
+        <p>Product updates, RCA patterns, and the occasional NConform release note. Maybe one email a month — no fluff.</p>
+      </div>
+      <form class="fn-form" id="footer-newsletter-form" novalidate>
+        <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" class="fn-honeypot">
+        <div class="fn-row">
+          <label class="fn-srlabel" for="footer-newsletter-email">Email</label>
+          <input type="email" id="footer-newsletter-email" name="email" placeholder="you@plant.com" required aria-required="true" autocomplete="email">
+          <button type="submit" class="fn-btn">Subscribe →</button>
+        </div>
+        <label class="fn-consent">
+          <input type="checkbox" name="consent" required aria-required="true">
+          <span>I agree to the <a href="/privacy">Privacy Policy</a> and <a href="/terms">Terms of Service</a>.</span>
+        </label>
+        <div class="fn-status" role="status" aria-live="polite"></div>
+      </form>
+    </div>
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand-text">Iron<span>Stratos</span></div>
+        <p class="footer-tagline">Manufacturing quality &amp; reliability software.<br>Iron Stratos LLC — Smiths Station, Alabama.</p>
+      </div>
+      <div class="footer-col"><h4>Platform</h4><a href="/apps.html">All apps</a><a href="/rootcause.html">Root Cause AI</a><a href="/apps.html">NConform</a></div>
+      <div class="footer-col"><h4>Company</h4><a href="/about.html">About</a><a href="/guides.html">Guides</a><a href="/contact.html">Contact</a></div>
+      <div class="footer-col"><h4>Legal</h4><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a><a href="/legal/subscription-agreement.html">Subscription Agreement</a><a href="/legal/dpa.html">DPA</a></div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Iron Stratos LLC</span>
+      <span>smiths station, al</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+<script>
+(function() {
+  var form = document.getElementById('footer-newsletter-form');
+  if (!form) return;
+  var status = form.querySelector('.fn-status');
+  var btn = form.querySelector('.fn-btn');
+  var email = form.querySelector('input[type=email]');
+  function setStatus(kind, msg) {
+    status.className = 'fn-status show ' + kind;
+    status.textContent = msg;
+  }
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    email.setAttribute('aria-invalid', 'false');
+    if (!form.checkValidity()) {
+      email.setAttribute('aria-invalid', 'true');
+      setStatus('err', 'Please enter a valid email and accept the privacy terms.');
+      return;
+    }
+    btn.disabled = true;
+    var prev = btn.textContent;
+    btn.textContent = 'Sending...';
+    try {
+      var res = await fetch('/.netlify/functions/newsletter-subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          email: email.value,
+          website: form.querySelector('input[name=website]').value,
+          source: location.pathname || 'unknown'
+        })
+      });
+      var data = await res.json().catch(function() { return {}; });
+      if (res.ok && data.ok) {
+        setStatus('ok', '✓ Subscribed! Check your inbox for confirmation.');
+        form.reset();
+      } else {
+        setStatus('err', (data && data.error) || 'Something went wrong. Please try again.');
+      }
+    } catch (err) {
+      setStatus('err', 'Network error. Please try again.');
+    } finally {
+      btn.disabled = false;
+      btn.textContent = prev;
+    }
+  });
+})();
+</script>
+</body>
+</html>

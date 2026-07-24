@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#FAF6F0">
+<title>RCA vs CAPA: The Difference and How They Fit Together</title>
+<link rel="canonical" href="https://ironstratos.com/guides/rca-vs-capa.html">
+<meta name="description" content="RCA vs CAPA in plain language: root cause analysis finds the cause, CAPA fixes and prevents it. Definitions, a worked flow, and why auditors want both.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="RCA vs CAPA: The Difference and How They Fit Together">
+<meta property="og:description" content="RCA vs CAPA in plain language: root cause analysis finds the cause, CAPA fixes and prevents it. Definitions, a worked flow, and why auditors want both.">
+<meta property="og:url" content="https://ironstratos.com/guides/rca-vs-capa.html">
+<meta property="og:site_name" content="IronStratos">
+<meta property="og:image" content="https://ironstratos.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="RCA vs CAPA: The Difference and How They Fit Together">
+<meta name="twitter:description" content="RCA vs CAPA in plain language: root cause analysis finds the cause, CAPA fixes and prevents it. Definitions, a worked flow, and why auditors want both.">
+<meta name="twitter:image" content="https://ironstratos.com/og-image.png">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Mono:wght@400;500;600&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "RCA vs CAPA: What's the Difference and How They Fit Together",
+  "datePublished": "2026-07-23",
+  "url": "https://ironstratos.com/guides/rca-vs-capa.html",
+  "author": { "@type": "Organization", "name": "IronStratos" },
+  "publisher": {
+    "@type": "Organization",
+    "name": "IronStratos",
+    "logo": { "@type": "ImageObject", "url": "https://ironstratos.com/icon-512.png" }
+  }
+}
+</script>
+<style>
+:root {
+  --cream: #faf6f0; --cream-dark: #f0ebe3; --paper: #f5f1ea;
+  --burnt-orange: #c85a2c; --burnt-orange-light: rgba(200, 90, 44, 0.08);
+  --avocado: #5a7247; --avocado-light: rgba(90, 114, 71, 0.1);
+  --espresso: #2c1e13; --espresso-soft: #4a3828;
+  --warm-gray: #8a7e72; --warm-gray-light: #b5aa9e;
+  --border: rgba(44, 30, 19, 0.1); --border-hover: rgba(200, 90, 44, 0.3);
+  --shadow-sm: 0 1px 3px rgba(44, 30, 19, 0.06);
+  --shadow-md: 0 4px 20px rgba(44, 30, 19, 0.08);
+  --serif: 'DM Serif Display', Georgia, serif;
+  --sans: 'DM Sans', -apple-system, sans-serif;
+  --mono: 'IBM Plex Mono', 'Courier New', monospace;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--sans); background: var(--cream);
+  color: var(--espresso); overflow-x: hidden; -webkit-font-smoothing: antialiased;
+}
+body::after {
+  content: ''; position: fixed; inset: 0; opacity: 0.35; pointer-events: none; z-index: 9999;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)' opacity='0.06'/%3E%3C/svg%3E");
+}
+::selection { background: var(--burnt-orange); color: var(--cream); }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* NAV */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  padding: 0 clamp(1.5rem, 5vw, 4rem); height: 64px;
+  display: flex; align-items: center; justify-content: space-between;
+  background: rgba(250, 246, 240, 0.9); backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+}
+.nav-logo { font-family: var(--serif); font-size: 1.3rem; color: var(--espresso); text-decoration: none; }
+.nav-logo span { color: var(--burnt-orange); }
+.nav-links { display: flex; gap: 2.5rem; list-style: none; align-items: center; }
+.nav-links a {
+  font-family: var(--mono); font-size: 0.78rem; color: var(--warm-gray);
+  text-decoration: none; text-transform: lowercase; letter-spacing: 0.02em; transition: color 0.3s;
+}
+.nav-links a:hover { color: var(--burnt-orange); }
+.nav-links a.active { color: var(--burnt-orange); }
+.nav-cta {
+  font-family: var(--mono) !important; font-size: 0.78rem !important;
+  padding: 8px 18px; background: var(--espresso); color: var(--cream) !important;
+  border-radius: 6px; transition: background 0.3s !important;
+}
+.nav-cta:hover { background: var(--burnt-orange) !important; }
+.mobile-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+.mobile-toggle span { width: 22px; height: 2px; background: var(--espresso); border-radius: 2px; }
+
+/* ARTICLE */
+.page-hero { padding: 140px clamp(1.5rem, 5vw, 4rem) 30px; }
+.page-hero-inner { max-width: 720px; margin: 0 auto; }
+.breadcrumb {
+  font-family: var(--mono); font-size: 0.72rem; color: var(--warm-gray-light);
+  margin-bottom: 1.5rem; animation: fadeUp 0.7s ease forwards;
+}
+.breadcrumb a { color: var(--burnt-orange); text-decoration: none; }
+.page-hero h1 {
+  font-family: var(--serif); font-size: clamp(2rem, 4vw, 2.8rem);
+  font-weight: 400; letter-spacing: -0.02em; margin-bottom: 1rem; line-height: 1.15;
+  animation: fadeUp 0.7s ease 0.1s forwards; opacity: 0;
+}
+.article-meta {
+  font-family: var(--mono); font-size: 0.72rem; color: var(--warm-gray-light);
+  animation: fadeUp 0.7s ease 0.2s forwards; opacity: 0;
+}
+.article-meta span { color: var(--burnt-orange); }
+
+.article-content { padding: 30px clamp(1.5rem, 5vw, 4rem) 80px; }
+.article-inner { max-width: 720px; margin: 0 auto; }
+.article-inner h2 {
+  font-family: var(--serif); font-size: 1.6rem; font-weight: 400;
+  margin: 3rem 0 1rem; color: var(--espresso); letter-spacing: -0.01em;
+}
+.article-inner p {
+  font-size: 1.05rem; color: var(--espresso-soft); line-height: 1.8; margin-bottom: 1.25rem;
+}
+.article-inner p strong { color: var(--espresso); }
+.article-inner a { color: var(--burnt-orange); text-decoration: none; border-bottom: 1px solid var(--border-hover); transition: border-color 0.3s; }
+.article-inner a:hover { border-color: var(--burnt-orange); }
+.article-inner ul, .article-inner ol { margin: 0 0 1.25rem 1.4rem; }
+.article-inner li { font-size: 1.05rem; color: var(--espresso-soft); line-height: 1.8; margin-bottom: 0.5rem; }
+.article-inner li strong { color: var(--espresso); }
+.flow-block {
+  background: var(--paper); border: 1px solid var(--border); border-radius: 12px;
+  padding: 1.75rem; margin: 0 0 1.25rem; font-family: var(--mono); font-size: 0.85rem;
+  line-height: 1.9; color: var(--espresso-soft);
+}
+.flow-block .fs { color: var(--burnt-orange); }
+.callout {
+  background: var(--burnt-orange-light); border-left: 3px solid var(--burnt-orange);
+  border-radius: 0 12px 12px 0; padding: 1.25rem 1.5rem; margin: 0 0 1.25rem;
+}
+.callout p { margin: 0; font-size: 0.98rem; }
+.product-note {
+  margin-top: 3.5rem; padding: 1.75rem; border: 1.5px solid var(--border);
+  border-radius: 12px; background: var(--paper);
+}
+.product-note p { margin: 0; font-size: 0.98rem; }
+.article-nav { margin-top: 2.5rem; display: flex; flex-direction: column; gap: 0.5rem; }
+.article-nav .an-label {
+  font-family: var(--mono); font-size: 0.7rem; color: var(--warm-gray-light);
+  text-transform: uppercase; letter-spacing: 0.1em;
+}
+.article-nav a { font-size: 0.95rem; width: fit-content; }
+
+/* FOOTER */
+footer { padding: 60px clamp(1.5rem, 5vw, 4rem) 30px; border-top: 1px solid var(--border); }
+.footer-inner { max-width: 1100px; margin: 0 auto; }
+.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; }
+.footer-brand-text { font-family: var(--serif); font-size: 1.3rem; color: var(--espresso); margin-bottom: 0.5rem; }
+.footer-brand-text span { color: var(--burnt-orange); }
+.footer-tagline { font-size: 0.88rem; color: var(--warm-gray); line-height: 1.6; }
+.footer-col h4 {
+  font-family: var(--mono); font-size: 0.7rem; text-transform: uppercase;
+  letter-spacing: 0.1em; color: var(--espresso); margin-bottom: 1rem;
+}
+.footer-col a {
+  display: block; color: var(--warm-gray); text-decoration: none;
+  font-size: 0.88rem; padding: 3px 0; transition: color 0.3s;
+}
+.footer-col a:hover { color: var(--burnt-orange); }
+.footer-bottom {
+  display: flex; justify-content: space-between; align-items: center;
+  padding-top: 1.5rem; border-top: 1px solid var(--border);
+  font-family: var(--mono); font-size: 0.72rem; color: var(--warm-gray-light);
+  flex-wrap: wrap; gap: 1rem;
+}
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .mobile-toggle { display: flex; }
+  .nav-links.open {
+    display: flex; flex-direction: column; position: absolute;
+    top: 64px; left: 0; right: 0;
+    background: rgba(250, 246, 240, 0.97); backdrop-filter: blur(16px);
+    padding: 1.5rem 2rem; gap: 1.25rem; border-bottom: 1px solid var(--border);
+  }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+}
+/* === FOOTER NEWSLETTER === */
+.footer-newsletter {
+  display: grid; grid-template-columns: 1fr 1.2fr; gap: 3rem;
+  padding-bottom: 3rem; margin-bottom: 2.5rem;
+  border-bottom: 1px solid var(--border); align-items: start;
+}
+.footer-newsletter .fn-label {
+  font-family: var(--mono); font-size: 0.72rem; color: var(--burnt-orange);
+  text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.5rem;
+}
+.footer-newsletter .fn-label::before { content: '// '; color: var(--warm-gray-light); }
+.footer-newsletter h4 {
+  font-family: var(--serif); font-size: 1.3rem; font-weight: 400;
+  letter-spacing: -0.01em; margin-bottom: 0.5rem; color: var(--espresso);
+}
+.footer-newsletter .fn-text > p:last-of-type {
+  font-size: 0.9rem; color: var(--warm-gray); line-height: 1.6; max-width: 380px;
+}
+.fn-form { display: flex; flex-direction: column; gap: 0.85rem; }
+.fn-honeypot { position: absolute; left: -10000px; width: 1px; height: 1px; opacity: 0; pointer-events: none; }
+.fn-srlabel { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; }
+.fn-row { display: flex; gap: 0.5rem; }
+.fn-row input[type=email] {
+  flex: 1; min-width: 0; padding: 12px 16px;
+  font-family: var(--sans); font-size: 0.92rem; color: var(--espresso);
+  border: 1.5px solid var(--border); border-radius: 8px; background: var(--cream);
+  outline: none; transition: border-color 0.3s, box-shadow 0.3s;
+}
+.fn-row input[type=email]:focus {
+  border-color: var(--burnt-orange);
+  box-shadow: 0 0 0 3px var(--burnt-orange-light);
+}
+.fn-row input[type=email][aria-invalid="true"] { border-color: var(--burnt-orange); }
+.fn-btn {
+  padding: 12px 20px; background: var(--burnt-orange); color: var(--cream);
+  font-family: var(--mono); font-size: 0.8rem; font-weight: 500;
+  border: none; border-radius: 8px; cursor: pointer;
+  transition: all 0.3s; box-shadow: 0 2px 12px rgba(200, 90, 44, 0.2);
+  white-space: nowrap;
+}
+.fn-btn:hover { transform: translateY(-2px); box-shadow: 0 4px 20px rgba(200, 90, 44, 0.3); }
+.fn-btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+.fn-consent { display: flex; gap: 0.5rem; align-items: flex-start; font-family: var(--mono); font-size: 0.7rem; color: var(--warm-gray); line-height: 1.5; }
+.fn-consent input { margin-top: 2px; accent-color: var(--burnt-orange); flex-shrink: 0; }
+.fn-consent a { color: var(--burnt-orange); text-decoration: none; }
+.fn-consent a:hover { text-decoration: underline; }
+.fn-status { font-family: var(--mono); font-size: 0.78rem; display: none; border-radius: 6px; line-height: 1.4; }
+.fn-status.show { display: block; padding: 10px 14px; }
+.fn-status.ok { background: var(--avocado-light); color: var(--avocado); }
+.fn-status.err { background: var(--burnt-orange-light); color: var(--burnt-orange); }
+@media (max-width: 768px) {
+  .footer-newsletter { grid-template-columns: 1fr; gap: 1.5rem; padding-bottom: 2rem; margin-bottom: 2rem; }
+  .fn-row { flex-direction: column; }
+  .fn-btn { width: 100%; }
+}
+
+.nav-logo { display: inline-flex; align-items: center; gap: 8px; }
+.nav-mark { height: 1.05em; width: auto; display: block; }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo"><img src="/ironstratos-mark-transparent.svg" alt="IronStratos logo" class="nav-mark">Iron<span>Stratos</span></a>
+  <div class="mobile-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">
+    <span></span><span></span><span></span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="/">home</a></li>
+    <li><a href="/apps.html">apps</a></li>
+    <li><a href="/guides.html" class="active">guides</a></li>
+    <li><a href="/index.html#services">services</a></li>
+    <li><a href="/about.html">about</a></li>
+    <li><a href="/contact.html" class="nav-cta">get in touch</a></li>
+  </ul>
+</nav>
+
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <p class="breadcrumb"><a href="/">home</a> / <a href="/guides.html">guides</a> / rca vs capa</p>
+    <h1>RCA vs CAPA: What's the Difference and How They Fit Together</h1>
+    <p class="article-meta"><span>//</span> published 2026-07-23 · quality systems · ~8 min read</p>
+  </div>
+</section>
+
+<section class="article-content">
+  <div class="article-inner">
+
+    <p>If you've sat through a quality meeting where "RCA" and "CAPA" got used interchangeably, you've watched a corrective action fail before it was written. The two are not the same thing, and the difference between root cause analysis and corrective action isn't academic — it's the difference between a problem that stays fixed and one that comes back with an auditor attached.</p>
+
+    <p>Here's the plain-language version I give every new supervisor and maintenance tech, the way it actually plays out on a forging floor.</p>
+
+    <h2>The definitions, without the standards-speak</h2>
+
+    <p><strong>RCA — root cause analysis — is an investigation.</strong> Something went wrong: a cracked forging, a machine fire, a customer return. RCA is the disciplined process of working backward from the symptom to the underlying condition that made the failure possible. The output of an RCA is <em>knowledge</em>: a cause you can point at, supported by evidence. Tools like <a href="/guides/5-why-analysis-shop-floor.html">5 Why</a>, fishbone diagrams, and fault trees are all just different vehicles for the same trip.</p>
+
+    <p><strong>CAPA — corrective and preventive action — is a commitment.</strong> It's the documented plan that takes what the RCA found and does something about it: a specific action, an owner, a due date, and a check afterward to confirm it worked. The output of a CAPA is <em>change</em>: a modified process, an added control, an updated standard.</p>
+
+    <p>The shortest version I know: <strong>RCA finds the cause. CAPA fixes it and keeps it fixed.</strong> One is diagnosis, the other is treatment. You wouldn't accept a doctor who only diagnosed, and you shouldn't accept one who prescribed without diagnosing. Yet plants do both constantly — RCAs that end in a binder, and CAPAs written ten minutes after the defect with no investigation behind them.</p>
+
+    <h2>Corrective vs preventive: the two halves of CAPA</h2>
+
+    <p>CAPA bundles two related but distinct ideas, and auditors will probe whether you know the difference:</p>
+
+    <ul>
+      <li><strong>Corrective action</strong> deals with a nonconformance that <em>already happened</em>. The die failed, the parts shipped, the customer called. Corrective action removes the cause so this specific failure doesn't recur.</li>
+      <li><strong>Preventive action</strong> deals with a failure that <em>hasn't happened yet</em>. You found the cause on press #2 — preventive action asks whether presses #1 and #3 have the same latent condition, and fixes them before they fail too.</li>
+    </ul>
+
+    <p>There's also a third thing that gets confused with both: <strong>correction</strong> (or containment). Quarantining the suspect lot, sorting good parts from bad, rushing replacements to the customer — that's damage control, not corrective action. It addresses the parts, not the process. Necessary, immediate, and completely insufficient on its own. Plenty of "corrective actions" I've reviewed were really just corrections wearing a nicer title.</p>
+
+    <h2>Why auditors ask for both</h2>
+
+    <p>Every serious quality standard — ISO 9001, IATF 16949, AS9100 — requires that when a nonconformity occurs, you evaluate the need to eliminate its <em>cause</em>, not just its symptoms. That's why an auditor reviewing your CAPA file is really asking two questions:</p>
+
+    <ul>
+      <li><strong>"Show me how you determined the cause."</strong> That's the RCA. If your CAPA record has a corrective action but no analysis behind it, the auditor reads that as guessing. A CAPA without an RCA is an answer without the math shown.</li>
+      <li><strong>"Show me that the action addresses that cause — and that you verified it worked."</strong> That's the CAPA proper. An RCA without a CAPA is a diagnosis nobody treated, and a finding that recurs after a "closed" CAPA is one of the fastest ways to turn a minor audit finding into a major one.</li>
+    </ul>
+
+    <p>The two documents have to agree with each other. If the RCA says the cause was a missing PM on the heat exchanger, and the corrective action says "retrained operators," the auditor doesn't need to be a forging expert to see the disconnect — the fix doesn't touch the cause. That mismatch is the single most common thread I've seen pulled in audits.</p>
+
+    <h2>A worked flow: from defect to closed CAPA</h2>
+
+    <p>Here's the whole cycle in one pass, the shape it takes when it's working:</p>
+
+    <div class="flow-block">
+      <span class="fs">1. detect</span> — Trim operator flags cracked forgings at final inspection. Nonconformance report opened.<br>
+      <span class="fs">2. contain</span> — Suspect heat lot quarantined; last known-good part identified; customer shipments checked. (Correction, not corrective action.)<br>
+      <span class="fs">3. rca</span> — 5 Why at the press, same shift: cracks trace to billets forged below temperature after an unlogged press stoppage; pump overheated because a heat exchanger dropped off the PM schedule after a coolant-system modification.<br>
+      <span class="fs">4. corrective action</span> — Heat exchanger added to PM schedule; low-temp interlock added at the press. Owner: maintenance lead. Due: 30 days.<br>
+      <span class="fs">5. preventive action</span> — Management-of-change checklist updated so equipment modifications trigger a PM-schedule review; other presses audited for the same gap.<br>
+      <span class="fs">6. verify</span> — After 90 days: PM completion records checked, interlock tested, trim scrap reviewed. No recurrence.<br>
+      <span class="fs">7. close</span> — CAPA closed with evidence attached: RCA record, work orders, interlock test, scrap data.
+    </div>
+
+    <p>Notice where the RCA sits: one step, in the middle, feeding everything after it. Steps 4 through 7 are only as good as step 3. Skip or shortcut the RCA and every downstream step inherits the guess.</p>
+
+    <h2>Who owns which piece</h2>
+
+    <p>One reason the two get blurred is that they naturally belong to different people, and nobody says so out loud. The RCA belongs to whoever is closest to the failing process — the cell lead, the maintenance tech, the operator who was standing there. They're the ones who can walk the chain of causes and check each link against reality. The CAPA belongs to the quality system: someone has to log it, assign the owner, chase the due date, schedule the effectiveness check, and keep the record an auditor can follow.</p>
+
+    <p>Trouble starts when either side tries to do the other's job. A quality engineer writing an RCA from a desk produces a plausible story that the floor quietly knows is wrong. A cell lead left to run the CAPA paperwork lets the verification date slide because there's a press down. Let the floor find the cause, let the system manage the fix, and make the handoff between them explicit — a named owner and a real due date, not "we talked about it at the morning meeting."</p>
+
+    <h2>The classic failure: a CAPA that restates the symptom</h2>
+
+    <p>The most common broken CAPA in existence looks like this:</p>
+
+    <div class="callout">
+      <p><strong>Problem:</strong> Parts cracked at trim. <strong>Root cause:</strong> Parts were cracked. <strong>Corrective action:</strong> Instructed operators to watch for cracks. <strong>Status:</strong> Closed.</p>
+    </div>
+
+    <p>Every line is a restatement of the symptom. The "root cause" is the defect wearing a different sentence. The "action" is inspection, which catches the failure without preventing it. Nothing in the record explains why the cracks happened, so nothing in the record can stop them from happening again. This CAPA will be reopened — by the next occurrence or by the next auditor, whichever arrives first.</p>
+
+    <p>The tell is simple: <strong>if you can delete the RCA section and the corrective action still makes sense, the corrective action isn't connected to a cause.</strong> "Watch for cracks" works with any root cause because it's tied to none of them. A real corrective action only makes sense in light of the specific cause it removes — which is exactly what makes it verifiable, and exactly <a href="/guides/corrective-action-audit.html">what an auditor is trained to check</a>.</p>
+
+    <p>If your CAPAs keep looking like the one above, the fix usually isn't a better form — it's a better investigation habit. Get the RCA done <a href="/guides/5-why-analysis-shop-floor.html">at the machine, while the evidence is fresh</a>, and the CAPA almost writes itself.</p>
+
+    <div class="product-note">
+      <p><strong>One more thing.</strong> <a href="/rootcause.html">Root Cause AI</a> walks your team through the <a href="/rootcause.html">root cause analysis</a> conversationally and hands the result off as a structured, audit-ready record — so the cause your CAPA cites is one you actually found, with the evidence attached.</p>
+    </div>
+
+    <div class="article-nav">
+      <span class="an-label">// keep reading</span>
+      <a href="/guides/5-why-analysis-shop-floor.html">How to Run a 5 Why Analysis on the Shop Floor →</a>
+      <a href="/guides/corrective-action-audit.html">How to Write a Corrective Action That Passes an Audit →</a>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+
+    <div class="footer-newsletter">
+      <div class="fn-text">
+        <p class="fn-label">newsletter</p>
+        <h4>Field notes from the floor.</h4>
+        <p>Product updates, RCA patterns, and the occasional NConform release note. Maybe one email a month — no fluff.</p>
+      </div>
+      <form class="fn-form" id="footer-newsletter-form" novalidate>
+        <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" class="fn-honeypot">
+        <div class="fn-row">
+          <label class="fn-srlabel" for="footer-newsletter-email">Email</label>
+          <input type="email" id="footer-newsletter-email" name="email" placeholder="you@plant.com" required aria-required="true" autocomplete="email">
+          <button type="submit" class="fn-btn">Subscribe →</button>
+        </div>
+        <label class="fn-consent">
+          <input type="checkbox" name="consent" required aria-required="true">
+          <span>I agree to the <a href="/privacy">Privacy Policy</a> and <a href="/terms">Terms of Service</a>.</span>
+        </label>
+        <div class="fn-status" role="status" aria-live="polite"></div>
+      </form>
+    </div>
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand-text">Iron<span>Stratos</span></div>
+        <p class="footer-tagline">Manufacturing quality &amp; reliability software.<br>Iron Stratos LLC — Smiths Station, Alabama.</p>
+      </div>
+      <div class="footer-col"><h4>Platform</h4><a href="/apps.html">All apps</a><a href="/rootcause.html">Root Cause AI</a><a href="/apps.html">NConform</a></div>
+      <div class="footer-col"><h4>Company</h4><a href="/about.html">About</a><a href="/guides.html">Guides</a><a href="/contact.html">Contact</a></div>
+      <div class="footer-col"><h4>Legal</h4><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a><a href="/legal/subscription-agreement.html">Subscription Agreement</a><a href="/legal/dpa.html">DPA</a></div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Iron Stratos LLC</span>
+      <span>smiths station, al</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+<script>
+(function() {
+  var form = document.getElementById('footer-newsletter-form');
+  if (!form) return;
+  var status = form.querySelector('.fn-status');
+  var btn = form.querySelector('.fn-btn');
+  var email = form.querySelector('input[type=email]');
+  function setStatus(kind, msg) {
+    status.className = 'fn-status show ' + kind;
+    status.textContent = msg;
+  }
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    email.setAttribute('aria-invalid', 'false');
+    if (!form.checkValidity()) {
+      email.setAttribute('aria-invalid', 'true');
+      setStatus('err', 'Please enter a valid email and accept the privacy terms.');
+      return;
+    }
+    btn.disabled = true;
+    var prev = btn.textContent;
+    btn.textContent = 'Sending...';
+    try {
+      var res = await fetch('/.netlify/functions/newsletter-subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          email: email.value,
+          website: form.querySelector('input[name=website]').value,
+          source: location.pathname || 'unknown'
+        })
+      });
+      var data = await res.json().catch(function() { return {}; });
+      if (res.ok && data.ok) {
+        setStatus('ok', '✓ Subscribed! Check your inbox for confirmation.');
+        form.reset();
+      } else {
+        setStatus('err', (data && data.error) || 'Something went wrong. Please try again.');
+      }
+    } catch (err) {
+      setStatus('err', 'Network error. Please try again.');
+    } finally {
+      btn.disabled = false;
+      btn.textContent = prev;
+    }
+  });
+})();
+</script>
+</body>
+</html>

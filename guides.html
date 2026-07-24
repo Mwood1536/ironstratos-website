@@ -4,18 +4,18 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#FAF6F0">
-<title>About IronStratos - Software Built for Manufacturing Teams</title>
-<link rel="canonical" href="https://ironstratos.com/about.html">
-<meta name="description" content="IronStratos (Iron Stratos LLC, Smiths Station, Alabama) builds Root Cause AI and NConform - quality and reliability software aligned to ISO 9001, IATF 16949, and AS9100.">
+<title>RCA &amp; CAPA Guides for Manufacturing Teams | IronStratos</title>
+<link rel="canonical" href="https://ironstratos.com/guides.html">
+<meta name="description" content="Practical guides on 5 Why analysis, RCA vs CAPA, and writing audit-ready corrective actions - written from the shop floor, not the boardroom.">
 <meta property="og:type" content="website">
-<meta property="og:title" content="About IronStratos - Software Built for Manufacturing Teams">
-<meta property="og:description" content="IronStratos (Iron Stratos LLC, Smiths Station, Alabama) builds Root Cause AI and NConform - quality and reliability software aligned to ISO 9001, IATF 16949, and AS9100.">
-<meta property="og:url" content="https://ironstratos.com/about.html">
+<meta property="og:title" content="RCA &amp; CAPA Guides for Manufacturing Teams | IronStratos">
+<meta property="og:description" content="Practical guides on 5 Why analysis, RCA vs CAPA, and writing audit-ready corrective actions - written from the shop floor, not the boardroom.">
+<meta property="og:url" content="https://ironstratos.com/guides.html">
 <meta property="og:site_name" content="IronStratos">
 <meta property="og:image" content="https://ironstratos.com/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="About IronStratos - Software Built for Manufacturing Teams">
-<meta name="twitter:description" content="IronStratos (Iron Stratos LLC, Smiths Station, Alabama) builds Root Cause AI and NConform - quality and reliability software aligned to ISO 9001, IATF 16949, and AS9100.">
+<meta name="twitter:title" content="RCA &amp; CAPA Guides for Manufacturing Teams | IronStratos">
+<meta name="twitter:description" content="Practical guides on 5 Why analysis, RCA vs CAPA, and writing audit-ready corrective actions - written from the shop floor, not the boardroom.">
 <meta name="twitter:image" content="https://ironstratos.com/og-image.png">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
@@ -24,6 +24,20 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Mono:wght@400;500;600&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "RCA & CAPA Guides for Manufacturing Teams",
+  "url": "https://ironstratos.com/guides.html",
+  "description": "Practical guides on 5 Why analysis, RCA vs CAPA, and writing audit-ready corrective actions.",
+  "publisher": {
+    "@type": "Organization",
+    "name": "IronStratos",
+    "logo": { "@type": "ImageObject", "url": "https://ironstratos.com/icon-512.png" }
+  }
+}
+</script>
 <style>
 :root {
   --cream: #faf6f0; --cream-dark: #f0ebe3; --paper: #f5f1ea;
@@ -98,63 +112,33 @@ nav {
   animation: fadeUp 0.7s ease 0.1s forwards; opacity: 0;
 }
 .page-hero h1 em { font-style: italic; color: var(--burnt-orange); }
+.page-hero .hero-sub {
+  font-size: 1.1rem; color: var(--warm-gray); line-height: 1.7; max-width: 620px;
+  animation: fadeUp 0.7s ease 0.2s forwards; opacity: 0;
+}
 
-.about-content {
-  padding: 20px clamp(1.5rem, 5vw, 4rem) 100px;
+/* GUIDE CARDS */
+.guides-section { padding: 20px clamp(1.5rem, 5vw, 4rem) 100px; }
+.guides-inner { max-width: 800px; margin: 0 auto; display: flex; flex-direction: column; gap: 1.5rem; }
+.guide-card {
+  display: block; padding: 2rem; border: 1px solid var(--border); border-radius: 12px;
+  background: var(--paper); text-decoration: none; color: var(--espresso);
+  transition: all 0.3s;
 }
-.about-inner {
-  max-width: 800px; margin: 0 auto;
+.guide-card:hover { border-color: var(--border-hover); box-shadow: var(--shadow-md); transform: translateY(-2px); }
+.guide-card .guide-tag {
+  font-family: var(--mono); font-size: 0.7rem; color: var(--burnt-orange);
+  text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.75rem;
 }
-.about-block {
-  margin-bottom: 3.5rem;
+.guide-card .guide-tag::before { content: '// '; color: var(--warm-gray-light); }
+.guide-card h2 {
+  font-family: var(--serif); font-size: 1.5rem; font-weight: 400;
+  letter-spacing: -0.01em; margin-bottom: 0.6rem;
 }
-.about-block h2 {
-  font-family: var(--serif); font-size: 1.6rem; font-weight: 400;
-  margin-bottom: 1rem; color: var(--espresso);
+.guide-card p { font-size: 0.95rem; color: var(--warm-gray); line-height: 1.7; margin-bottom: 1rem; }
+.guide-card .guide-read {
+  font-family: var(--mono); font-size: 0.78rem; color: var(--burnt-orange);
 }
-.about-block p {
-  font-size: 1.05rem; color: var(--warm-gray); line-height: 1.8;
-  margin-bottom: 1rem;
-}
-.about-block p strong { color: var(--espresso); }
-
-.values-grid {
-  display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin-top: 2rem;
-}
-.value-card {
-  padding: 1.75rem; border: 1px solid var(--border); border-radius: 12px;
-  background: var(--paper); transition: all 0.3s;
-}
-.value-card:hover { border-color: var(--border-hover); box-shadow: var(--shadow-sm); }
-.value-card h3 {
-  font-family: var(--serif); font-size: 1.1rem; font-weight: 400;
-  margin-bottom: 0.5rem;
-}
-.value-card p { font-size: 0.9rem; color: var(--warm-gray); line-height: 1.6; }
-
-.about-terminal {
-  background: var(--espresso); border-radius: 12px; overflow: hidden;
-  margin-top: 2rem; box-shadow: var(--shadow-md);
-}
-.terminal-bar {
-  display: flex; align-items: center; gap: 8px;
-  padding: 14px 18px; background: rgba(255,255,255,0.05);
-}
-.terminal-dot { width: 10px; height: 10px; border-radius: 50%; }
-.dot-red { background: #e05a4e; }
-.dot-yellow { background: #e8b73a; }
-.dot-green { background: var(--avocado); }
-.terminal-title {
-  font-family: var(--mono); font-size: 0.7rem;
-  color: rgba(255,255,255,0.3); margin-left: auto;
-}
-.terminal-body {
-  padding: 20px; font-family: var(--mono); font-size: 0.8rem;
-  line-height: 1.8; color: rgba(255,255,255,0.6);
-}
-.terminal-body .comment { color: rgba(255,255,255,0.25); }
-.terminal-body .key { color: var(--burnt-orange); opacity: 0.9; }
-.terminal-body .val { color: rgba(255,255,255,0.85); }
 
 /* CTA */
 .cta-section { padding: 0 clamp(1.5rem, 5vw, 4rem) 100px; }
@@ -211,7 +195,6 @@ footer {
     background: rgba(250, 246, 240, 0.97); backdrop-filter: blur(16px);
     padding: 1.5rem 2rem; gap: 1.25rem; border-bottom: 1px solid var(--border);
   }
-  .values-grid { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
 }
 
@@ -286,93 +269,59 @@ footer {
   <ul class="nav-links">
     <li><a href="index.html">home</a></li>
     <li><a href="apps.html">apps</a></li>
-    <li><a href="guides.html">guides</a></li>
+    <li><a href="guides.html" class="active">guides</a></li>
     <li><a href="index.html#services">services</a></li>
-    <li><a href="about.html" class="active">about</a></li>
+    <li><a href="about.html">about</a></li>
     <li><a href="contact.html" class="nav-cta">get in touch</a></li>
   </ul>
 </nav>
 
 <section class="page-hero">
   <div class="page-hero-inner">
-    <p class="breadcrumb"><a href="index.html">home</a> / about</p>
-    <h1>We build software<br>for <em>manufacturing teams.</em></h1>
+    <p class="breadcrumb"><a href="index.html">home</a> / guides</p>
+    <h1>Guides from <em>the floor.</em></h1>
+    <p class="hero-sub">Practical write-ups on root cause analysis, corrective action, and surviving audits — written by people who have run these processes on a real shop floor, not summarized from a textbook.</p>
   </div>
 </section>
 
-<section class="about-content">
-  <div class="about-inner">
+<section class="guides-section">
+  <div class="guides-inner">
 
-    <div class="about-block reveal">
-      <h2>What we do</h2>
-      <p>
-        We build software for manufacturing teams who are done duct-taping quality systems together with spreadsheets and email chains.
-      </p>
-      <p>
-        Two apps, one platform. <strong>Root Cause AI</strong> finds the problem. <strong>NConform</strong> proves the fix. Both are built around the standards your auditors actually care about — ISO 9001, IATF 16949, AS9100, and ISO 45001 — and priced so a single cell or line can start without sending a PO through three layers of approvals.
-      </p>
-    </div>
+    <a href="guides/5-why-analysis-shop-floor.html" class="guide-card reveal">
+      <p class="guide-tag">root cause analysis</p>
+      <h2>How to Run a 5 Why Analysis on the Shop Floor (Without a Conference Room)</h2>
+      <p>When 5 Why works, when it doesn't, and how to run one at the machine while the evidence is still warm — including how to get past "operator error" and turn the last why into a corrective action that sticks.</p>
+      <span class="guide-read">read the guide →</span>
+    </a>
 
-    <div class="about-block reveal">
-      <h2>What we believe</h2>
-      <div class="values-grid">
-        <div class="value-card">
-          <h3>Plain language wins</h3>
-          <p>Operators and technicians shouldn't need a certification to log a defect. A 5 Why in plain English beats a perfectly formatted diagram every time.</p>
-        </div>
-        <div class="value-card">
-          <h3>Standards-first, always</h3>
-          <p>ISO 9001, IATF 16949, AS9100, ISO 45001. Audit trails, evidence capture, and revision control are built in, not bolted on after the first audit goes sideways.</p>
-        </div>
-        <div class="value-card">
-          <h3>Mobile-native, not mobile-adapted</h3>
-          <p>Designed for the phone in your pocket, not a desktop app squeezed onto a tablet. Photos, voice notes, and signoffs happen where the work happens.</p>
-        </div>
-        <div class="value-card">
-          <h3>Made for makers</h3>
-          <p>Quality managers, plant managers, maintenance leads, EHS teams — the people who run the floor, not the people who buy software in a boardroom.</p>
-        </div>
-      </div>
-    </div>
+    <a href="guides/rca-vs-capa.html" class="guide-card reveal reveal-d1">
+      <p class="guide-tag">quality systems</p>
+      <h2>RCA vs CAPA: What's the Difference and How They Fit Together</h2>
+      <p>Plain-language definitions, why auditors ask for both, corrective vs preventive action, and a worked flow from defect to closed CAPA — plus the classic failure of CAPAs that just restate the symptom.</p>
+      <span class="guide-read">read the guide →</span>
+    </a>
 
-    <div class="about-block reveal">
-      <h2>The platform</h2>
-      <div class="about-terminal">
-        <div class="terminal-bar">
-          <span class="terminal-dot dot-red"></span>
-          <span class="terminal-dot dot-yellow"></span>
-          <span class="terminal-dot dot-green"></span>
-          <span class="terminal-title">platform.json</span>
-        </div>
-        <div class="terminal-body">
-          <span class="comment">// the platform, in JSON</span><br>
-          {<br>
-          &nbsp;&nbsp;<span class="key">"company"</span>: <span class="val">"Iron Stratos LLC"</span>,<br>
-          &nbsp;&nbsp;<span class="key">"location"</span>: <span class="val">"Smiths Station, AL"</span>,<br>
-          &nbsp;&nbsp;<span class="key">"focus"</span>: <span class="val">"manufacturing quality &amp; reliability"</span>,<br>
-          &nbsp;&nbsp;<span class="key">"products"</span>: [<span class="val">"Root Cause AI"</span>, <span class="val">"NConform"</span>],<br>
-          &nbsp;&nbsp;<span class="key">"standards"</span>: [<span class="val">"ISO 9001"</span>, <span class="val">"IATF 16949"</span>, <span class="val">"AS9100"</span>, <span class="val">"ISO 45001"</span>],<br>
-          &nbsp;&nbsp;<span class="key">"built_for"</span>: [<span class="val">"quality"</span>, <span class="val">"maintenance"</span>, <span class="val">"EHS"</span>, <span class="val">"plant ops"</span>],<br>
-          &nbsp;&nbsp;<span class="key">"starting_price"</span>: <span class="val">"$0"</span><br>
-          }
-        </div>
-      </div>
-    </div>
+    <a href="guides/corrective-action-audit.html" class="guide-card reveal reveal-d2">
+      <p class="guide-tag">audit readiness</p>
+      <h2>How to Write a Corrective Action That Passes an Audit</h2>
+      <p>What auditors actually check, weak vs strong corrective action wording with rewritten examples, the evidence trail you need, and how to verify effectiveness so the finding stays closed.</p>
+      <span class="guide-read">read the guide →</span>
+    </a>
 
   </div>
 </section>
 
 <section class="cta-section">
   <div class="cta-card reveal">
-    <h2>Want to see it on your floor?</h2>
-    <p>We'll walk through how Root Cause AI and NConform map onto your existing QMS — no slides, no procurement cycle.</p>
-    <a href="contact.html" class="btn-primary">Get in touch →</a>
+    <h2>Rather have a guide that talks back?</h2>
+    <p>Root Cause AI walks your team through 5 Whys and corrective actions conversationally, right at the machine.</p>
+    <a href="rootcause.html" class="btn-primary">See Root Cause AI →</a>
   </div>
 </section>
 
 <footer>
   <div class="footer-inner">
-    
+
     <div class="footer-newsletter">
       <div class="fn-text">
         <p class="fn-label">newsletter</p>
@@ -399,7 +348,7 @@ footer {
         <p class="footer-tagline">Manufacturing quality &amp; reliability software.<br>Iron Stratos LLC — Smiths Station, Alabama.</p>
       </div>
       <div class="footer-col"><h4>Platform</h4><a href="apps.html">All apps</a><a href="rootcause.html">Root Cause AI</a><a href="apps.html">NConform</a></div>
-      <div class="footer-col"><h4>Company</h4><a href="about.html">About</a><a href="contact.html">Contact</a></div>
+      <div class="footer-col"><h4>Company</h4><a href="about.html">About</a><a href="guides.html">Guides</a><a href="contact.html">Contact</a></div>
       <div class="footer-col"><h4>Legal</h4><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="legal/subscription-agreement.html">Subscription Agreement</a><a href="legal/dpa.html">DPA</a></div>
     </div>
     <div class="footer-bottom">

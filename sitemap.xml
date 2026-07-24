@@ -25,6 +25,30 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://ironstratos.com/guides.html</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ironstratos.com/guides/5-why-analysis-shop-floor.html</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ironstratos.com/guides/rca-vs-capa.html</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ironstratos.com/guides/corrective-action-audit.html</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://ironstratos.com/about.html</loc>
     <lastmod>2026-07-20</lastmod>
     <changefreq>monthly</changefreq>
