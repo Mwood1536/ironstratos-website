@@ -55,7 +55,7 @@ nav {
   border-bottom: 1px solid var(--border);
 }
 .nav-logo { font-family: var(--serif); font-size: 1.3rem; color: var(--espresso); text-decoration: none; }
-.nav-logo span { color: var(--burnt-orange); }
+.nav-wordmark span { color: var(--burnt-orange); }
 .nav-links { display: flex; gap: 2.5rem; list-style: none; align-items: center; }
 .nav-links a {
   font-family: var(--mono); font-size: 0.78rem; color: var(--warm-gray);
@@ -207,13 +207,13 @@ footer {
 }
 
 .nav-logo { display: inline-flex; align-items: center; gap: 8px; }
-.nav-mark { height: 1.05em; width: auto; display: block; }
+.nav-mark { height: 1.35em; width: auto; display: block; }
 </style>
 </head>
 <body>
 
 <nav>
-  <a href="../index.html" class="nav-logo"><img src="/ironstratos-mark-transparent.svg" alt="IronStratos logo" class="nav-mark">Iron<span>Stratos</span></a>
+  <a href="../index.html" class="nav-logo"><img src="/ironstratos-mark-transparent.svg" alt="IronStratos logo" class="nav-mark"><span class="nav-wordmark">Iron<span>Stratos</span></span></a>
   <div class="mobile-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">
     <span></span><span></span><span></span>
   </div>
